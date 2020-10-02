@@ -30,7 +30,7 @@ CREATE TABLE equipment
     extra         TEXT
 );
 
-CREATE TYPE force AS enum ('СВ', 'ВМФ', 'ВКС');
+CREATE TYPE force AS ENUM ('СВ', 'ВМФ', 'ВКС');
 
 CREATE TABLE position
 (
@@ -55,7 +55,7 @@ CREATE TABLE employee
     baseId      INTEGER
 );
 
-CREATE TYPE blood AS enum ('0+', '0-', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-');
+CREATE TYPE blood AS ENUM ('0+', '0-', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-');
 
 CREATE TABLE medical_card
 (
