@@ -57,12 +57,13 @@ CREATE TABLE employee
 
 CREATE TYPE blood AS ENUM ('0+', '0-', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-');
 
+-- CHECK (height_cm >= 150) и CHECK (weight_kg >= 45) для военных должностей
 CREATE TABLE medical_card
 (
     medId     SERIAL PRIMARY KEY,
     empId     INTEGER REFERENCES employee ON DELETE CASCADE,
-    height_cm SMALLINT NOT NULL CHECK (height_cm >= 150),
-    weight_kg SMALLINT NOT NULL CHECK (weight_kg >= 45),
+    height_cm SMALLINT NOT NULL,
+    weight_kg SMALLINT NOT NULL,
     diseases  TEXT,
     blood     BLOOD    NOT NULL,
     gender    BOOLEAN  NOT NULL
