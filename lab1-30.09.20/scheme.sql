@@ -58,6 +58,7 @@ INSERT INTO planetary_system (name) VALUES
 
 INSERT INTO planet (name, planetarySystemId, isSun, thereIsLife) VALUES
 	('Земля', 1, false, true),
+    ('ФлексПланет', 2, true),
 	('Солнце', 1, true, false);
 
 INSERT INTO planet (name, planetarySystemId, isSun) VALUES ('TRAPPIST-1b', 2, false);
@@ -65,6 +66,8 @@ INSERT INTO planet (name, planetarySystemId, isSun) VALUES ('TRAPPIST-1b', 2, fa
 INSERT INTO creature (name, class, planetOfOrigin) VALUES
 	('Боумен', 'человек', 1),
 	('Пул', 'человек', 1),
+    ('Кекер', 'инопланетянин', 2),
+    ('Лолер', 'инопланетянин', 4),
 	('HAL9000', 'робот', 1);
 
 INSERT INTO creature (name, class) VALUES ('Чёрный монолит', 'инопланетянин');
