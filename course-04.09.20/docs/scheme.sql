@@ -30,7 +30,7 @@ CREATE TABLE equipment
     extra         TEXT
 );
 
-CREATE TYPE force AS ENUM ('СВ', 'ВМФ', 'ВКС');
+CREATE TYPE force AS ENUM ('GF', 'NAVY', 'AF');
 
 CREATE TABLE position
 (
@@ -52,7 +52,7 @@ CREATE TABLE employee
     hiringDate  DATE DEFAULT CURRENT_DATE,
     posId       INTEGER NOT NULL REFERENCES position ON DELETE RESTRICT,
     isMarried   BOOLEAN NOT NULL,
-    baseId      INTEGER
+    baseId      INTEGER REFERENCES base
 );
 
 CREATE TYPE blood AS ENUM ('0+', '0-', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-');
@@ -61,7 +61,7 @@ CREATE TYPE blood AS ENUM ('0+', '0-', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-');
 CREATE TABLE medical_card
 (
     medId     SERIAL PRIMARY KEY,
-    empId     INTEGER REFERENCES employee ON DELETE CASCADE,
+    empId     INTEGER NOT NULL REFERENCES employee ON DELETE CASCADE,
     height_cm SMALLINT NOT NULL,
     weight_kg SMALLINT NOT NULL,
     diseases  TEXT,
@@ -80,7 +80,7 @@ CREATE TABLE weapon
     sightingRange SMALLINT CHECK (sightingRange > 0)
 );
 
-CREATE TABLE campaing
+CREATE TABLE campaign
 (
     campId          SERIAL PRIMARY KEY,
     name            TEXT           NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE campaing
 CREATE TABLE mission
 (
     missId            SERIAL PRIMARY KEY,
-    campId            INTEGER NOT NULL REFERENCES campaing ON DELETE CASCADE,
+    campId            INTEGER NOT NULL REFERENCES campaign ON DELETE CASCADE,
     startDateAndTime  TIMESTAMP,
     endDateAndTime    TIMESTAMP,
     legalStatus       TEXT,
@@ -126,7 +126,7 @@ CREATE TABLE inspection
 (
     empId       INTEGER NOT NULL REFERENCES employee,
     transId     INTEGER NOT NULL REFERENCES transport,
-    serviceDate DATE DEFAULT CURRENT_DATE
+    serviceDate DATE NOT NULL DEFAULT CURRENT_DATE
 );
 
 CREATE TABLE missions_emp
