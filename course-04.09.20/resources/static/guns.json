@@ -1,0 +1,116 @@
+{
+  "weapons": [
+    {
+      "name": "AK12",
+      "type": "rifle",
+      "caliber": "5.45",
+      "rateOfFire": "650",
+      "sightingRange_m": "1000"
+    },
+    {
+      "name": "M16",
+      "type": "rifle",
+      "caliber": "5.56",
+      "rateOfFire": "900",
+      "sightingRange_m": "800"
+    },
+    {
+      "name": "SCAR-H",
+      "type": "rifle",
+      "caliber": "5.56",
+      "rateOfFire": "625",
+      "sightingRange_m": "700"
+    },
+    {
+      "name": "AEK-971",
+      "type": "rifle",
+      "caliber": "5.45",
+      "rateOfFire": "800",
+      "sightingRange_m": "500"
+    },
+    {
+      "name": "FAMAS",
+      "type": "rifle",
+      "caliber": "5.56",
+      "rateOfFire": "900",
+      "sightingRange_m": "300"
+    },
+    {
+      "name": "FN-P90",
+      "type": "pwd",
+      "caliber": "5.7",
+      "rateOfFire": "1000",
+      "sightingRange_m": ""
+    },
+    {
+      "name": "44-Magnum",
+      "type": "revolver",
+      "caliber": "10.9",
+      "rateOfFire": "160",
+      "sightingRange_m": ""
+    },
+    {
+      "name": "SR-25",
+      "type": "sniper_rifle",
+      "caliber": "7.62",
+      "rateOfFire": "",
+      "sightingRange_m": ""
+    },
+    {
+      "name": "M4",
+      "type": "rifle",
+      "caliber": "5.56",
+      "rateOfFire": "950",
+      "sightingRange_m": "600"
+    },
+    {
+      "name": "DSR",
+      "type": "sniper_rifle",
+      "caliber": "7.62",
+      "rateOfFire": "30",
+      "sightingRange_m": "1300"
+    },
+    {
+      "name": "Beretta 92",
+      "type": "gun",
+      "caliber": "9",
+      "rateOfFire": "",
+      "sightingRange_m": ""
+    },
+    {
+      "name": "JNG 90 Bora",
+      "type": "sniper_rifle",
+      "caliber": "7.62",
+      "rateOfFire": "",
+      "sightingRange_m": "1200"
+    },
+    {
+      "name": "Сайга-12",
+      "type": "shotgun",
+      "caliber": "18.3",
+      "rateOfFire": "",
+      "sightingRange_m": ""
+    },
+    {
+      "name": "Glock 18",
+      "type": "gun",
+      "caliber": "9",
+      "rateOfFire": "1200",
+      "sightingRange_m": "50"
+    },
+    {
+      "name": "Pecheneg",
+      "type": "machine_gun",
+      "caliber": "7.62",
+      "rateOfFire": "650",
+      "sightingRange_m": "1500"
+    },
+    {
+      "name": "RPG-26",
+      "type": "anti-tank missile",
+      "caliber": "72.5",
+      "rateOfFire": "1",
+      "sightingRange_m": "250"
+    }
+  ]
+}

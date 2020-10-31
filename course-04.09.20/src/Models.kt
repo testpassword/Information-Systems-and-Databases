@@ -71,7 +71,7 @@ object Employee: Table("employee") {
     val hiringDate = date("hiringDate").defaultExpression(CurrentDateTime().date())
     val posId = reference("posId", Position.posId)
     val isMarried = bool("isMarried").nullable()
-    val base = reference("baseId", Base.baseId)
+    val baseId = reference("baseId", Base.baseId)
 }
 
 enum class BLOOD(val type: String) {
@@ -100,9 +100,8 @@ object Weapon: Table("weapon") {
     val name = text("name").nullable()
     val type = text("type").nullable()
     val caliber = float("caliber").check { it greater 0.0 }
-    val rateOfFire = float("rateOfFire").check { it greater 0.0 }
-    val barrelLength = float("barrelLength").check { it greater 0.0 }
-    val sightingRange = float("sightingRange").check { it greater 0.0 }
+    val rateOfFire = integer("rateOfFire").check { it greater 0 }
+    val sightingRange_m = integer("sightingRange_m").check { it greater 0 }
 }
 
 object Campaign: Table("campaign") {
@@ -116,10 +115,10 @@ object Campaign: Table("campaign") {
 
 object Mission: Table("mission") {
     val missId = integer("missId").autoIncrement().primaryKey()
-    val campId = reference("missId", Mission.missId)
+    val campId = reference("missId", Campaign.campId)
     val startDateAndTime = datetime("startDateAndTime")
     val endDateAndTime = datetime("endDateAndTime")
-    val legalStatus = text("legalStatus")
+    val legalStatus = bool("legalStatus")
     val departureLocation = text("departureLocation")
     val arrivalLocation = text("arrivalLocation")
     val enemies = text("enemies")

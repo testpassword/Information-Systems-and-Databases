@@ -1,5 +1,6 @@
 package com.testpassword
 
+import com.github.javafaker.Faker
 import io.ktor.application.*
 import io.ktor.html.*
 import io.ktor.response.*
@@ -23,18 +24,21 @@ fun Application.module(testing: Boolean = true) {
         get("/random") {
             //TODO: адреса бд брать из conf
             transaction {
-                Base.generateAndInsert(10)
+                Base.generateAndInsert(5)
             }
-            /*call.respondHtml {
+        }
+        get("/testing") {
+            val l = List<String>(10) { Faker.instance().job().position() }
+            call.respondHtml {
                 body {
                     h1 { +"HTML" }
                     ul {
-                        for (q in bases!!.iterator()) {
-                            li { +"${q[Base.location]} - ${q[Base.status]}" }
+                        for (q in l) {
+                            li { +q }
                         }
                     }
                 }
-            }*/
+            }
         }
     }
 }

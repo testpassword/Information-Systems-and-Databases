@@ -76,8 +76,7 @@ CREATE TABLE weapon
     type          TEXT NOT NULL,
     caliber       REAL CHECK (caliber > 0),
     rateOfFire    SMALLINT CHECK (rateOfFire > 0),
-    barrelLength  SMALLINT CHECK (barrelLength > 0),
-    sightingRange SMALLINT CHECK (sightingRange > 0)
+    sightingRange_m SMALLINT CHECK (sightingRange_m > 0)
 );
 
 CREATE TABLE campaign
@@ -96,7 +95,7 @@ CREATE TABLE mission
     campId            INTEGER NOT NULL REFERENCES campaign ON DELETE CASCADE,
     startDateAndTime  TIMESTAMP,
     endDateAndTime    TIMESTAMP,
-    legalStatus       TEXT,
+    legalStatus       BOOLEAN,
     departureLocation TEXT,
     arrivalLocation   TEXT,
     enemies           TEXT

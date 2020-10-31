@@ -1,0 +1,28 @@
+{
+  "transport": [
+    {
+      "name": "HUMMER HX",
+      "type": "suv"
+    },
+    {
+      "name": "T-90",
+      "type": "tank"
+    },
+    {
+      "name": "Ka-32T",
+      "type": "helicopter"
+    },
+    {
+      "name": "Ural-4320",
+      "type": "truck"
+    },
+    {
+      "name": "BTR-80",
+      "type": "apc"
+    },
+    {
+      "name": "Jeep-Gladiator",
+      "type": "suv"
+    }
+  ]
+}
