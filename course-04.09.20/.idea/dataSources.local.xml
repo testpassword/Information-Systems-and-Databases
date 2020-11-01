@@ -16,5 +16,15 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="pmc@helios" uuid="6ad2842f-4717-482f-a55d-7f7f0177a0a1">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>s265570</user-name>
+      <schema-mapping />
+      <ssh-properties>
+        <enabled>true</enabled>
+        <ssh-config-id>1b6fb79a-9b8a-43cf-bfcb-dd308eadd8f3</ssh-config-id>
+      </ssh-properties>
+    </data-source>
   </component>
 </project>

@@ -24,7 +24,23 @@ fun Application.module(testing: Boolean = true) {
         get("/random") {
             //TODO: адреса бд брать из conf
             transaction {
-                Base.generateAndInsert(5)
+                RecordsGenerator.fillDb(
+                    mapOf(
+                        Base to 50,
+                        MRE to 30,
+                        Equipment to 100,
+                        Position to 150,
+                        Employee to 4000,
+                        MedicalCard to 0,
+                        Weapon to 0,
+                        Campaign to 40,
+                        Mission to 110,
+                        Transport to 0,
+                        WeaponsInEquipment to 0,
+                        TransportOnMissions to 0,
+                        Inspection to 0,
+                        EmployeeOnMission to 0
+                    ))
             }
         }
         get("/testing") {

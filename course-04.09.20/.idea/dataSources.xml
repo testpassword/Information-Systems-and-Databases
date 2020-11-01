@@ -7,5 +7,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/pmc</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="pmc@helios" uuid="6ad2842f-4717-482f-a55d-7f7f0177a0a1">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://pg:5432/pmc</jdbc-url>
+    </data-source>
   </component>
 </project>

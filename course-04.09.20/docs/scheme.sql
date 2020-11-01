@@ -1,18 +1,18 @@
 -- https://stackoverflow.com/questions/7296846/how-to-implement-one-to-one-one-to-many-and-many-to-many-relationships-while-de
 CREATE TABLE base
 (
-    baseId   SERIAL PRIMARY KEY,
+    base_id   SERIAL PRIMARY KEY,
     location TEXT,
     status   TEXT
 );
 
 CREATE TABLE mre
 (
-    mreId         SERIAL PRIMARY KEY,
+    mre_id         SERIAL PRIMARY KEY,
     breakfast     TEXT     NOT NULL,
     lunch         TEXT     NOT NULL,
     dinner        TEXT     NOT NULL,
-    foodAdditives TEXT,
+    food_additives TEXT,
     kkal          SMALLINT NOT NULL CHECK (kkal >= 1000),
     proteins      SMALLINT NOT NULL CHECK (proteins > 0),
     fats          SMALLINT NOT NULL CHECK (fats > 0),
@@ -21,12 +21,12 @@ CREATE TABLE mre
 
 CREATE TABLE equipment
 (
-    equipId       SERIAL PRIMARY KEY,
+    equip_id       SERIAL PRIMARY KEY,
     camouflage    TEXT,
     communication TEXT,
     intelligence  TEXT,
     medical       TEXT,
-    mreId         INTEGER NOT NULL REFERENCES mre,
+    mre_id         INTEGER NOT NULL REFERENCES mre,
     extra         TEXT
 );
 
@@ -34,25 +34,25 @@ CREATE TYPE force AS ENUM ('GF', 'NAVY', 'AF');
 
 CREATE TABLE position
 (
-    posId   SERIAL PRIMARY KEY,
+    pos_id   SERIAL PRIMARY KEY,
     name    TEXT           NOT NULL,
     salary  NUMERIC(11, 2) NOT NULL CHECK (salary >= 12130),
     rank    TEXT,
-    equipId INTEGER        REFERENCES equipment ON DELETE SET NULL,
+    equip_id INTEGER        REFERENCES equipment ON DELETE SET NULL,
     forces  FORCE
 );
 
 CREATE TABLE employee
 (
-    empId       SERIAL PRIMARY KEY,
+    emp_id       SERIAL PRIMARY KEY,
     name        TEXT    NOT NULL,
     surname     TEXT    NOT NULL,
-    dateOfBirth DATE    NOT NULL CHECK (DATE_PART('year', AGE(dateOfBirth)) >= 18),
+    date_of_birth DATE    NOT NULL CHECK (DATE_PART('year', AGE(date_of_birth)) >= 18),
     education   TEXT,
-    hiringDate  DATE DEFAULT CURRENT_DATE,
-    posId       INTEGER NOT NULL REFERENCES position ON DELETE RESTRICT,
-    isMarried   BOOLEAN NOT NULL,
-    baseId      INTEGER REFERENCES base
+    hiring_date  DATE DEFAULT CURRENT_DATE,
+    pos_id       INTEGER NOT NULL REFERENCES position ON DELETE RESTRICT,
+    is_married   BOOLEAN NOT NULL,
+    base_id      INTEGER REFERENCES base
 );
 
 CREATE TYPE blood AS ENUM ('0+', '0-', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-');
@@ -60,50 +60,50 @@ CREATE TYPE blood AS ENUM ('0+', '0-', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-');
 -- CHECK (height_cm >= 150) и CHECK (weight_kg >= 45) для военных должностей
 CREATE TABLE medical_card
 (
-    medId     SERIAL PRIMARY KEY,
-    empId     INTEGER NOT NULL REFERENCES employee ON DELETE CASCADE,
+    med_id     SERIAL PRIMARY KEY,
+    emp_id     INTEGER NOT NULL REFERENCES employee ON DELETE CASCADE,
     height_cm SMALLINT NOT NULL,
     weight_kg SMALLINT NOT NULL,
     diseases  TEXT,
-    blood     BLOOD    NOT NULL,
+    blood     TEXT    NOT NULL,
     gender    BOOLEAN  NOT NULL
 );
 
 CREATE TABLE weapon
 (
-    weaponId      SERIAL PRIMARY KEY,
+    weapon_id      SERIAL PRIMARY KEY,
     name          TEXT NOT NULL,
     type          TEXT NOT NULL,
     caliber       REAL CHECK (caliber > 0),
-    rateOfFire    SMALLINT CHECK (rateOfFire > 0),
-    sightingRange_m SMALLINT CHECK (sightingRange_m > 0)
+    rate_of_fire    SMALLINT CHECK (rate_of_fire > 0),
+    sighting_range_m SMALLINT CHECK (sighting_range_m > 0)
 );
 
 CREATE TABLE campaign
 (
-    campId          SERIAL PRIMARY KEY,
+    camp_id          SERIAL PRIMARY KEY,
     name            TEXT           NOT NULL,
     customer        TEXT           NOT NULL,
     earning         NUMERIC(11, 2) NOT NULL CHECK (earning >= 0),
     spending        NUMERIC(11, 2) NOT NULL CHECK (spending >= 0),
-    executionStatus TEXT
+    execution_status TEXT
 );
 
 CREATE TABLE mission
 (
-    missId            SERIAL PRIMARY KEY,
-    campId            INTEGER NOT NULL REFERENCES campaign ON DELETE CASCADE,
-    startDateAndTime  TIMESTAMP,
-    endDateAndTime    TIMESTAMP,
-    legalStatus       BOOLEAN,
-    departureLocation TEXT,
-    arrivalLocation   TEXT,
+    miss_id            SERIAL PRIMARY KEY,
+    camp_id            INTEGER NOT NULL REFERENCES campaign ON DELETE CASCADE,
+    start_date_and_time  TIMESTAMP,
+    end_date_and_time    TIMESTAMP,
+    legal_status       BOOLEAN,
+    departure_location TEXT,
+    arrival_location   TEXT,
     enemies           TEXT
 );
 
 CREATE TABLE transport
 (
-    transId SERIAL PRIMARY KEY,
+    trans_id SERIAL PRIMARY KEY,
     name    TEXT NOT NULL,
     type    TEXT NOT NULL,
     status  TEXT
@@ -111,25 +111,25 @@ CREATE TABLE transport
 
 CREATE TABLE equip_weapon
 (
-    equipId  INTEGER NOT NULL REFERENCES equipment,
-    weaponId INTEGER NOT NULL REFERENCES weapon
+    equip_id  INTEGER NOT NULL REFERENCES equipment,
+    weapon_id INTEGER NOT NULL REFERENCES weapon
 );
 
 CREATE TABLE missions_transport
 (
-    missId  INTEGER NOT NULL REFERENCES mission,
-    transId INTEGER NOT NULL REFERENCES transport
+    miss_id  INTEGER NOT NULL REFERENCES mission,
+    trans_id INTEGER NOT NULL REFERENCES transport
 );
 
 CREATE TABLE inspection
 (
-    empId       INTEGER NOT NULL REFERENCES employee,
-    transId     INTEGER NOT NULL REFERENCES transport,
-    serviceDate DATE NOT NULL DEFAULT CURRENT_DATE
+    emp_id       INTEGER NOT NULL REFERENCES employee,
+    trans_id     INTEGER NOT NULL REFERENCES transport,
+    service_date DATE NOT NULL DEFAULT CURRENT_DATE
 );
 
 CREATE TABLE missions_emp
 (
-    missId INTEGER NOT NULL REFERENCES mission,
-    empId  INTEGER NOT NULL REFERENCES employee
+    miss_id INTEGER NOT NULL REFERENCES mission,
+    emp_id  INTEGER NOT NULL REFERENCES employee
 );
