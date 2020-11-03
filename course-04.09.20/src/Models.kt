@@ -287,7 +287,7 @@ object Transport: Table("transport"), Generable {
     val status = text("status")
 
     override fun generateAndInsert(n: Int) {
-        val statuses = setOf("under_repair", "available", "destroyed")
+        val statuses = setOf("available", "under_repair", "destroyed", "broken")
         val rawData = File("resources/static/transports.json").readLines().joinToString(separator = "")
         val jsonBody = JSONObject(rawData).getJSONArray("transport")
         jsonBody.forEachIndexed { i, el ->

@@ -38,11 +38,13 @@ dependencies {
     //dsl
     implementation("io.ktor:ktor-html-builder:$ktor_version")
     implementation("org.jetbrains:kotlin-css-jvm:1.0.0-pre.31-kotlin-1.2.41")
-    //db
+    //orm
     implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-java-time:$exposed_version")
+    //db
     implementation("org.postgresql:postgresql:42.2.18")
+    implementation("com.zaxxer:HikariCP:3.4.5")
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
 }
 
