@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2020-11-03T13:44:48.247Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="1ShS27hKmH9qVsDmq4ZL" version="13.6.5">
+<mxfile host="65bd71144e" modified="2020-11-04T08:26:38.226Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="bAzGsqB4DYSugP7nqgpV" version="13.6.5">
     <diagram id="6hGFLwfOUW9BJ-s0fimq" name="main">
         <mxGraphModel dx="992" dy="577" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
@@ -534,7 +534,7 @@
                 <mxCell id="338" value="&lt;&lt;enum&gt;&gt; &#10;force" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=47;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="1070" y="372" width="90" height="103" as="geometry"/>
                 </mxCell>
-                <mxCell id="339" value="ВС&#10;ВМФ&#10;ВКС" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="338" vertex="1">
+                <mxCell id="339" value="GF&#10;NAVY&#10;AF" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="338" vertex="1">
                     <mxGeometry y="47" width="90" height="56" as="geometry"/>
                 </mxCell>
                 <mxCell id="118" value="weapon" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
