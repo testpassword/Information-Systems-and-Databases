@@ -15,7 +15,7 @@ where "ФАМИЛИЯ" = 'Афанасьев' and
         в."ЧЛВК_ИД" = 142390 and
         "УЧГОД" = '2001/2002';
 
-create unique index "Н_СЕССИЯ-ЧЛВК_ИД" on "Н_СЕССИЯ" using btree("ЧЛВК_ИД");
+create unique index "Н_СЕССИЯ-УЧГОД-BTREE" on "Н_СЕССИЯ" using btree("УЧГОД");
 
 /*
 https://habr.com/ru/post/276973/

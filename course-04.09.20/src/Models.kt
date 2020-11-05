@@ -176,8 +176,8 @@ object Employee: Table("employee"), Generable {
             }[empId]
             MedicalCard.insert {
                 it[empId] = newbieId
-                it[height_cm] = Random.nextInt(150, 200).toByte()
-                it[weight_kg] = Random.nextInt(40, 120).toByte()
+                it[height_cm] = Random.nextInt(150, 200)
+                it[weight_kg] = Random.nextInt(40, 120)
                 it[diseases] = generateSequence { F.medical().diseaseName() }
                     .take(Random.nextInt(0, 5))
                     .joinToString(separator = "_")
@@ -192,8 +192,8 @@ object MedicalCard: Table("medical_card"), Generable {
 
     val medId = integer("med_id").autoIncrement().primaryKey()
     val empId = reference("emp_id", Employee.empId)
-    val height_cm = byte("height_cm").nullable()
-    val weight_kg = byte("weight_kg").nullable()
+    val height_cm = integer("height_cm").nullable()
+    val weight_kg = integer("weight_kg").nullable()
     val diseases = text("diseases")
     val blood = text("blood").nullable()
     val gender = bool("gender").nullable()

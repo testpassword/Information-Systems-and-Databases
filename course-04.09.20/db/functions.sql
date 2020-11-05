@@ -1,15 +1,15 @@
 --1: Тех, кто не имеет воинских званий, нельзя отправлять на боевые миссии.
 CREATE FUNCTION is_military_on_mission() RETURNS trigger AS $$
-DECLARE enemy TEXT;
+    DECLARE enemy TEXT;
     DECLARE rank TEXT;
-BEGIN
-    enemy = (SELECT enemies FROM mission WHERE miss_id = new.miss_id);
-    rank = (SELECT rank FROM position JOIN employee USING (pos_id) WHERE emp_id = new.emp_id);
-    IF (enemy IS NOT NULL OR !~~ '') AND (rank IS NULL OR ~~ '') THEN
-        RAISE EXCEPTION 'Cannot set not military employee to a combat mission';
-    ELSE RETURN new;
-    END IF;
-END;
+    BEGIN
+        enemy = (SELECT enemies FROM mission WHERE miss_id = new.miss_id);
+        rank = (SELECT rank FROM position JOIN employee USING (pos_id) WHERE emp_id = new.emp_id);
+        IF (enemy IS NOT NULL OR !~~ '') AND (rank IS NULL OR ~~ '') THEN
+            RAISE EXCEPTION 'Cannot set not military employee to a combat mission';
+        ELSE RETURN new;
+        END IF;
+    END;
 $$ LANGUAGE plpgsql;
 CREATE TRIGGER is_military_on_mission BEFORE INSERT OR UPDATE ON missions_emp
     FOR EACH ROW EXECUTE FUNCTION is_military_on_mission();
@@ -25,9 +25,7 @@ CREATE FUNCTION check_periods_of_emp_missions() RETURNS trigger AS $$
         IF (TRUE) IN (
             SELECT (inserted_miss.start_date_and_time, inserted_miss.end_date_and_time) OVERLAPS
                    (start_date_and_time, end_date_and_time) FROM mission
-                WHERE miss_id IN (
-                    SELECT miss_id FROM missions_emp WHERE emp_id = new.emp_id
-                    )) THEN
+                WHERE miss_id IN (SELECT miss_id FROM missions_emp WHERE emp_id = new.emp_id)) THEN
             RAISE EXCEPTION 'This worker cannot be assigned to a mission as he was on another mission at the time';
         ELSE RETURN new;
         END IF;
@@ -73,7 +71,7 @@ CREATE FUNCTION close_empty_bases() RETURNS SETOF void AS $$
                 JOIN employee USING (base_id)
             GROUP BY base_id
             HAVING COUNT(emp_id) = 0
-            );
+        );
     END;
 $$ LANGUAGE plpgsql;
 
@@ -96,4 +94,6 @@ $$ LANGUAGE plpgsql;
 /*
 http://firststeps.ru/sql/oracle/r.php?43
 https://postgrespro.ru/docs/postgresql/13/plpgsql-trigger
+https://stackoverflow.com/questions/10335312/db-associative-entities-and-indexing
+https://stackoverflow.com/questions/6015175/difference-between-view-and-table-in-sql
 */

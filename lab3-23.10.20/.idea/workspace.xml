@@ -20,22 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b83b3b40-1c97-4e58-ba7f-87f7e709ce40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/lab3-23.10.20.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/~$ф_сис_и_бд_лаб3_отчёт.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/~WRL0645.tmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-04.09.20/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-04.09.20/docs/datalogical.dio" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/docs/datalogical.dio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-04.09.20/docs/functions.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-04.09.20/docs/indices.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-04.09.20/docs/infological.dio" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/docs/infological.dio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-04.09.20/docs/scheme.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-04.09.20/docs/инф_сис_и_бд_кур_отчёт.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/docs/инф_сис_и_бд_кур_отчёт.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633/storage_v2/_src_/database/ucheb.t1GfBg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633/storage_v2/_src_/database/ucheb.t1GfBg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requests.sql" beforeDir="false" afterPath="$PROJECT_DIR$/requests.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/инф_сис_и_бд_лаб3_отчёт.docx" beforeDir="false" afterPath="$PROJECT_DIR$/инф_сис_и_бд_лаб3_отчёт.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +92,8 @@
       <workItem from="1603726452797" duration="53000" />
       <workItem from="1604479595259" duration="6765000" />
       <workItem from="1604488175551" duration="208000" />
+      <workItem from="1604488501948" duration="615000" />
+      <workItem from="1604515346812" duration="284000" />
     </task>
     <servers />
   </component>
