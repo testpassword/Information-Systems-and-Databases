@@ -1,11 +1,11 @@
 ### drop all tables and data
-DELETE http://localhost:8080/random
+DELETE http://localhost:9090/random
 
 ### show tip for route
-GET http://localhost:8080/random
+GET http://localhost:9090/random
 
 ### create all tables
-PUT http://localhost:8080/random
+PUT http://localhost:9090/random
 
 ### fill tables with random data
-POST http://localhost:8080/random
+POST http://localhost:9090/random

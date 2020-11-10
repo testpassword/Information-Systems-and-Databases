@@ -1,5 +1,6 @@
 package com.testpassword
 
+import com.testpassword.models.*
 import com.testpassword.routes.random
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
@@ -18,5 +19,15 @@ fun Application.module() {
     this.initDB()
     routing {
         route("random") { random() }
+        route("base") { base() }
+        route("campaign") { campaign() }
+        route("employee") { employee() }
+        route("equipment") { equipment() }
+        route("medicalCard") { medicalCard() }
+        route("mission") { mission() }
+        route("mre") { mre() }
+        route("position") { position() }
+        route("transport") { transport() }
+        route("weapon") { weapon() }
     }
 }

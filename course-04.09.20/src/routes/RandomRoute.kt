@@ -1,6 +1,7 @@
 package com.testpassword.routes
 
 import com.testpassword.*
+import com.testpassword.models.*
 import io.ktor.application.*
 import io.ktor.html.*
 import io.ktor.routing.*
@@ -12,15 +13,6 @@ import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
 
 fun Route.random() {
-
-    delete {
-        transaction {
-            SchemaUtils.drop(
-                Base, MRE, Equipment, Position, Employee, MedicalCard, Weapon, Campaign, Mission,
-                Transport, WeaponsInEquipment, TransportOnMissions, Inspection, EmployeeOnMission
-            )
-        }
-    }
 
     get {
         call.respondHtml {
@@ -38,8 +30,9 @@ fun Route.random() {
     put {
         transaction {
             SchemaUtils.create(
-                Base, MRE, Equipment, Position, Employee, MedicalCard, Weapon, Campaign, Mission,
-                Transport, WeaponsInEquipment, TransportOnMissions, Inspection, EmployeeOnMission
+                BaseTable, MRETable, EquipmentTable, PositionTable, EmployeeTable, MedicalCardTable, WeaponTable,
+                CampaignTable, MissionTable, TransportTable, WeaponsInEquipment, TransportOnMissions, Inspection,
+                EmployeeOnMission
             )
         }
     }
@@ -48,21 +41,31 @@ fun Route.random() {
         transaction {
             RecordsGenerator.fillDb(
                 mapOf(
-                    Base to 50,
-                    MRE to 30,
-                    Equipment to 100,
-                    Position to 150,
-                    Employee to 4000,
-                    MedicalCard to 0,
-                    Weapon to 0,
-                    Campaign to 40,
-                    Mission to 110,
-                    Transport to 0,
+                    BaseTable to 50,
+                    MRETable to 30,
+                    EquipmentTable to 100,
+                    PositionTable to 150,
+                    EmployeeTable to 4000,
+                    MedicalCardTable to 0,
+                    WeaponTable to 0,
+                    CampaignTable to 40,
+                    MissionTable to 110,
+                    TransportTable to 0,
                     WeaponsInEquipment to 0,
                     TransportOnMissions to 0,
                     Inspection to 0,
                     EmployeeOnMission to 0
                 )
+            )
+        }
+    }
+
+    delete {
+        transaction {
+            SchemaUtils.drop(
+                BaseTable, MRETable, EquipmentTable, PositionTable, EmployeeTable, MedicalCardTable, WeaponTable,
+                CampaignTable, MissionTable, TransportTable, WeaponsInEquipment, TransportOnMissions, Inspection,
+                EmployeeOnMission
             )
         }
     }

@@ -20,9 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b83b3b40-1c97-4e58-ba7f-87f7e709ce40" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../course-04.09.20/test/random-h.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../course-04.09.20/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../course-04.09.20/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../course-04.09.20/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../course-04.09.20/db/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/db/functions.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../course-04.09.20/db/indices.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../course-04.09.20/docs/инф_сис_и_бд_кур_отчёт.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/docs/инф_сис_и_бд_кур_отчёт.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../course-04.09.20/test/random.http" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/test/random-l.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requests.sql" beforeDir="false" afterPath="$PROJECT_DIR$/requests.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +100,7 @@
       <workItem from="1604488175551" duration="208000" />
       <workItem from="1604488501948" duration="615000" />
       <workItem from="1604515346812" duration="284000" />
+      <workItem from="1604647722069" duration="1242000" />
     </task>
     <servers />
   </component>

@@ -2,8 +2,8 @@
 CREATE TABLE base
 (
     base_id  SERIAL PRIMARY KEY,
-    location TEXT,
-    status   TEXT
+    location TEXT NOT NULL,
+    status   TEXT NOT NULL
 );
 
 CREATE TABLE mre
@@ -49,13 +49,11 @@ CREATE TABLE employee
     surname       TEXT    NOT NULL,
     date_of_birth DATE    NOT NULL CHECK (DATE_PART('year', AGE(date_of_birth)) >= 18),
     education     TEXT,
-    hiring_date   DATE DEFAULT CURRENT_DATE,
+    hiring_date   DATE NOT NULL DEFAULT CURRENT_DATE,
     pos_id        INTEGER NOT NULL REFERENCES position ON DELETE RESTRICT,
     is_married    BOOLEAN NOT NULL,
     base_id       INTEGER REFERENCES base ON DELETE SET NULL
 );
-
-CREATE TYPE blood AS ENUM ('0+', '0-', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-');
 
 CREATE TABLE medical_card
 (
@@ -105,7 +103,7 @@ CREATE TABLE transport
     trans_id SERIAL PRIMARY KEY,
     name     TEXT NOT NULL,
     type     TEXT NOT NULL,
-    status   TEXT
+    status   TEXT NOT NULL
 );
 
 CREATE TABLE equip_weapon

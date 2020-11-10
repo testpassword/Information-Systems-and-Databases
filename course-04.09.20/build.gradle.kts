@@ -30,6 +30,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
     implementation("com.github.javafaker:javafaker:1.0.2")
     implementation("org.json:json:20200518")
+    implementation("com.beust:klaxon:5.0.1")
     //server
     implementation("io.ktor:ktor-server-netty:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
@@ -39,6 +40,7 @@ dependencies {
     implementation("org.jetbrains:kotlin-css-jvm:1.0.0-pre.31-kotlin-1.2.41")
     //orm
     implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
+    implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-java-time:$exposed_version")
     //db
@@ -55,7 +57,6 @@ sourceSets["test"].resources.srcDirs("testresources")
 
 /*
 Creating jar with all dependencies
-https://stackoverflow.com/questions/55575264/creating-a-fat-jar-in-gradle-with-kotlindsl
 https://stackoverflow.com/questions/55575264/creating-a-fat-jar-in-gradle-with-kotlindsl
  */
 tasks {
