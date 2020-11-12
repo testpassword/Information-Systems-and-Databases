@@ -26,7 +26,7 @@ CREATE TABLE equipment
     communication TEXT,
     intelligence  TEXT,
     medical       TEXT,
-    mre_id        INTEGER NOT NULL REFERENCES mre,
+    mre_id        INTEGER NOT NULL REFERENCES mre ON DELETE RESTRICT,
     extra         TEXT
 );
 

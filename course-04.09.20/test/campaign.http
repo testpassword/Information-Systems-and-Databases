@@ -1,0 +1,30 @@
+### drop base with id
+DELETE http://localhost:9090/campaign
+Content-Type: application/json
+
+{
+  "selectedIds": "2"
+}
+
+### get list with all bases
+GET http://localhost:9090/campaign
+
+### create all tables
+PUT http://localhost:9090/campaign
+Content-Type: application/json
+
+{
+}
+
+### fill tables with random data
+POST http://localhost:9090/campaign
+Content-Type: application/json
+
+{
+  "campId": null,
+  "name": "ANARCHY",
+  "customer": "JOKER",
+  "earning": 10000000,
+  "spending": 320000,
+  "executionStatus": "TESTING"
+}

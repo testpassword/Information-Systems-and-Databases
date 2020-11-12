@@ -40,11 +40,12 @@ CREATE INDEX mission_period ON mission USING btree(start_date_and_time, end_date
 
 --3: Работников неподходящих по физическим данным запрещено устраивать как военных сотрудников (рост < 150 см или вес < 45 кг).
 CREATE FUNCTION check_physical_condition() RETURNS trigger AS $$
-    DECLARE card medical_card;
+    DECLARE h SMALLINT;
+    DECLARE w SMALLINT;
     BEGIN
-        card = (SELECT height_cm, weight_kg FROM medical_card JOIN employee USING (emp_id) WHERE emp_id = new.emp_id);
-        IF card.height_cm < 150 OR card.weight_kg < 45 THEN
-            RAISE EXCEPTION 'Cannot hair this employee to military position because his physical data does not require the minimum';
+        SELECT height_cm, weight_kg INTO h, w FROM medical_card JOIN employee USING (emp_id) WHERE emp_id = new.emp_id;
+        IF h < 150 OR w < 45 THEN
+            RAISE EXCEPTION 'Cannot hire this employee to military position because his physical data does not require the minimum';
         ELSE RETURN new;
         END IF;
     END;
@@ -82,10 +83,11 @@ CREATE MATERIALIZED VIEW base_count_emp AS
 CREATE FUNCTION update_base_count_emp() RETURNS trigger AS $$
     BEGIN
         REFRESH MATERIALIZED VIEW base_count_emp;
+        RETURN new;
     END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER update_base_count_emp BEFORE INSERT OR UPDATE OR DELETE ON employee
+CREATE TRIGGER update_base_count_emp AFTER INSERT OR UPDATE OR DELETE ON employee
     FOR EACH ROW EXECUTE PROCEDURE update_base_count_emp();
 
 /*

@@ -1,16 +1,18 @@
-### drop base with id
-DELETE http://localhost:9090/base
+### get list with all bases
+GET http://localhost:9090/base
 Content-Type: application/json
 
 {
-  "droppedIds": "414 415"
+  "selectedIds": ""
 }
 
-### get list with all bases
+### get list of bases with requested ids (use space as separator)
 GET http://localhost:9090/base
+Content-Type: application/json
 
-### create all tables
-PUT http://localhost:9090/base
+{
+  "selectedIds": "3"
+}
 
 ### fill tables with random data
 POST http://localhost:9090/base
@@ -20,4 +22,21 @@ Content-Type: application/json
   "baseId" : null,
   "location" : "LUNA",
   "status" : "TEST-BASE"
+}
+
+### create all tables
+PUT http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "baseId": "419",
+  "location": "MARS"
+}
+
+### drop base with id
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "droppedIds": "414 415"
 }

@@ -113,3 +113,12 @@ object EmployeeOnMission: Table("missions_emp"), Generable {
             }
     }
 }
+
+
+
+/*
+https://touk.pl/blog/2019/02/12/how-we-use-kotlin-with-exposed-at-touk/
+https://ryanharrison.co.uk/2018/04/14/kotlin-ktor-exposed-starter.html
+https://hashrocket.com/blog/posts/faster-json-generation-with-postgresql
+https://caelis.medium.com/ktor-send-and-receive-json-6c41c64410af
+*/

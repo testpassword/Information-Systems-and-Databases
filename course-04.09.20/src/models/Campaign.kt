@@ -1,9 +1,8 @@
 package com.testpassword.models
 
-import com.testpassword.F
-import com.testpassword.Generable
-import com.testpassword.dropEntitesWithIds
+import com.testpassword.*
 import io.ktor.application.*
+import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -19,7 +18,7 @@ object CampaignTable: Table("campaign"), Generable {
     val customer = text("customer")
     val earning = decimal("earning", 2, 11).check { it greaterEq 0.0 }
     val spending = decimal("spending", 2, 11).check { it greaterEq 0.0 }
-    val execution_status = text("execution_status")
+    val execution_status = text("execution_status").nullable()
 
     override fun generateAndInsert(n: Int) {
         val statuses = setOf("completed", "in the process", "failed", "canceled")
@@ -36,7 +35,7 @@ object CampaignTable: Table("campaign"), Generable {
 }
 
 fun ResultRow.toCampaign() = Campaign(this[CampaignTable.camp_id], this[CampaignTable.name], this[CampaignTable.customer],
-    this[CampaignTable.earning], this[CampaignTable.spending]!!, this[CampaignTable.execution_status])
+    this[CampaignTable.earning], this[CampaignTable.spending], this[CampaignTable.execution_status])
 
 data class Campaign(val campId: Int?, val name: String, val customer: String, val earning: BigDecimal,
                     val spending: BigDecimal, val executionStatus: String?)
@@ -44,23 +43,57 @@ data class Campaign(val campId: Int?, val name: String, val customer: String, va
 fun Route.campaign() {
 
     get {
-        call.respondText {
+        val (t, s) = try {
+            val raw = call.receiveText()
             transaction {
-                P.toJsonString(CampaignTable.selectAll().map { it.toCampaign() }.toList())
+                P.toJsonString(getRecordsWithIds(raw, CampaignTable).map { it.toCampaign() }.toList()) to HttpStatusCode.OK
             }
-        }
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 
-    put {  }
+    put {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val (id, f) = explodeJsonForModel("campId", raw)
+            CampaignTable.update({ CampaignTable.camp_id eq id }) { c ->
+                f["name"]?.let { c[name] = it }
+                f["customer"]?.let { c[customer] = it }
+                f["earning"]?.let { c[earning] = it.toBigDecimal() }
+                f["spending"]?.let { c[spending] = it.toBigDecimal() }
+                f["executionStatus"]?.let { c[execution_status] = it }
+            }
+            "$raw updated)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
-    post {  }
+    post {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val b = P.parse<Campaign>(raw)!!
+            transaction {
+                CampaignTable.insert {
+                    it[name] = b.name
+                    it[customer] = b.customer
+                    it[earning] = b.earning
+                    it[spending] = b.spending
+                    it[execution_status] = b.executionStatus
+                }
+            }
+            "$raw added)" to HttpStatusCode.Created
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
     delete {
-        val droppedIds = call.receiveText()
-        call.respondText {
+        val (t, s) = try {
+            val droppedIds = call.receiveText()
             transaction {
-                dropEntitesWithIds(droppedIds, CampaignTable)
-            }.toString()
-        }
+                dropRecordsWithIds(droppedIds, CampaignTable)
+            }
+            "Bases with $droppedIds deleted)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 }

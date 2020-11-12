@@ -4,6 +4,9 @@ import com.testpassword.*
 import com.testpassword.models.*
 import io.ktor.application.*
 import io.ktor.html.*
+import io.ktor.http.*
+import io.ktor.request.*
+import io.ktor.response.*
 import io.ktor.routing.*
 import kotlinx.html.body
 import kotlinx.html.h1
@@ -38,26 +41,30 @@ fun Route.random() {
     }
 
     post {
-        transaction {
-            RecordsGenerator.fillDb(
-                mapOf(
-                    BaseTable to 50,
-                    MRETable to 30,
-                    EquipmentTable to 100,
-                    PositionTable to 150,
-                    EmployeeTable to 4000,
-                    MedicalCardTable to 0,
-                    WeaponTable to 0,
-                    CampaignTable to 40,
-                    MissionTable to 110,
-                    TransportTable to 0,
-                    WeaponsInEquipment to 0,
-                    TransportOnMissions to 0,
-                    Inspection to 0,
-                    EmployeeOnMission to 0
+        val (t, s) = try {
+            transaction {
+                RecordsGenerator.fillDb(
+                    mapOf(
+                        BaseTable to 50,
+                        MRETable to 30,
+                        EquipmentTable to 100,
+                        PositionTable to 150,
+                        EmployeeTable to 2000,
+                        MedicalCardTable to 0,
+                        WeaponTable to 0,
+                        CampaignTable to 40,
+                        MissionTable to 110,
+                        TransportTable to 0,
+                        WeaponsInEquipment to 0,
+                        TransportOnMissions to 0,
+                        Inspection to 0,
+                        EmployeeOnMission to 0
+                    )
                 )
-            )
-        }
+            }
+            "Records generated" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 
     delete {

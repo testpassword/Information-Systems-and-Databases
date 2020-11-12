@@ -16,7 +16,7 @@ object PositionTable: Table("Position"), Generable {
     val name = text("name")
     val salary = decimal("salary", 2, 11).check { it greater 12130.0 }
     val rank = text("rank").nullable()
-    val equip_id = reference("equip_id", EquipmentTable.equip_id).nullable()
+    val equip_id = reference("equip_id", EquipmentTable.equip_id, onDelete = ReferenceOption.SET_NULL).nullable()
     val forces = postgresEnumeration<FORCES>("forces", "force").nullable()
 
     override fun generateAndInsert(n: Int) {
@@ -68,7 +68,7 @@ fun Route.position() {
         val droppedIds = call.receiveText()
         call.respondText {
             transaction {
-                dropEntitesWithIds(droppedIds, PositionTable)
+                dropRecordsWithIds(droppedIds, PositionTable)
             }.toString()
         }
     }

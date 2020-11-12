@@ -1,10 +1,9 @@
 package com.testpassword.models
 
 import com.beust.klaxon.Klaxon
-import com.testpassword.F
-import com.testpassword.Generable
-import com.testpassword.dropEntitesWithIds
+import com.testpassword.*
 import io.ktor.application.*
+import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -37,41 +36,53 @@ data class Base(val baseId: Int?, val location: String, val status: String)
 fun Route.base() {
 
     get {
-        call.respondText {
+        val (t, s) = try {
+            val raw = call.receiveText()
             transaction {
-                P.toJsonString(BaseTable.selectAll().map { it.toBase() }.toList())
+                P.toJsonString(getRecordsWithIds(raw, BaseTable).map { it.toBase() }.toList()) to HttpStatusCode.OK
             }
-        }
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 
     put {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val (id, f) = explodeJsonForModel("baseId", raw)
+            transaction {
+                BaseTable.update({ BaseTable.base_id eq id }) { b ->
+                    f["location"]?.let { b[location] = it }
+                    f["status"]?.let { b[status] = it }
+                }
+            }
+            "$raw updated)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 
     post {
-        val b = P.parse<Base>(call.receiveText())!!
-        call.respondText {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val b = P.parse<Base>(raw)!!
             transaction {
                 BaseTable.insert {
                     it[location] = b.location
                     it[status] = b.status
-                }.resultedValues!!.joinToString()
+                }
             }
-        }
+            "$raw added)" to HttpStatusCode.Created
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 
     delete {
-        val droppedIds = call.receiveText()
-        call.respondText {
+        val (t, s) = try {
+            val droppedIds = call.receiveText()
             transaction {
-                dropEntitesWithIds(droppedIds, BaseTable)
-            }.toString()
-        }
+                dropRecordsWithIds(droppedIds, BaseTable)
+            }
+            "Bases with $droppedIds deleted)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 }
-
-/*
-https://touk.pl/blog/2019/02/12/how-we-use-kotlin-with-exposed-at-touk/
-https://ryanharrison.co.uk/2018/04/14/kotlin-ktor-exposed-starter.html
-https://hashrocket.com/blog/posts/faster-json-generation-with-postgresql
-https://caelis.medium.com/ktor-send-and-receive-json-6c41c64410af
-*/

@@ -1,7 +1,7 @@
 package com.testpassword.models
 
 import com.testpassword.Generable
-import com.testpassword.dropEntitesWithIds
+import com.testpassword.dropRecordsWithIds
 import io.ktor.application.*
 import io.ktor.request.*
 import io.ktor.response.*
@@ -59,7 +59,7 @@ fun Route.transport() {
         val droppedIds = call.receiveText()
         call.respondText {
             transaction {
-                dropEntitesWithIds(droppedIds, TransportTable)
+                dropRecordsWithIds(droppedIds, TransportTable)
             }.toString()
         }
     }

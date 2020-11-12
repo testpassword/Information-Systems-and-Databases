@@ -2,14 +2,13 @@ package com.testpassword.models
 
 import com.testpassword.F
 import com.testpassword.Generable
-import com.testpassword.dropEntitesWithIds
+import com.testpassword.dropRecordsWithIds
 import io.ktor.application.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.util.*
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.`java-time`.datetime
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.time.LocalDate
@@ -21,7 +20,7 @@ import kotlin.random.Random
 object MissionTable: Table("mission"), Generable {
 
     val miss_id = integer("miss_id").autoIncrement().primaryKey()
-    val camp_id = reference("camp_id", CampaignTable.camp_id)
+    val camp_id = reference("camp_id", CampaignTable.camp_id, onDelete = ReferenceOption.CASCADE)
     val start_date_and_time = datetime("start_date_and_time").nullable()
     val end_date_and_time = datetime("end_date_and_time").nullable()
     val legal_status = bool("legal_status").nullable()
@@ -78,7 +77,7 @@ fun Route.mission() {
         val droppedIds = call.receiveText()
         call.respondText {
             transaction {
-                dropEntitesWithIds(droppedIds, MissionTable)
+                dropRecordsWithIds(droppedIds, MissionTable)
             }.toString()
         }
     }

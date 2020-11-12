@@ -1,21 +1,18 @@
 package com.testpassword.models
 
 import com.testpassword.Generable
-import com.testpassword.dropEntitesWithIds
+import com.testpassword.dropRecordsWithIds
 import io.ktor.application.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
-import org.jetbrains.exposed.sql.ResultRow
-import org.jetbrains.exposed.sql.Table
-import org.jetbrains.exposed.sql.select
-import org.jetbrains.exposed.sql.selectAll
+import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
 object MedicalCardTable: Table("medical_card"), Generable {
 
     val med_id = integer("med_id").autoIncrement().primaryKey()
-    val emp_id = reference("emp_id", EmployeeTable.emp_id)
+    val emp_id = reference("emp_id", EmployeeTable.emp_id, onDelete = ReferenceOption.CASCADE)
     val height_cm = integer("height_cm")
     val weight_kg = integer("weight_kg")
     val diseases = text("diseases").nullable()
@@ -49,7 +46,7 @@ fun Route.medicalCard() {
         val droppedIds = call.receiveText()
         call.respondText {
             transaction {
-                dropEntitesWithIds(droppedIds, MedicalCardTable)
+                dropRecordsWithIds(droppedIds, MedicalCardTable)
             }.toString()
         }
     }

@@ -1,7 +1,7 @@
 package com.testpassword.models
 
 import com.testpassword.Generable
-import com.testpassword.dropEntitesWithIds
+import com.testpassword.dropRecordsWithIds
 import io.ktor.application.*
 import io.ktor.request.*
 import io.ktor.response.*
@@ -16,7 +16,7 @@ object EquipmentTable: Table("equipment"), Generable {
     val communication = text("communication").nullable()
     val intelligence = text("intelligence").nullable()
     val medical = text("medical").nullable()
-    val mre_id = reference("mre_id", MRETable.mre_id)
+    val mre_id = reference("mre_id", MRETable.mre_id, onDelete = ReferenceOption.RESTRICT)
     val extra = text("extra").nullable()
 
     override fun generateAndInsert(n: Int) {
@@ -65,7 +65,7 @@ fun Route.equipment() {
         val droppedIds = call.receiveText()
         call.respondText {
             transaction {
-                dropEntitesWithIds(droppedIds, BaseTable)
+                dropRecordsWithIds(droppedIds, BaseTable)
             }.toString()
         }
     }

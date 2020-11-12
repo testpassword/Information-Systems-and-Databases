@@ -1,9 +1,8 @@
 package com.testpassword.models
 
-import com.testpassword.F
-import com.testpassword.Generable
-import com.testpassword.dropEntitesWithIds
+import com.testpassword.*
 import io.ktor.application.*
+import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -26,9 +25,9 @@ object EmployeeTable: Table("employee"), Generable {
     val date_of_birth = date("date_of_birth").check { it less (CurrentDateTime().year() - 18) }
     val education = text("education").nullable()
     val hiring_date = date("hiring_date").defaultExpression(CurrentDateTime().date())
-    val pos_id = reference("pos_id", PositionTable.pos_id)
+    val pos_id = reference("pos_id", PositionTable.pos_id, onDelete = ReferenceOption.RESTRICT)
     val is_married = bool("is_married")
-    val base_id = reference("base_id", BaseTable.base_id).nullable()
+    val base_id = reference("base_id", BaseTable.base_id, onDelete = ReferenceOption.SET_NULL).nullable()
 
     @InternalAPI
     override fun generateAndInsert(n: Int) {
@@ -78,14 +77,29 @@ data class Employee(val empId: Int?, val name: String, val surname: String, val 
 fun Route.employee() {
 
     get {
-        call.respondText {
+        val (t, s) = try {
+            val raw = call.receiveText()
             transaction {
-                P.toJsonString(EmployeeTable.selectAll().map { it.toEmployee() }.toList())
+                P.toJsonString(getRecordsWithIds(raw, EmployeeTable).map { it.toEmployee() }.toList()) to HttpStatusCode.OK
             }
-        }
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 
-    put {  }
+    put {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val (id, f) = explodeJsonForModel("empId", raw)
+            transaction {
+                EmployeeTable.update({ EmployeeTable.emp_id eq id }) { e ->
+                    f["name"]?.let { e[name] = it }
+                    f["surname"]?.let { e[surname] = it }
+                }
+            }
+            "$raw updated)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
     post {  }
 
@@ -93,7 +107,7 @@ fun Route.employee() {
         val droppedIds = call.receiveText()
         call.respondText {
             transaction {
-                dropEntitesWithIds(droppedIds, EmployeeTable)
+                dropRecordsWithIds(droppedIds, EmployeeTable)
             }.toString()
         }
     }
