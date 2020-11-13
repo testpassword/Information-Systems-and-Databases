@@ -2,6 +2,7 @@ package com.testpassword.models
 
 import com.testpassword.*
 import io.ktor.application.*
+import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -40,36 +41,64 @@ object PositionTable: Table("Position"), Generable {
     }
 }
 
-fun ResultRow.toPosition() = Position(this[PositionTable.pos_id], this[PositionTable.name],
-    this[PositionTable.salary], this[PositionTable.rank],
-    this@toPosition[PositionTable.equip_id]?.let {
-        EquipmentTable.select { EquipmentTable.equip_id eq it }.map { it.toEquipment() }.first()
-    },
-    this[PositionTable.forces])
+fun ResultRow.toPosition() = Position(this[PositionTable.pos_id], this[PositionTable.name], this[PositionTable.salary],
+    this[PositionTable.rank], this[PositionTable.equip_id], this[PositionTable.forces])
 
-data class Position(val posId: Int?, val name: String, val salary: BigDecimal, val rank: String?, val equip: Equipment?,
+data class Position(val posId: Int?, val name: String, val salary: BigDecimal, val rank: String?, val equipId: Int?,
                     val forces: FORCES?)
 
 fun Route.position() {
 
     get {
-        call.respondText {
+        val (t, s) = try {
+            val raw = call.receiveText()
             transaction {
-                P.toJsonString(PositionTable.selectAll().map { it.toPosition() }.toList())
+                P.toJsonString(getRecordsWithIds(raw, PositionTable).map { it.toPosition() }) to HttpStatusCode.OK
             }
-        }
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 
-    put {  }
+    put {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val (id, f) = explodeJsonForModel("posId", raw)
+            PositionTable.update({ PositionTable.pos_id eq id }) { p ->
+                f["name"]?.let { p[name] = it }
+                f["salary"]?.let { p[salary] = it.toBigDecimal() }
+                f["rank"]?.let { p[rank] = it }
+                f["equipId"]?.let { p[equip_id] = it.toInt() }
+                f["forces"]?.let { p[forces] = FORCES.valueOf(it) }
+            }
+            "$raw updated)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
-    post {  }
+    post {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val p = P.parse<Position>(raw)!!
+            transaction {
+                PositionTable.insert {
+                    it[name] = p.name
+                    it[salary] = p.salary
+                    it[rank] = p.rank
+                    it[equip_id] = p.equipId
+                    it[forces] = p.forces
+                }
+            }
+            "$raw added)" to HttpStatusCode.Created
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
     delete {
-        val droppedIds = call.receiveText()
-        call.respondText {
-            transaction {
-                dropRecordsWithIds(droppedIds, PositionTable)
-            }.toString()
-        }
+        val (t, s) = try {
+            val droppedIds = call.receiveText()
+            transaction { dropRecordsWithIds(droppedIds, PositionTable) }
+            "Positions with $droppedIds deleted)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 }

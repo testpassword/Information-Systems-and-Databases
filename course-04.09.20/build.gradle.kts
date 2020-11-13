@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "com.testpassword"
-version = "0.0.1"
+version = "0.5"
 
 application {
     mainClassName = "io.ktor.server.netty.EngineMain"
@@ -40,7 +40,6 @@ dependencies {
     implementation("org.jetbrains:kotlin-css-jvm:1.0.0-pre.31-kotlin-1.2.41")
     //orm
     implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
-    implementation("org.jetbrains.exposed:exposed-dao:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-java-time:$exposed_version")
     //db

@@ -35,10 +35,10 @@ object CampaignTable: Table("campaign"), Generable {
 }
 
 fun ResultRow.toCampaign() = Campaign(this[CampaignTable.camp_id], this[CampaignTable.name], this[CampaignTable.customer],
-    this[CampaignTable.earning], this[CampaignTable.spending], this[CampaignTable.execution_status])
+    this[CampaignTable.earning].toDouble(), this[CampaignTable.spending].toDouble(), this[CampaignTable.execution_status])
 
-data class Campaign(val campId: Int?, val name: String, val customer: String, val earning: BigDecimal,
-                    val spending: BigDecimal, val executionStatus: String?)
+data class Campaign(val campId: Int?, val name: String, val customer: String, val earning: Double,
+                    val spending: Double, val executionStatus: String?)
 
 fun Route.campaign() {
 
@@ -46,7 +46,7 @@ fun Route.campaign() {
         val (t, s) = try {
             val raw = call.receiveText()
             transaction {
-                P.toJsonString(getRecordsWithIds(raw, CampaignTable).map { it.toCampaign() }.toList()) to HttpStatusCode.OK
+                P.toJsonString(getRecordsWithIds(raw, CampaignTable).map { it.toCampaign() }) to HttpStatusCode.OK
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
         call.respondText(text = t, status = s)
@@ -76,8 +76,8 @@ fun Route.campaign() {
                 CampaignTable.insert {
                     it[name] = b.name
                     it[customer] = b.customer
-                    it[earning] = b.earning
-                    it[spending] = b.spending
+                    it[earning] = b.earning.toBigDecimal()
+                    it[spending] = b.spending.toBigDecimal()
                     it[execution_status] = b.executionStatus
                 }
             }
@@ -89,10 +89,8 @@ fun Route.campaign() {
     delete {
         val (t, s) = try {
             val droppedIds = call.receiveText()
-            transaction {
-                dropRecordsWithIds(droppedIds, CampaignTable)
-            }
-            "Bases with $droppedIds deleted)" to HttpStatusCode.OK
+            transaction { dropRecordsWithIds(droppedIds, CampaignTable) }
+            "Campaigns with ids $droppedIds deleted)" to HttpStatusCode.OK
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
         call.respondText(text = t, status = s)
     }

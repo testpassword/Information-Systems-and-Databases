@@ -8,29 +8,31 @@ class ReferenceEntityError(e: Table): Error() {
 }
 
 object RecordsGenerator {
-
     fun fillDb(sizes: Map<Generable, Int>) = sizes.forEach { it.key.generateAndInsert(it.value) }
 }
 
 fun dropRecordsWithIds(s: String, entityTable: Table) {
-    JSONObject(s).getString("droppedIds").split(" ").map {
-        entityTable.deleteWhere { (entityTable.primaryKey?.columns?.get(0) as Column<Int>) eq it.toInt() }
+    val ids = JSONObject(s).getJSONArray("droppedIds")
+    ids.forEachIndexed { i, _ ->
+        entityTable.deleteWhere { (entityTable.primaryKey?.columns?.get(0) as Column<Int>) eq ids.getInt(i) }
     }
 }
 
 fun getRecordsWithIds(s: String, entityTable: Table): Query {
-    val raw = JSONObject(s).getString("selectedIds")
-    return if (raw.isNullOrBlank()) entityTable.selectAll() else {
-        val ids = raw.split(" ").map { it.toInt() }
+    val raw = JSONObject(s).getJSONArray("selectedIds")
+    val ids = mutableListOf<Int>()
+    raw.forEachIndexed { i, _ -> ids.add(raw.getInt(i)) }
+    return if (ids.isEmpty()) entityTable.selectAll() else
         entityTable.select {
             entityTable.primaryKey?.columns?.get(0) as Column<Int> inList ids
         }
-    }
 }
 
 fun explodeJsonForModel(modelIdField: String, jsonStr: String): Pair<Int, Map<String, String>> {
     val s = JSONObject(jsonStr)
+    val id = s.getInt(modelIdField)
+    s.remove(modelIdField)
     val fields = mutableMapOf<String, String>()
     s.keys().forEach { fields[it] = s.getString(it) }
-    return s.getInt(modelIdField) to fields
+    return id to fields
 }

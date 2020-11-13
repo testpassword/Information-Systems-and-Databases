@@ -2,7 +2,10 @@ package com.testpassword.models
 
 import com.testpassword.Generable
 import com.testpassword.dropRecordsWithIds
+import com.testpassword.explodeJsonForModel
+import com.testpassword.getRecordsWithIds
 import io.ktor.application.*
+import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -41,32 +44,67 @@ object EquipmentTable: Table("equipment"), Generable {
 
 fun ResultRow.toEquipment() = Equipment(this[EquipmentTable.equip_id], this[EquipmentTable.camouflage],
     this[EquipmentTable.communication], this[EquipmentTable.intelligence], this[EquipmentTable.medical],
-    MRETable.select { MRETable.mre_id eq this@toEquipment[EquipmentTable.mre_id] }.map { it.toMRE() }.first(),
-    this[EquipmentTable.extra])
+    this[EquipmentTable.mre_id], this[EquipmentTable.extra])
 
 data class Equipment(val equipId: Int?, val camouflage: String?, val communication: String?, val intelligence: String?,
-                     val medical: String?, val mre: MRE, val extra: String?)
+                     val medical: String?, val mreId: Int, val extra: String?)
 
 fun Route.equipment() {
 
     get {
-        call.respondText {
+        val (t, s) = try {
+            val raw = call.receiveText()
             transaction {
-                P.toJsonString(EquipmentTable.selectAll().map { it.toEquipment() }.toList())
+                P.toJsonString(getRecordsWithIds(raw, EquipmentTable).map { it.toEquipment() }) to HttpStatusCode.OK
             }
-        }
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 
-    put {  }
+    put {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val (id, f) = explodeJsonForModel("equipId", raw)
+            transaction {
+                EquipmentTable.update({ EquipmentTable.equip_id eq id }) { e ->
+                    f["camouflage"]?.let { e[camouflage] = it }
+                    f["communication"]?.let { e[communication] = it }
+                    f["intelligence"]?.let { e[intelligence] = it }
+                    f["medical"]?.let { e[medical] = it }
+                    f["mreId"]?.let { e[mre_id] = it.toInt() }
+                    f["extra"]?.let { e[extra] = it }
+                }
+            }
+            "$raw updated)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
-    post {  }
+    post {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val e = P.parse<Equipment>(raw)!!
+            transaction {
+                EquipmentTable.insert {
+                    it[camouflage] = e.camouflage
+                    it[communication] = e.communication
+                    it[intelligence] = e.intelligence
+                    it[medical] = e.medical
+                    it[mre_id] = e.mreId
+                    it[extra] = e.extra
+                }
+            }
+            "$raw added)" to HttpStatusCode.Created
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
     delete {
-        val droppedIds = call.receiveText()
-        call.respondText {
-            transaction {
-                dropRecordsWithIds(droppedIds, BaseTable)
-            }.toString()
-        }
+        val (t, s) = try {
+            val droppedIds = call.receiveText()
+            transaction { dropRecordsWithIds(droppedIds, EquipmentTable) }
+            "Equipments with $droppedIds deleted)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 }

@@ -64,15 +64,11 @@ object EmployeeTable: Table("employee"), Generable {
 
 fun ResultRow.toEmployee() = Employee(this[EmployeeTable.emp_id], this[EmployeeTable.name], this[EmployeeTable.surname],
     this[EmployeeTable.date_of_birth], this[EmployeeTable.education], this[EmployeeTable.hiring_date],
-    PositionTable.select { PositionTable.pos_id eq this@toEmployee[EmployeeTable.pos_id] }.map { it.toPosition() }.first(),
-    this[EmployeeTable.is_married],
-    this[EmployeeTable.base_id]?.let {
-        BaseTable.select { BaseTable.base_id eq it }.map { it.toBase() }.first()
-    })
+    this[EmployeeTable.pos_id], this[EmployeeTable.is_married], this[EmployeeTable.base_id])
 
 data class Employee(val empId: Int?, val name: String, val surname: String, val dateOfBirth: LocalDate,
-                    val education: String?, val hiringDate: LocalDate, val position: Position, val isMarried: Boolean,
-                    val base: Base?)
+                    val education: String?, val hiringDate: LocalDate, val posId: Int, val isMarried: Boolean,
+                    val baseId: Int?)
 
 fun Route.employee() {
 
@@ -80,7 +76,7 @@ fun Route.employee() {
         val (t, s) = try {
             val raw = call.receiveText()
             transaction {
-                P.toJsonString(getRecordsWithIds(raw, EmployeeTable).map { it.toEmployee() }.toList()) to HttpStatusCode.OK
+                P.toJsonString(getRecordsWithIds(raw, EmployeeTable).map { it.toEmployee() }) to HttpStatusCode.OK
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
         call.respondText(text = t, status = s)
@@ -94,6 +90,12 @@ fun Route.employee() {
                 EmployeeTable.update({ EmployeeTable.emp_id eq id }) { e ->
                     f["name"]?.let { e[name] = it }
                     f["surname"]?.let { e[surname] = it }
+                    f["dateOfBirth"]?.let { e[date_of_birth] = LocalDate.parse(it) }
+                    f["education"]?.let { e[education] = it }
+                    f["hiringDate"]?.let { e[hiring_date] = LocalDate.parse(it) }
+                    f["posId"]?.let { e[pos_id] = it.toInt() }
+                    f["isMarried"]?.let { e[is_married] = it.toBoolean() }
+                    f["baseId"]?.let { e[base_id] = it.toInt() }
                 }
             }
             "$raw updated)" to HttpStatusCode.OK
@@ -101,14 +103,33 @@ fun Route.employee() {
         call.respondText(text = t, status = s)
     }
 
-    post {  }
+    post {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val e = P.parse<Employee>(raw)!!
+            transaction {
+                EmployeeTable.insert {
+                    it[name] = e.name
+                    it[surname] = e.surname
+                    it[date_of_birth] = e.dateOfBirth
+                    it[education] = e.education
+                    it[hiring_date] = e.hiringDate
+                    it[pos_id] = e.posId
+                    it[is_married] = e.isMarried
+                    it[base_id] = e.baseId
+                }
+            }
+            "$raw added)" to HttpStatusCode.Created
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
     delete {
-        val droppedIds = call.receiveText()
-        call.respondText {
-            transaction {
-                dropRecordsWithIds(droppedIds, EmployeeTable)
-            }.toString()
-        }
+        val (t, s) = try {
+            val droppedIds = call.receiveText()
+            transaction { dropRecordsWithIds(droppedIds, EmployeeTable) }
+            "Employee with ids $droppedIds deleted)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 }

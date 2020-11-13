@@ -1,9 +1,8 @@
 package com.testpassword.models
 
-import com.testpassword.F
-import com.testpassword.Generable
-import com.testpassword.dropRecordsWithIds
+import com.testpassword.*
 import io.ktor.application.*
+import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -50,35 +49,72 @@ object MissionTable: Table("mission"), Generable {
     }
 }
 
-fun ResultRow.toMission() = Mission(this[MissionTable.miss_id],
-    CampaignTable.select { CampaignTable.camp_id eq this@toMission[MissionTable.camp_id] }.map { it.toCampaign() }.first(),
+fun ResultRow.toMission() = Mission(this[MissionTable.miss_id], this[MissionTable.camp_id],
     this[MissionTable.start_date_and_time], this[MissionTable.end_date_and_time], this[MissionTable.legal_status],
     this[MissionTable.departure_location], this[MissionTable.arrival_location], this[MissionTable.enemies])
 
-data class Mission(val missId: Int?, val campaign: Campaign, val startDateAndTime: LocalDateTime?,
+data class Mission(val missId: Int?, val campId: Int, val startDateAndTime: LocalDateTime?,
                    val endDateAndTime: LocalDateTime?, val legalStatus: Boolean?, val departureLocation: String?,
                    val arrivalLocation: String?, val enemies: String?)
 
 fun Route.mission() {
 
     get {
-        call.respondText {
+        val (t, s) = try {
+            val raw = call.receiveText()
             transaction {
-                P.toJsonString(MissionTable.selectAll().map { it.toMission() }.toList())
+                P.toJsonString(getRecordsWithIds(raw, MissionTable).map { it.toMission() }) to HttpStatusCode.OK
             }
-        }
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 
-    put {  }
+    put {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val (id, f) = explodeJsonForModel("missId", raw)
+            transaction {
+                MissionTable.update({ MissionTable.miss_id eq id }) { m ->
+                    f["camp_id"]?.let { m[camp_id] = it.toInt() }
+                    f["start_date_and_time"]?.let { m[start_date_and_time] = LocalDateTime.parse(it) }
+                    f["end_date_and_time"]?.let { m[end_date_and_time] = LocalDateTime.parse(it) }
+                    f["legal_status"]?.let { m[legal_status] = it.toBoolean() }
+                    f["departure_location"]?.let { m[departure_location] = it }
+                    f["arrival_location"]?.let { m[arrival_location] = it }
+                    f["enemies"]?.let { m[enemies] = it }
+                }
+            }
+            "$raw updated)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
-    post {  }
+    post {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val m = P.parse<Mission>(raw)!!
+            transaction {
+                MissionTable.insert {
+                    it[camp_id] = m.campId
+                    it[start_date_and_time] = m.startDateAndTime
+                    it[end_date_and_time] = m.endDateAndTime
+                    it[legal_status] = m.legalStatus
+                    it[departure_location] = m.departureLocation
+                    it[arrival_location] = m.arrivalLocation
+                    it[enemies] = m.enemies
+                }
+            }
+            "$raw added)" to HttpStatusCode.Created
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
     delete {
-        val droppedIds = call.receiveText()
-        call.respondText {
-            transaction {
-                dropRecordsWithIds(droppedIds, MissionTable)
-            }.toString()
-        }
+        val (t, s) = try {
+            val droppedIds = call.receiveText()
+            transaction { dropRecordsWithIds(droppedIds, MissionTable) }
+            "Missions with $droppedIds deleted)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 }

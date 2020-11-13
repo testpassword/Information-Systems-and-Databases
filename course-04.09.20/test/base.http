@@ -3,15 +3,15 @@ GET http://localhost:9090/base
 Content-Type: application/json
 
 {
-  "selectedIds": ""
+  "selectedIds": []
 }
 
-### get list of bases with requested ids (use space as separator)
+### get list of bases with requested ids
 GET http://localhost:9090/base
 Content-Type: application/json
 
 {
-  "selectedIds": "3"
+  "selectedIds": [3]
 }
 
 ### fill tables with random data
@@ -29,7 +29,7 @@ PUT http://localhost:9090/base
 Content-Type: application/json
 
 {
-  "baseId": "419",
+  "baseId": 419,
   "location": "MARS"
 }
 
@@ -38,5 +38,5 @@ DELETE http://localhost:9090/base
 Content-Type: application/json
 
 {
-  "droppedIds": "414 415"
+  "droppedIds": [414, 415]
 }

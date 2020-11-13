@@ -2,14 +2,15 @@ package com.testpassword.models
 
 import com.testpassword.Generable
 import com.testpassword.dropRecordsWithIds
+import com.testpassword.explodeJsonForModel
+import com.testpassword.getRecordsWithIds
 import io.ktor.application.*
+import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
-import org.jetbrains.exposed.sql.ResultRow
-import org.jetbrains.exposed.sql.Table
-import org.jetbrains.exposed.sql.insert
-import org.jetbrains.exposed.sql.selectAll
+import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.json.JSONObject
 import java.io.File
@@ -43,28 +44,60 @@ fun ResultRow.toWeapon() = Weapon(this[WeaponTable.weapon_id], this[WeaponTable.
     this[WeaponTable.caliber]?.toDouble(), this[WeaponTable.rate_of_fire], this[WeaponTable.sighting_range_m])
 
 data class Weapon(val weaponId: Int?, val name: String, val type: String, val caliber: Double?, val rateOfFire: Int?,
-                  val sightingRange_m: Int?)
+                  val sightingRangeM: Int?)
 
 fun Route.weapon() {
 
     get {
-        call.respondText {
+        val (t, s) = try {
+            val raw = call.receiveText()
             transaction {
-                P.toJsonString(WeaponTable.selectAll().map { it.toWeapon() }.toList())
+                P.toJsonString(getRecordsWithIds(raw, WeaponTable).map { it.toWeapon() }) to HttpStatusCode.OK
             }
-        }
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 
-    put {  }
+    put {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val (id, f) = explodeJsonForModel("weaponId", raw)
+            WeaponTable.update({ WeaponTable.weapon_id eq id }) { w ->
+                f["name"]?.let { w[name] = it }
+                f["type"]?.let { w[type] = it }
+                f["caliber"]?.let { w[caliber] = it.toFloat() }
+                f["rateOfFire"]?.let { w[rate_of_fire] = it.toInt() }
+                f["sighting_rangeM"]?.let { w[sighting_range_m] = it.toInt() }
+            }
+            "$raw updated)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
-    post {  }
+    post {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val w = P.parse<Weapon>(raw)!!
+            transaction {
+                WeaponTable.insert {
+                    it[name] = w.name
+                    it[type] = w.type
+                    it[caliber] = w.caliber?.toFloat()
+                    it[rate_of_fire] = w.rateOfFire
+                    it[sighting_range_m] = w.sightingRangeM
+                }
+            }
+            "$raw added)" to HttpStatusCode.Created
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
     delete {
-        val droppedIds = call.receiveText()
-        call.respondText {
-            transaction {
-                dropRecordsWithIds(droppedIds, WeaponTable)
-            }.toString()
-        }
+        val (t, s) = try {
+            val droppedIds = call.receiveText()
+            transaction { dropRecordsWithIds(droppedIds, WeaponTable) }
+            "Weapons with ids $droppedIds deleted)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 }

@@ -7,6 +7,12 @@ import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
+import kotlinx.html.BASE
+import org.jetbrains.exposed.dao.IntEntity
+import org.jetbrains.exposed.dao.IntEntityClass
+import org.jetbrains.exposed.dao.id.EntityID
+import org.jetbrains.exposed.dao.id.IdTable
+import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
@@ -39,7 +45,7 @@ fun Route.base() {
         val (t, s) = try {
             val raw = call.receiveText()
             transaction {
-                P.toJsonString(getRecordsWithIds(raw, BaseTable).map { it.toBase() }.toList()) to HttpStatusCode.OK
+                P.toJsonString(getRecordsWithIds(raw, BaseTable).map { it.toBase() }) to HttpStatusCode.OK
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
         call.respondText(text = t, status = s)
@@ -78,9 +84,7 @@ fun Route.base() {
     delete {
         val (t, s) = try {
             val droppedIds = call.receiveText()
-            transaction {
-                dropRecordsWithIds(droppedIds, BaseTable)
-            }
+            transaction { dropRecordsWithIds(droppedIds, BaseTable) }
             "Bases with $droppedIds deleted)" to HttpStatusCode.OK
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
         call.respondText(text = t, status = s)

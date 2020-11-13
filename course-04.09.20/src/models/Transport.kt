@@ -2,14 +2,15 @@ package com.testpassword.models
 
 import com.testpassword.Generable
 import com.testpassword.dropRecordsWithIds
+import com.testpassword.explodeJsonForModel
+import com.testpassword.getRecordsWithIds
 import io.ktor.application.*
+import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
-import org.jetbrains.exposed.sql.ResultRow
-import org.jetbrains.exposed.sql.Table
-import org.jetbrains.exposed.sql.insert
-import org.jetbrains.exposed.sql.selectAll
+import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.json.JSONObject
 import java.io.File
@@ -44,23 +45,51 @@ data class Transport(val transId: Int?, val name: String, val type: String, val 
 fun Route.transport() {
 
     get {
-        call.respondText {
+        val (t, s) = try {
+            val raw = call.receiveText()
             transaction {
-                P.toJsonString(TransportTable.selectAll().map { it.toTransport() }.toList())
+                P.toJsonString(getRecordsWithIds(raw, TransportTable).map { it.toTransport() }) to HttpStatusCode.OK
             }
-        }
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 
-    put {  }
+    put {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val (id, f) = explodeJsonForModel("transId", raw)
+            TransportTable.update({ TransportTable.trans_id eq id }) { t ->
+                f["name"]?.let { t[name] = it }
+                f["type"]?.let { t[type] = it }
+                f["status"]?.let { t[status] = it }
+            }
+            "$raw updated)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
-    post {  }
+    post {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val t = P.parse<Transport>(raw)!!
+            transaction {
+                TransportTable.insert {
+                    it[name] = t.name
+                    it[type] = t.type
+                    it[status] = t.status
+                }
+            }
+            "$raw added)" to HttpStatusCode.Created
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
     delete {
-        val droppedIds = call.receiveText()
-        call.respondText {
-            transaction {
-                dropRecordsWithIds(droppedIds, TransportTable)
-            }.toString()
-        }
+        val (t, s) = try {
+            val droppedIds = call.receiveText()
+            transaction { dropRecordsWithIds(droppedIds, TransportTable) }
+            "Transports with ids $droppedIds deleted)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 }

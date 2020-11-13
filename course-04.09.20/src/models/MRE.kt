@@ -1,16 +1,13 @@
 package com.testpassword.models
 
-import com.testpassword.F
-import com.testpassword.Generable
-import com.testpassword.dropRecordsWithIds
+import com.testpassword.*
 import io.ktor.application.*
+import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
-import org.jetbrains.exposed.sql.ResultRow
-import org.jetbrains.exposed.sql.Table
-import org.jetbrains.exposed.sql.insert
-import org.jetbrains.exposed.sql.selectAll
+import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 
 object MRETable: Table("mre"), Generable {
@@ -51,23 +48,63 @@ data class MRE(val mreId: Int?, val breakfast: String, val lunch: String, val di
 fun Route.mre() {
 
     get {
-        call.respondText {
+        val (t, s) = try {
+            val raw = call.receiveText()
             transaction {
-                P.toJsonString(MRETable.selectAll().map { it.toMRE() }.toList())
+                P.toJsonString(getRecordsWithIds(raw, MRETable).map { it.toMRE() }) to HttpStatusCode.OK
             }
-        }
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 
-    put {  }
+    put {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val (id, f) = explodeJsonForModel("missId", raw)
+            transaction {
+                MRETable.update({ MRETable.mre_id eq id }) { m ->
+                    f["breakfast"]?.let { m[breakfast] = it }
+                    f["lunch"]?.let { m[lunch] = it }
+                    f["dinner"]?.let { m[dinner] = it }
+                    f["foodAdditives"]?.let { m[food_additives] = it }
+                    f["kkal"]?.let { m[kkal] = it.toInt() }
+                    f["proteins"]?.let { m[proteins] = it.toInt() }
+                    f["fats"]?.let { m[fats] = it.toInt() }
+                    f["carbohydrate"]?.let { m[carbohydrate] = it.toInt() }
+                }
+            }
+            "$raw updated)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
-    post {  }
+    post {
+        val (t, s) = try {
+            val raw = call.receiveText()
+            val m = P.parse<MRE>(raw)!!
+            transaction {
+                MRETable.insert {
+                    it[breakfast] = m.breakfast
+                    it[lunch] = m.lunch
+                    it[dinner] = m.dinner
+                    it[food_additives] = m.foodAdditives
+                    it[kkal] = m.kkal
+                    it[proteins] = m.proteins
+                    it[fats] = m.fats
+                    it[carbohydrate] = m.carbohydrate
+                }
+            }
+            "$raw added)" to HttpStatusCode.Created
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
+    }
 
     delete {
-        val droppedIds = call.receiveText()
-        call.respondText {
-            transaction {
-                dropRecordsWithIds(droppedIds, MRETable)
-            }.toString()
-        }
+        val (t, s) = try {
+            val droppedIds = call.receiveText()
+            transaction { dropRecordsWithIds(droppedIds, MRETable) }
+            "MREs with $droppedIds deleted)" to HttpStatusCode.OK
+        } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
+        call.respondText(text = t, status = s)
     }
 }
