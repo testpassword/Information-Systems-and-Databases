@@ -1,0 +1,1 @@
+[{"campId" : 3, "customer" : "Tillie Cole DDS", "earning" : 2.773845467E7, "executionStatus" : "completed", "name" : "Epimetheus", "spending" : 3058772.63}]

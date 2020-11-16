@@ -1,0 +1,8 @@
+{
+  "campId": null,
+  "name": "ANARCHY",
+  "customer": "JOKER",
+  "earning": 10000000,
+  "spending": 320000,
+  "executionStatus": "TESTING-POST"
+} added)

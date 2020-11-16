@@ -1,0 +1,506 @@
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": []
+}
+
+<> 2020-11-13T113905.200.txt
+
+###
+
+GET http://localhost:9090/campaign
+Content-Type: application/json
+
+{
+  "selectedIds": []
+}
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": []
+}
+
+<> 2020-11-13T042219.200.txt
+
+###
+
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "droppedIds": [414, 415]
+}
+
+<> 2020-11-13T041734.200.txt
+
+###
+
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "droppedIds": [414, 415]
+}
+
+<> 2020-11-13T041419.400.txt
+
+###
+
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "droppedIds": [414, 415]
+}
+
+<> 2020-11-13T041123.400.txt
+
+###
+
+PUT http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "baseId": 419,
+  "location": "MARS"
+}
+
+<> 2020-11-13T040809.200.txt
+
+###
+
+PUT http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "baseId": 419,
+  "location": "MARS"
+}
+
+<> 2020-11-13T040806.200.txt
+
+###
+
+PUT http://localhost:9090/campaign
+Content-Type: application/json
+
+{
+  "campId": 6,
+  "executionStatus": "TESTING-GET"
+}
+
+<> 2020-11-13T040202.400.txt
+
+###
+
+POST http://localhost:9090/campaign
+Content-Type: application/json
+
+{
+  "campId": null,
+  "name": "ANARCHY",
+  "customer": "JOKER",
+  "earning": 10000000,
+  "spending": 320000,
+  "executionStatus": "TESTING-POST"
+}
+
+<> 2020-11-13T040153.201.txt
+
+###
+
+POST http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "baseId" : null,
+  "location" : "LUNA",
+  "status" : "TEST-BASE"
+}
+
+<> 2020-11-13T040145.201.txt
+
+###
+
+PUT http://localhost:9090/campaign
+Content-Type: application/json
+
+{
+  "campId": 6,
+  "executionStatus": "TESTING-GET"
+}
+
+<> 2020-11-13T040117.400.txt
+
+###
+
+POST http://localhost:9090/campaign
+Content-Type: application/json
+
+{
+  "campId": null,
+  "name": "ANARCHY",
+  "customer": "JOKER",
+  "earning": 10000000,
+  "spending": 320000,
+  "executionStatus": "TESTING-POST"
+}
+
+<> 2020-11-13T040109.201.txt
+
+###
+
+GET http://localhost:9090/campaign
+Content-Type: application/json
+
+{
+  "selectedIds": "3"
+}
+
+<> 2020-11-13T040101.200.txt
+
+###
+
+GET http://localhost:9090/campaign
+Content-Type: application/json
+
+{
+  "selectedIds": ""
+}
+
+<> 2020-11-13T040057.200.txt
+
+###
+
+DELETE http://localhost:9090/campaign
+Content-Type: application/json
+
+{
+  "selectedIds": "2"
+}
+
+<> 2020-11-13T033657.400.txt
+
+###
+
+POST http://localhost:9090/campaign
+Content-Type: application/json
+
+{
+  "campId": null,
+  "name": "ANARCHY",
+  "customer": "JOKER",
+  "earning": 10000000,
+  "spending": 320000,
+  "executionStatus": "TESTING"
+}
+
+<> 2020-11-13T033631.201.txt
+
+###
+
+POST http://localhost:9090/campaign
+Content-Type: application/json
+
+{
+  "campId": null,
+  "name": "ANARCHY",
+  "customer": "JOKER",
+  "earning": 10000000,
+  "spending": 320000,
+  "executionStatus": "TESTING"
+}
+
+<> 2020-11-13T033255.400.txt
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": ""
+}
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": ""
+}
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": ""
+}
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": ""
+}
+
+<> 2020-11-13T015747.200.txt
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": ""
+}
+
+<> 2020-11-13T015607.200.txt
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": ""
+}
+
+<> 2020-11-13T015356.400.txt
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": ""
+}
+
+<> 2020-11-13T015246.400.txt
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": ""
+}
+
+<> 2020-11-13T015116.400.txt
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": ""
+}
+
+<> 2020-11-13T014912.200.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-11-13T014140.200.txt
+
+###
+
+POST http://localhost:9090/random
+
+###
+
+POST http://localhost:9090/random
+
+###
+
+POST http://localhost:9090/random
+
+###
+
+POST http://localhost:9090/random
+
+###
+
+POST http://localhost:9090/random
+
+###
+
+POST http://localhost:9090/random
+
+###
+
+POST http://localhost:9090/random
+
+###
+
+POST http://localhost:9090/random
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": "3"
+}
+
+<> 2020-11-13T120630.200.txt
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": ""
+}
+
+<> 2020-11-13T120625.200.txt
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "selectedIds": ""
+}
+
+<> 2020-11-12T115713.400.txt
+
+###
+
+POST http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "baseId" : "dsf",
+  "location" : "LUNA",
+  "status" : "TEST-BASE"
+}
+
+<> 2020-11-12T010111.200.txt
+
+###
+
+POST http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "baseId" : null,
+  "location" : "LUNA",
+  "status" : "TEST-BASE"
+}
+
+<> 2020-11-12T125854.200.txt
+
+###
+
+POST http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "baseId" : null,
+  "location" : "LUNA",
+  "status" : "TEST-BASE"
+}
+
+<> 2020-11-12T124912.200.txt
+
+###
+
+POST http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "baseId" : null,
+  "location" : "LUNA",
+  "status" : "TEST-BASE"
+}
+
+<> 2020-11-12T124828.200.txt
+
+###
+
+POST http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "baseId" : null,
+  "location" : "LUNA",
+  "status" : "TEST-BASE"
+}
+
+###
+
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "droppedIds": "414 415"
+}
+
+<> 2020-11-10T034053.200.txt
+
+###
+
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "droppedIds": "413"
+}
+
+<> 2020-11-10T034019.200.txt
+
+###
+
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "baseId": 412
+}
+
+<> 2020-11-10T025620.200.txt
+
+###
+
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "baseId": 412
+}
+
+###
+
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "baseId": 412
+}
+
+###
+
+GET http://localhost:9090/base
+
+<> 2020-11-10T025106.200.txt
+
+###
+
