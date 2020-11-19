@@ -51,9 +51,10 @@ fun Route.position() {
 
     get {
         val (t, s) = try {
-            val raw = call.receiveText()
-            transaction {
-                P.toJsonString(getRecordsWithIds(raw, PositionTable).map { it.toPosition() }) to HttpStatusCode.OK
+            call.parameters["ids"]!!.let {
+                transaction {
+                    P.toJsonString(getRecordsWithIds(it, PositionTable).map { it.toPosition() }) to HttpStatusCode.OK
+                }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
         call.respondText(text = t, status = s)

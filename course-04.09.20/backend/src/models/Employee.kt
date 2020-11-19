@@ -74,9 +74,10 @@ fun Route.employee() {
 
     get {
         val (t, s) = try {
-            val raw = call.receiveText()
-            transaction {
-                P.toJsonString(getRecordsWithIds(raw, EmployeeTable).map { it.toEmployee() }) to HttpStatusCode.OK
+            call.parameters["ids"]!!.let {
+                transaction {
+                    P.toJsonString(getRecordsWithIds(it, EmployeeTable).map { it.toEmployee() }) to HttpStatusCode.OK
+                }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
         call.respondText(text = t, status = s)

@@ -1,5 +1,6 @@
 package com.testpassword
 
+import com.testpassword.models.Generable
 import org.jetbrains.exposed.sql.*
 import org.json.JSONObject
 

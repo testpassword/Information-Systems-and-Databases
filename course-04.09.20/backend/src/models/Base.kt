@@ -37,9 +37,10 @@ fun Route.base() {
 
     get {
         val (t, s) = try {
-            val raw = call.receiveText()
-            transaction {
-                P.toJsonString(getRecordsWithIds(raw, BaseTable).map { it.toBase() }) to HttpStatusCode.OK
+            call.parameters["ids"]!!.let {
+                transaction {
+                    P.toJsonString(getRecordsWithIds(it, BaseTable).map { it.toBase() }) to HttpStatusCode.OK
+                }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
         call.respondText(text = t, status = s)

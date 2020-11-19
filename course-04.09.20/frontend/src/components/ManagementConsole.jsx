@@ -1,53 +1,105 @@
-import React from 'react';
-import 'antd/dist/antd.css';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import React from "react"
+import { Layout, Menu, Modal, Button } from "antd"
+import Credits from "./Credits"
+import { CalendarOutlined, TeamOutlined, CarOutlined,
+    HomeOutlined, GlobalOutlined, MedicineBoxOutlined,
+    ShoppingOutlined, MoneyCollectOutlined, CoffeeOutlined,
+    DeleteOutlined, PlusOutlined } from "@ant-design/icons"
+import BaseTable from "./models/BaseTable"
+import WeaponTable from "./models/WeaponTable"
 
 class ManagementConsole extends React.Component {
 
     state = {
         menuIsCollapsed: false,
-        modalIsVisible: false
-    };
+        entityTable: <BaseTable/>
+    }
 
-    onCollapse = menuIsCollapsed => { this.setState({ menuIsCollapsed }) };
-    //TODO: модальное окно и его статус
+    onCollapse = menuIsCollapsed => { this.setState({ menuIsCollapsed }) }
+    loadEntityTable = entityTable => { this.setState({entityTable}) }
+
+    info() {
+        Modal.info({
+            title: "Credits",
+            content: <Credits/>
+        })
+    }
 
     render() {
         const { menuIsCollapsed } = this.state;
-        const { Header, Content, Footer, Sider } = Layout;
+        const { Content, Footer, Sider, Header } = Layout;
         return (
-            <Layout style={{ minHeight: '100vh' }}>
+            <Layout style={{ minHeight: '100vh' }} theme="dark">
                 <Sider collapsible collapsed={menuIsCollapsed} onCollapse={this.onCollapse}>
-                    <div className="logo" />
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                        <Menu.Item key="1">Bases</Menu.Item>
-                        <Menu.Item key="2">Campaigns</Menu.Item>
-                        <Menu.Item key="3">Employees</Menu.Item>
-                        <Menu.Item key="4">Equipments</Menu.Item>
-                        <Menu.Item key="5">Medical Cards</Menu.Item>
-                        <Menu.Item key="6">Missions</Menu.Item>
-                        <Menu.Item key="8">MREs</Menu.Item>
-                        <Menu.Item key="9">Positions</Menu.Item>
-                        <Menu.Item key="10">Transports</Menu.Item>
-                        <Menu.Item key="11">Weapons</Menu.Item>
+                        <Menu.Item
+                            icon={<HomeOutlined/>}
+                            onClick={this.loadEntityTable.bind(this, <BaseTable/>)}>
+                            Bases
+                        </Menu.Item>
+                        <Menu.Item
+                            icon={<GlobalOutlined/>}
+                            onClick={this.loadEntityTable.bind(this, <WeaponTable/>)}>
+                            Campaigns
+                        </Menu.Item>
+                        <Menu.Item
+                            icon={<TeamOutlined/>}>
+                            Employees
+                        </Menu.Item>
+                        <Menu.Item
+                            icon={<ShoppingOutlined/>}>
+                            Equipments
+                        </Menu.Item>
+                        <Menu.Item
+                            icon={<MedicineBoxOutlined/>}>
+                            Medical Cards
+                        </Menu.Item>
+                        <Menu.Item
+                            icon={<CalendarOutlined/>}>
+                            Missions
+                        </Menu.Item>
+                        <Menu.Item
+                            icon={<CoffeeOutlined/>}>
+                            MREs
+                        </Menu.Item>
+                        <Menu.Item
+                            icon={<MoneyCollectOutlined/>}>
+                            Positions
+                        </Menu.Item>
+                        <Menu.Item
+                            icon={<CarOutlined/>}>
+                            Transports
+                        </Menu.Item>
+                        <Menu.Item>
+                            Weapons
+                        </Menu.Item>
                     </Menu>
                 </Sider>
                 <Layout className="site-layout">
-                    <Header className="site-layout-background" style={{ padding: 0 }}/>
-                    <Content style={{ margin: '0 16px' }}>
-                        <Breadcrumb style={{ margin: '16px 0' }}>
-                            <Breadcrumb.Item>User</Breadcrumb.Item>
-                            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                        </Breadcrumb>
+                    <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+                        {/*Сюда PageHEADER и кнопки
+                        TODO: убрать выделение меню-итемов*/}
+                        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+                            <Menu.Item key="1" icon={<PlusOutlined/>}>
+                                Add record
+                            </Menu.Item>
+                            <Menu.Item key="2" icon={<DeleteOutlined/>}>
+                                Delete
+                            </Menu.Item>
+                        </Menu>
+                    </Header>
+                    <Content style={{ margin: "40px 0px" }}>
                         <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                            Bill is a cat.
+                            {this.state.entityTable}
                         </div>
                     </Content>
-                    <Footer style={{ textAlign: 'center' }}>Kulbako Artemy ©2020</Footer>
+                    <Footer style={{ textAlign: "center"}}>
+                        <a onClick={ this.info }>Kulbako Artemy ©2020</a>
+                    </Footer>
                 </Layout>
             </Layout>
-        );
+        )
     }
 }
 
-export default ManagementConsole;
+export default ManagementConsole

@@ -1,1 +1,0 @@
-Unknown error: com.beust.klaxon.KlaxonException: Unable to instantiate Base with parameters [baseId: dsf, location: LUNA, status: TEST-BASE]

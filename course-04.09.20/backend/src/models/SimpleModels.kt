@@ -1,7 +1,6 @@
-package com.testpassword
+package com.testpassword.models
 
 import com.github.javafaker.Faker
-import com.testpassword.models.*
 import io.ktor.util.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.`java-time`.CurrentDateTime

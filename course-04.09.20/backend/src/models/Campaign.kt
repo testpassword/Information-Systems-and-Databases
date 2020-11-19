@@ -8,7 +8,6 @@ import io.ktor.response.*
 import io.ktor.routing.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
-import java.math.BigDecimal
 import kotlin.random.Random
 
 object CampaignTable: Table("campaign"), Generable {
@@ -44,9 +43,10 @@ fun Route.campaign() {
 
     get {
         val (t, s) = try {
-            val raw = call.receiveText()
-            transaction {
-                P.toJsonString(getRecordsWithIds(raw, CampaignTable).map { it.toCampaign() }) to HttpStatusCode.OK
+            call.parameters["ids"]!!.let {
+                transaction {
+                    P.toJsonString(getRecordsWithIds(it, CampaignTable).map { it.toCampaign() }) to HttpStatusCode.OK
+                }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
         call.respondText(text = t, status = s)

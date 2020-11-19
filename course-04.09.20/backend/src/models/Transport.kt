@@ -1,6 +1,5 @@
 package com.testpassword.models
 
-import com.testpassword.Generable
 import com.testpassword.dropRecordsWithIds
 import com.testpassword.explodeJsonForModel
 import com.testpassword.getRecordsWithIds
@@ -10,7 +9,6 @@ import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.json.JSONObject
 import java.io.File
@@ -46,9 +44,10 @@ fun Route.transport() {
 
     get {
         val (t, s) = try {
-            val raw = call.receiveText()
-            transaction {
-                P.toJsonString(getRecordsWithIds(raw, TransportTable).map { it.toTransport() }) to HttpStatusCode.OK
+            call.parameters["ids"]!!.let {
+                transaction {
+                    P.toJsonString(getRecordsWithIds(it, TransportTable).map { it.toTransport() }) to HttpStatusCode.OK
+                }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
         call.respondText(text = t, status = s)

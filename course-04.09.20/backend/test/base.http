@@ -1,18 +1,8 @@
 ### get list with all bases
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": []
-}
+GET http://localhost:9090/base?ids={ "selectedIds": [] }
 
 ### get list of bases with requested ids
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": [3]
-}
+GET http://localhost:9090/base?ids={ "selectedIds": [3] }
 
 ### fill tables with random data
 POST http://localhost:9090/base

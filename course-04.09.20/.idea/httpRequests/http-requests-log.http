@@ -1,3 +1,65 @@
+GET http://localhost:9090/base?bases={ "selectedIds": [3] }
+
+<> 2020-11-19T051155.200.txt
+
+###
+
+GET http://localhost:9090/base?bases={ "selectedIds": [] }
+
+<> 2020-11-19T051133.200.txt
+
+###
+
+GET http://localhost:9090/base/
+
+###
+
+GET http://localhost:9090/base?bases=1
+
+###
+
+GET http://localhost:9090/base?bases={ "selectedIds": [3] }
+
+###
+
+GET http://localhost:9090/base?bases={ "selectedIds": [3] }
+
+###
+
+GET http://localhost:9090/base?bases={ "selectedIds": [3] }
+
+###
+
+GET http://localhost:9090/base?bases={ "selectedIds": [] }
+
+###
+
+GET http://localhost:9090/base?bases={ "selectedIds": [] }
+
+###
+
+GET http://localhost:9090/base?bases={ "selectedIds": [] }
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{ "selectedIds": [3] }
+
+<> 2020-11-19T044058.200.txt
+
+###
+
+GET http://localhost:9090/base
+Content-Type: application/json
+
+{ "selectedIds": [] }
+
+<> 2020-11-19T044054.200.txt
+
+###
+
 GET http://localhost:9090/base
 Content-Type: application/json
 
@@ -370,137 +432,6 @@ Content-Type: application/json
 }
 
 <> 2020-11-13T120625.200.txt
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": ""
-}
-
-<> 2020-11-12T115713.400.txt
-
-###
-
-POST http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "baseId" : "dsf",
-  "location" : "LUNA",
-  "status" : "TEST-BASE"
-}
-
-<> 2020-11-12T010111.200.txt
-
-###
-
-POST http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "baseId" : null,
-  "location" : "LUNA",
-  "status" : "TEST-BASE"
-}
-
-<> 2020-11-12T125854.200.txt
-
-###
-
-POST http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "baseId" : null,
-  "location" : "LUNA",
-  "status" : "TEST-BASE"
-}
-
-<> 2020-11-12T124912.200.txt
-
-###
-
-POST http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "baseId" : null,
-  "location" : "LUNA",
-  "status" : "TEST-BASE"
-}
-
-<> 2020-11-12T124828.200.txt
-
-###
-
-POST http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "baseId" : null,
-  "location" : "LUNA",
-  "status" : "TEST-BASE"
-}
-
-###
-
-DELETE http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "droppedIds": "414 415"
-}
-
-<> 2020-11-10T034053.200.txt
-
-###
-
-DELETE http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "droppedIds": "413"
-}
-
-<> 2020-11-10T034019.200.txt
-
-###
-
-DELETE http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "baseId": 412
-}
-
-<> 2020-11-10T025620.200.txt
-
-###
-
-DELETE http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "baseId": 412
-}
-
-###
-
-DELETE http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "baseId": 412
-}
-
-###
-
-GET http://localhost:9090/base
-
-<> 2020-11-10T025106.200.txt
 
 ###
 
