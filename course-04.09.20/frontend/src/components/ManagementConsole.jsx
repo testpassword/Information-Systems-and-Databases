@@ -1,21 +1,22 @@
 import React from "react"
-import { Layout, Menu, Modal, Button } from "antd"
+import { Layout, Menu, Modal, Button, Space } from "antd"
 import Credits from "./Credits"
 import { CalendarOutlined, TeamOutlined, CarOutlined,
     HomeOutlined, GlobalOutlined, MedicineBoxOutlined,
     ShoppingOutlined, MoneyCollectOutlined, CoffeeOutlined,
     DeleteOutlined, PlusOutlined } from "@ant-design/icons"
-import BaseTable from "./models/BaseTable"
-import WeaponTable from "./models/WeaponTable"
+import EntityTable from "./EntityTable"
+import Base from "./models/models.js"
 
 class ManagementConsole extends React.Component {
 
     state = {
         menuIsCollapsed: false,
-        entityTable: <BaseTable/>
+        entityTable: <EntityTable/>
     }
 
     onCollapse = menuIsCollapsed => { this.setState({ menuIsCollapsed }) }
+
     loadEntityTable = entityTable => { this.setState({entityTable}) }
 
     info() {
@@ -34,12 +35,11 @@ class ManagementConsole extends React.Component {
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                         <Menu.Item
                             icon={<HomeOutlined/>}
-                            onClick={this.loadEntityTable.bind(this, <BaseTable/>)}>
+                            onClick={this.loadEntityTable.bind(this, <EntityTable/>)}>
                             Bases
                         </Menu.Item>
                         <Menu.Item
-                            icon={<GlobalOutlined/>}
-                            onClick={this.loadEntityTable.bind(this, <WeaponTable/>)}>
+                            icon={<GlobalOutlined/>}>
                             Campaigns
                         </Menu.Item>
                         <Menu.Item
@@ -77,19 +77,22 @@ class ManagementConsole extends React.Component {
                 </Sider>
                 <Layout className="site-layout">
                     <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-                        {/*Сюда PageHEADER и кнопки
-                        TODO: убрать выделение меню-итемов*/}
-                        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-                            <Menu.Item key="1" icon={<PlusOutlined/>}>
+                        <Space size={"middle"}>
+                            <Button
+                                icon={<PlusOutlined/>}
+                                ghost={true}>
                                 Add record
-                            </Menu.Item>
-                            <Menu.Item key="2" icon={<DeleteOutlined/>}>
-                                Delete
-                            </Menu.Item>
-                        </Menu>
+                            </Button>
+                            <Button
+                                icon={<DeleteOutlined/>}
+                                ghost={true}
+                                danger>
+                                Remove
+                            </Button>
+                        </Space>
                     </Header>
-                    <Content style={{ margin: "40px 0px" }}>
-                        <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+                    <Content style={{ marginTop: "64px" }}>
+                        <div className="site-layout-background" style={{ minHeight: 360 }}>
                             {this.state.entityTable}
                         </div>
                     </Content>

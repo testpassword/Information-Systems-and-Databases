@@ -23,48 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea524d9-c1b1-4bc9-9f9b-e5b60e2fadf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Credits.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/models/BaseTable.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/models/models.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-10T025106.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-10T025620.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-10T034019.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-10T034053.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-12T010111.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-12T115713.400.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-12T124828.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-12T124912.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-12T125854.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Application.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/SimpleModels.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/SimpleModels.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Utils.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/models/Base.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Base.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Campaign.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Campaign.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Employee.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Employee.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Equipment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Equipment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/MRE.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/MRE.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/MedicalCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/MedicalCard.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Mission.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Mission.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Position.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Position.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Transport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Transport.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Weapon.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Weapon.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/RandomRoute.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/RandomRoute.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/test/base.http" beforeDir="false" afterPath="$PROJECT_DIR$/backend/test/base.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/test/campaign.http" beforeDir="false" afterPath="$PROJECT_DIR$/backend/test/campaign.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InfoModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/models/WeaponTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/инф_сис_и_бд_кур_отчёт.docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/инф_сис_и_бд_кур_отчёт.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Credits.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Credits.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/ManagementConsole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ManagementConsole.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/models/BaseTable.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/models/WeaponTable.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/resources/logo.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,15 +156,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\resources" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\components" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\public" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\backend\src\models" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\components\models" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\resources\logos" />
-      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\components" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\resources" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -972,10 +941,10 @@
     <list>
       <item itemvalue="Gradle.course-04.09.20 [run]" />
       <item itemvalue="HTTP Request.base#1" />
+      <item itemvalue="HTTP Request.base#2" />
       <item itemvalue="JavaScript Debug.Debug Application" />
       <item itemvalue="npm.build" />
       <item itemvalue="npm.start" />
-      <item itemvalue="HTTP Request.base#2" />
     </list>
     <recent_temporary>
       <list>
@@ -1037,6 +1006,10 @@
       <workItem from="1605729885641" duration="8690000" />
       <workItem from="1605775534736" duration="6313000" />
       <workItem from="1605782985306" duration="26127000" />
+      <workItem from="1605861976313" duration="54000" />
+      <workItem from="1605973880225" duration="132000" />
+      <workItem from="1606035433723" duration="12746000" />
+      <workItem from="1606069779646" duration="11044000" />
     </task>
     <servers />
   </component>
@@ -1084,40 +1057,41 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="552" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1604229369819" />
-    <state x="352" y="-921" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605733909153">
-      <screen x="-313" y="-1080" width="2048" height="824" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606080634912">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="352" y="-921" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605733909153" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606080634912" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1605561158700" />
-    <state x="518" y="122" key="FileChooserDialogImpl" timestamp="1605544041535">
+    <state x="518" y="122" key="FileChooserDialogImpl" timestamp="1606038192614">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="518" y="122" key="FileChooserDialogImpl/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605544041535" />
-    <state x="518" y="122" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605299404341" />
-    <state width="1493" height="188" key="GridCell.Tab.0.bottom" timestamp="1605822443626">
+    <state x="518" y="122" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606038192614" />
+    <state width="1493" height="188" key="GridCell.Tab.0.bottom" timestamp="1606080698301">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="2004" height="259" key="GridCell.Tab.0.bottom/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605739026929" />
-    <state width="1493" height="188" key="GridCell.Tab.0.bottom/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605822443626" />
-    <state width="1493" height="231" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605783499802" />
-    <state width="1493" height="188" key="GridCell.Tab.0.center" timestamp="1605822443625">
+    <state width="1493" height="188" key="GridCell.Tab.0.bottom/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606080698301" />
+    <state width="1493" height="188" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606063721090" />
+    <state width="1493" height="188" key="GridCell.Tab.0.center" timestamp="1606080698301">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="2004" height="259" key="GridCell.Tab.0.center/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605739026929" />
-    <state width="1493" height="188" key="GridCell.Tab.0.center/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605822443625" />
-    <state width="1493" height="231" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605783499801" />
-    <state width="1493" height="188" key="GridCell.Tab.0.left" timestamp="1605822443625">
+    <state width="1493" height="188" key="GridCell.Tab.0.center/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606080698301" />
+    <state width="1493" height="188" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606063721090" />
+    <state width="1493" height="188" key="GridCell.Tab.0.left" timestamp="1606080698301">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="2004" height="259" key="GridCell.Tab.0.left/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605739026929" />
-    <state width="1493" height="188" key="GridCell.Tab.0.left/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605822443625" />
-    <state width="1493" height="231" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605783499801" />
-    <state width="1493" height="188" key="GridCell.Tab.0.right" timestamp="1605822443626">
+    <state width="1493" height="188" key="GridCell.Tab.0.left/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606080698301" />
+    <state width="1493" height="188" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606063721090" />
+    <state width="1493" height="188" key="GridCell.Tab.0.right" timestamp="1606080698301">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="2004" height="259" key="GridCell.Tab.0.right/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605739026929" />
-    <state width="1493" height="188" key="GridCell.Tab.0.right/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605822443626" />
-    <state width="1493" height="231" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605783499801" />
+    <state width="1493" height="188" key="GridCell.Tab.0.right/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606080698301" />
+    <state width="1493" height="188" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606063721090" />
     <state width="1493" height="253" key="GridCell.Tab.1.bottom" timestamp="1605274179525">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1162,10 +1136,10 @@
     <state x="610" y="-760" width="307" height="415" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605220853524" />
     <state x="692" y="320" width="307" height="391" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1604654407821" />
     <state x="692" y="0" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824@0.0.1536.824" timestamp="1604611058379" />
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605818912778">
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606080485149">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605818912778" />
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606080485149" />
     <state x="480" y="100" width="576" height="624" key="find.popup" timestamp="1603902630309">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1181,12 +1155,12 @@
     </state>
     <state x="409" y="14" key="new project wizard/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605547212554" />
     <state x="409" y="14" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1605300074703" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1605816214224">
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1606072440244">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="254" y="-893" width="896" height="677" key="run.anything.popup/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605218775711" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605816214224" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1605558708029" />
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606072440244" />
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606056305258" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605792640051">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

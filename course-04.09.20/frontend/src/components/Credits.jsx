@@ -16,7 +16,7 @@ class Credits extends React.Component {
                             width={63}
                             preview={false}/>
                     </Col>
-                    <Col span={12}><a href="https://github.com/testpassword">testpassword</a></Col>
+                    <Col span={12}><a href="https://se.ifmo.ru/~s265570/cv/">testpassword</a></Col>
                 </Row>
                 <Divider orientation="center">Libraries:</Divider>
                 <Row gutter={[0, 10]}>
@@ -45,14 +45,22 @@ class Credits extends React.Component {
                     </Col>
                     <Col span={12}><a href="https://ru.reactjs.org/">React</a></Col>
                 </Row>
+                <Row gutter={[0, 10]}>
+                    <Col span={12}>
+                        <Image src={ExposedLogo}
+                               width={63}
+                               preview={false}/>
+                    </Col>
+                    <Col span={12}><a href="https://github.com/JetBrains/Exposed">Exposed</a></Col>
+                </Row>
                  <Row gutter={[0, 10]}>
                     <Col span={12}>
                         <Image
-                            src={ExposedLogo}
+                            src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg"
                             width={63}
                             preview={false}/>
                     </Col>
-                    <Col span={12}><a href="https://github.com/JetBrains/Exposed">Exposed</a></Col>
+                    <Col span={12}><a href="https://www.postgresql.org/">PostgreSQL</a></Col>
                 </Row>
             </div>
         )

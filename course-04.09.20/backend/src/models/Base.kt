@@ -19,7 +19,7 @@ object BaseTable: Table("base"), Generable {
     val status = text("status")
 
     override fun generateAndInsert(n: Int) {
-        val statuses = setOf("working", "closed", "destroyed", "abandoned", "unknown", "captured", "for_sale")
+        val statuses = setOf("working", "closed", "destroyed", "abandoned", "captured", "for_sale")
         (1..n).forEach {
             BaseTable.insert {
                 it[location] = F.address().city()
