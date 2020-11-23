@@ -121,21 +121,22 @@ class EntityTable extends React.Component {
     onSelectChange = selectedRowKeys => this.setState({selectedRowKeys})
 
     handleSave = (modified_record) => {
-        const bases = this.state.bases
-        const orig_record = bases.find((it) => modified_record.baseId === it.baseId)
-        Object.keys(orig_record).forEach((key, i) => {
+        const p = this.props.presenter
+        const items = this.state.items
+        const orig_record = items.find((it) => modified_record.baseId === it.baseId)
+        Object.keys(orig_record).forEach(key => {
             if (orig_record[key] !== modified_record[key]) {
                 const req = {
                     method: "PUT",
                     mode: "cors",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
-                        baseId: modified_record.baseId,
+                        [p.idField]: modified_record[p.idField],
                         [key]: modified_record[key]
                         })
                 }
                 this.setState({ isLoading: true })
-                fetch(this.state.TEMPLATE_URL, req).then(res => res.text()).then(
+                fetch(p.url, req).then(res => res.text()).then(
                     data => {
                         this.setState({ isLoading: false })
                         console.log(data)
@@ -145,7 +146,7 @@ class EntityTable extends React.Component {
                             marginTop: "20vh"
                         })
                         orig_record[key] = modified_record[key]
-                        this.setState({ bases: bases })
+                        this.setState({ items: items })
                     },
                     error => {
                         this.setState({
@@ -163,52 +164,29 @@ class EntityTable extends React.Component {
     }
 
     state = {
-        TEMPLATE_URL: "http://localhost:9090/base",
-        COLUMNS: [
-            {
-                title: "LOCATION",
-                dataIndex: "location",
-                sorter: (a, b) => a.location.localeCompare(b.location),
+        error: null,
+        isLoading: true,
+        items: [],
+        searchText: "",
+        searchedColumn: "",
+        selectedRowKeys: [],
+        columns: []
+    }
+
+    createColumnsFromObject(object) {
+        const cols = Object.keys(object).map(key => {
+            const strKey = key.toString()
+            return {
+                title: strKey.toUpperCase(),
+                dataIndex: strKey,
                 defaultSortOrder: "ascend",
                 sortDirections: ["ascend", "descend"],
                 editable: true,
-                ...this.getColumnSearchProps("location")
-            },
-            {
-                title: "STATUS",
-                dataIndex: "status",
-                defaultSortOrder: "ascend",
-                sorter: (a, b) => a.location.localeCompare(b.location),
-                sortDirections: ["ascend", "descend"],
-                ...this.getColumnSearchProps("status"),
-                render: it => {
-                    let color
-                    switch (it) {
-                        case "working":
-                        case "for_sale":
-                            color = "green"
-                            break
-                        case "closed":
-                        case "abandoned":
-                            color = "geekblue"
-                            break
-                        case "captured":
-                        case "destroyed":
-                            color = "volcano"
-                            break
-                        default:
-                            color = 'gray'
-                    }
-                    return <Tag color={color} key={it}>{it.toUpperCase()}</Tag>
-                }
+                sorter: (a, b) => a[key].localeCompare(b[key]),
+                ...this.getColumnSearchProps(strKey)
             }
-        ],
-        error: null,
-        isLoading: true,
-        bases: [],
-        searchText: "",
-        searchedColumn: "",
-        selectedRowKeys: []
+        })
+        this.setState({ columns: cols })
     }
 
     getData() {
@@ -217,7 +195,7 @@ class EntityTable extends React.Component {
         На этапе создания фронтенда я вспомнил, что по спецификации HTTP передавать тело с GET не рекомендуется, а fetch()
         и вовсе это запрещает. Т.к. кардинально менять api бэка не хотелось, решил костыльно передавать json-массив как
         параметр запроса. */
-        const url = this.state.TEMPLATE_URL + "?=" + new URLSearchParams({
+        const url = this.props.presenter.url + "?=" + new URLSearchParams({
             "ids": '{ "selectedIds": [] }'
         })
         const req = {
@@ -228,8 +206,10 @@ class EntityTable extends React.Component {
             data => {
                 this.setState({
                     isLoading: false,
-                    bases: data
+                    items: data
                 })
+                // TODO: проверка системы, если данных нет
+                this.createColumnsFromObject(data[0])
                 message.success({
                     top: 100,
                     content: "Data loaded",
@@ -249,10 +229,14 @@ class EntityTable extends React.Component {
             })
     }
 
-    componentDidMount() { this.getData() }
+    componentDidMount() { this.getData() } // Вызывается лишь раз, при создании компонента
+
+    componentDidUpdate(prevProps) { // Вызывается каждый раз при обновлении props-ов из родителя
+        if (this.props.presenter !== prevProps.presenter) this.getData()
+    }
 
     render() {
-        const { isLoading, bases, selectedRowKeys } = this.state
+        const { isLoading, items, selectedRowKeys } = this.state
         const rowSelection = {
             selectedRowKeys,
             onChange: this.onSelectChange,
@@ -264,7 +248,7 @@ class EntityTable extends React.Component {
                 cell: EditableCell
             }
         }
-        const columns = this.state.COLUMNS.map((col) => {
+        const columns = this.state.columns.map((col) => {
             if (!col.editable) return col
             return {
                 ...col,
@@ -279,14 +263,16 @@ class EntityTable extends React.Component {
         })
         return <Table
             components={components}
-            rowKey={"baseId"}
+            rowKey={this.props.presenter.idField}
             rowSelection={rowSelection}
             columns={columns}
-            dataSource={bases}
+            dataSource={items}
             loading={isLoading}
             pagination={{ position: ["bottomCenter"] }}
         />
     }
 }
+
+//TODO: освобождение ресурсов
 
 export default EntityTable

@@ -23,17 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea524d9-c1b1-4bc9-9f9b-e5b60e2fadf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/models/models.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/presenters/presenters.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Base.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Base.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/инф_сис_и_бд_кур_отчёт.docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/инф_сис_и_бд_кур_отчёт.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Credits.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Credits.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/ManagementConsole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ManagementConsole.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/models/BaseTable.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/models/WeaponTable.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/models/models.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +107,7 @@
       <list>
         <option value="Kotlin File" />
         <option value="HTTP Request" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -157,11 +152,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\components" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\public" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\backend\src\models" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\components\models" />
-      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\resources\logos" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\resources" />
@@ -703,15 +698,13 @@
       <option name="studyTest" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -753,12 +746,6 @@
         <option name="vmOptions" value="" />
       </ExternalSystemSettings>
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="base#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/backend/test/base.http" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="base#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/backend/test/base.http" index="2" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -940,8 +927,6 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.course-04.09.20 [run]" />
-      <item itemvalue="HTTP Request.base#1" />
-      <item itemvalue="HTTP Request.base#2" />
       <item itemvalue="JavaScript Debug.Debug Application" />
       <item itemvalue="npm.build" />
       <item itemvalue="npm.start" />
@@ -950,9 +935,7 @@
       <list>
         <item itemvalue="npm.start" />
         <item itemvalue="Gradle.course-04.09.20 [run]" />
-        <item itemvalue="HTTP Request.base#2" />
         <item itemvalue="npm.build" />
-        <item itemvalue="HTTP Request.base#1" />
       </list>
     </recent_temporary>
   </component>
@@ -1009,7 +992,8 @@
       <workItem from="1605861976313" duration="54000" />
       <workItem from="1605973880225" duration="132000" />
       <workItem from="1606035433723" duration="12746000" />
-      <workItem from="1606069779646" duration="11044000" />
+      <workItem from="1606069779646" duration="14829000" />
+      <workItem from="1606118742729" duration="19374000" />
     </task>
     <servers />
   </component>
@@ -1042,10 +1026,10 @@
     </state>
     <state x="207" y="54" key="#SSH_Configurations/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1604654134880" />
     <state x="207" y="54" key="#SSH_Configurations/0.0.1536.824@0.0.1536.824" timestamp="1604223889817" />
-    <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605299788809">
+    <state x="223" y="67" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606118838469">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605266516111" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606118838469" />
     <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1605299788809" />
     <state x="525" y="202" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605787116738">
       <screen x="0" y="0" width="1536" height="824" />
@@ -1068,29 +1052,29 @@
     </state>
     <state x="518" y="122" key="FileChooserDialogImpl/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605544041535" />
     <state x="518" y="122" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606038192614" />
-    <state width="1493" height="188" key="GridCell.Tab.0.bottom" timestamp="1606080698301">
+    <state width="1493" height="188" key="GridCell.Tab.0.bottom" timestamp="1606140521339">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="2004" height="259" key="GridCell.Tab.0.bottom/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605739026929" />
-    <state width="1493" height="188" key="GridCell.Tab.0.bottom/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606080698301" />
+    <state width="1493" height="188" key="GridCell.Tab.0.bottom/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606140521339" />
     <state width="1493" height="188" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606063721090" />
-    <state width="1493" height="188" key="GridCell.Tab.0.center" timestamp="1606080698301">
+    <state width="1493" height="188" key="GridCell.Tab.0.center" timestamp="1606140521339">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="2004" height="259" key="GridCell.Tab.0.center/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605739026929" />
-    <state width="1493" height="188" key="GridCell.Tab.0.center/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606080698301" />
+    <state width="1493" height="188" key="GridCell.Tab.0.center/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606140521339" />
     <state width="1493" height="188" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606063721090" />
-    <state width="1493" height="188" key="GridCell.Tab.0.left" timestamp="1606080698301">
+    <state width="1493" height="188" key="GridCell.Tab.0.left" timestamp="1606140521339">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="2004" height="259" key="GridCell.Tab.0.left/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605739026929" />
-    <state width="1493" height="188" key="GridCell.Tab.0.left/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606080698301" />
+    <state width="1493" height="188" key="GridCell.Tab.0.left/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606140521339" />
     <state width="1493" height="188" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606063721090" />
-    <state width="1493" height="188" key="GridCell.Tab.0.right" timestamp="1606080698301">
+    <state width="1493" height="188" key="GridCell.Tab.0.right" timestamp="1606140521339">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="2004" height="259" key="GridCell.Tab.0.right/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605739026929" />
-    <state width="1493" height="188" key="GridCell.Tab.0.right/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606080698301" />
+    <state width="1493" height="188" key="GridCell.Tab.0.right/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606140521339" />
     <state width="1493" height="188" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606063721090" />
     <state width="1493" height="253" key="GridCell.Tab.1.bottom" timestamp="1605274179525">
       <screen x="0" y="0" width="1536" height="824" />
@@ -1136,10 +1120,10 @@
     <state x="610" y="-760" width="307" height="415" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605220853524" />
     <state x="692" y="320" width="307" height="391" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1604654407821" />
     <state x="692" y="0" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824@0.0.1536.824" timestamp="1604611058379" />
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606080485149">
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606082959896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606080485149" />
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606082959896" />
     <state x="480" y="100" width="576" height="624" key="find.popup" timestamp="1603902630309">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1155,11 +1139,11 @@
     </state>
     <state x="409" y="14" key="new project wizard/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605547212554" />
     <state x="409" y="14" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1605300074703" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1606072440244">
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1606134396230">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="254" y="-893" width="896" height="677" key="run.anything.popup/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605218775711" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606072440244" />
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606134396230" />
     <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606056305258" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605792640051">
       <screen x="0" y="0" width="1536" height="824" />

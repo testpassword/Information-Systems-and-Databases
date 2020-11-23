@@ -1,23 +1,22 @@
 import React from "react"
 import { Layout, Menu, Modal, Button, Space } from "antd"
 import Credits from "./Credits"
-import { CalendarOutlined, TeamOutlined, CarOutlined,
-    HomeOutlined, GlobalOutlined, MedicineBoxOutlined,
-    ShoppingOutlined, MoneyCollectOutlined, CoffeeOutlined,
-    DeleteOutlined, PlusOutlined } from "@ant-design/icons"
+import { CalendarOutlined, TeamOutlined, CarOutlined, HomeOutlined, GlobalOutlined, MedicineBoxOutlined,
+    ShoppingOutlined, MoneyCollectOutlined, CoffeeOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons"
 import EntityTable from "./EntityTable"
-import Base from "./models/models.js"
+import { BasePresenter, CampaignPresenter, EmployeePresenter, EquipmentPresenter, MedicalCardPresenter, MissionPresenter,
+    MrePresenter, PositionPresenter, TransportPresenter, WeaponPresenter } from "../presenters/presenters.js"
 
 class ManagementConsole extends React.Component {
 
     state = {
         menuIsCollapsed: false,
-        entityTable: <EntityTable/>
+        presenter: BasePresenter
     }
 
     onCollapse = menuIsCollapsed => { this.setState({ menuIsCollapsed }) }
 
-    loadEntityTable = entityTable => { this.setState({entityTable}) }
+    changeEntityTable(p) { this.setState({ presenter: p }) }
 
     info() {
         Modal.info({
@@ -35,42 +34,51 @@ class ManagementConsole extends React.Component {
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                         <Menu.Item
                             icon={<HomeOutlined/>}
-                            onClick={this.loadEntityTable.bind(this, <EntityTable/>)}>
+                            onClick={() => this.changeEntityTable(BasePresenter)}>
                             Bases
                         </Menu.Item>
                         <Menu.Item
-                            icon={<GlobalOutlined/>}>
+                            icon={<GlobalOutlined/>}
+                            onClick={() => this.changeEntityTable(CampaignPresenter)}>
                             Campaigns
                         </Menu.Item>
                         <Menu.Item
-                            icon={<TeamOutlined/>}>
+                            icon={<TeamOutlined/>}
+                            onClick={() => this.changeEntityTable(EmployeePresenter)}>
                             Employees
                         </Menu.Item>
                         <Menu.Item
-                            icon={<ShoppingOutlined/>}>
+                            icon={<ShoppingOutlined/>}
+                            onClick={() => this.changeEntityTable(EquipmentPresenter)}>
                             Equipments
                         </Menu.Item>
                         <Menu.Item
-                            icon={<MedicineBoxOutlined/>}>
+                            icon={<MedicineBoxOutlined/>}
+                            onClick={() => this.changeEntityTable(MedicalCardPresenter)}>
                             Medical Cards
                         </Menu.Item>
                         <Menu.Item
-                            icon={<CalendarOutlined/>}>
+                            icon={<CalendarOutlined/>}
+                            onClick={() => this.changeEntityTable(MissionPresenter)}>
                             Missions
                         </Menu.Item>
                         <Menu.Item
-                            icon={<CoffeeOutlined/>}>
+                            icon={<CoffeeOutlined/>}
+                            onClick={() => this.changeEntityTable(MrePresenter)}>
                             MREs
                         </Menu.Item>
                         <Menu.Item
-                            icon={<MoneyCollectOutlined/>}>
+                            icon={<MoneyCollectOutlined/>}
+                            onClick={() => this.changeEntityTable(PositionPresenter)}>
                             Positions
                         </Menu.Item>
                         <Menu.Item
-                            icon={<CarOutlined/>}>
+                            icon={<CarOutlined/>}
+                            onClick={() => this.changeEntityTable(TransportPresenter)}>
                             Transports
                         </Menu.Item>
-                        <Menu.Item>
+                        <Menu.Item
+                            onClick={() => this.changeEntityTable(WeaponPresenter)}>
                             Weapons
                         </Menu.Item>
                     </Menu>
@@ -93,7 +101,7 @@ class ManagementConsole extends React.Component {
                     </Header>
                     <Content style={{ marginTop: "64px" }}>
                         <div className="site-layout-background" style={{ minHeight: 360 }}>
-                            {this.state.entityTable}
+                            <EntityTable presenter={this.state.presenter}/>
                         </div>
                     </Content>
                     <Footer style={{ textAlign: "center"}}>
