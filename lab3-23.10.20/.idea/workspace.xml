@@ -20,14 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b83b3b40-1c97-4e58-ba7f-87f7e709ce40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../course-04.09.20/test/random-h.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-04.09.20/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-04.09.20/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/~$ф_сис_и_бд_лаб3_отчёт.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../course-04.09.20/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-04.09.20/db/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/db/functions.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-04.09.20/db/indices.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-04.09.20/docs/инф_сис_и_бд_кур_отчёт.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/docs/инф_сис_и_бд_кур_отчёт.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../course-04.09.20/test/random.http" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/test/random-l.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../course-04.09.20/frontend/src/components/EntityTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/frontend/src/components/EntityTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../course-04.09.20/frontend/src/components/ManagementConsole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/frontend/src/components/ManagementConsole.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../course-04.09.20/frontend/src/presenters/presenters.js" beforeDir="false" afterPath="$PROJECT_DIR$/../course-04.09.20/frontend/src/components/presenters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633/storage_v2/_src_/database/ucheb.t1GfBg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633/storage_v2/_src_/database/ucheb.t1GfBg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +46,7 @@
   </component>
   <component name="JupyterTrust" id="0cdd3348-81c2-42cc-9365-1e022b709529" />
   <component name="KotlinMultiplatform">
-    <executables />
+    <allAvailableExecutables />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -77,6 +77,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
     <property name="database.data.extractors.current.id" value="Comma-separated (CSV)_id" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -101,6 +102,8 @@
       <workItem from="1604488501948" duration="615000" />
       <workItem from="1604515346812" duration="284000" />
       <workItem from="1604647722069" duration="1242000" />
+      <workItem from="1606833403712" duration="806000" />
+      <workItem from="1607021284475" duration="297000" />
     </task>
     <servers />
   </component>
@@ -121,65 +124,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="249" y="0" key="#Project_Structure" timestamp="1603458265927">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="249" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1603458265927" />
-    <state x="147" y="-1022" key="#SSH_Configurations" timestamp="1604479812829">
-      <screen x="-313" y="-1080" width="2048" height="824" />
-    </state>
-    <state x="147" y="-1022" key="#SSH_Configurations/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1604479812829" />
-    <state x="345" y="58" key="#SSH_Configurations/0.0.1536.824@0.0.1536.824" timestamp="1603458415111" />
-    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603458416500">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1603458416500" />
-    <state width="1591" height="230" key="GridCell.Tab.0.bottom" timestamp="1604488179363">
-      <screen x="-313" y="-1080" width="2048" height="824" />
-    </state>
-    <state width="1591" height="230" key="GridCell.Tab.0.bottom/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1604488179363" />
-    <state width="1024" height="308" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603462808368" />
-    <state width="1591" height="230" key="GridCell.Tab.0.center" timestamp="1604488179363">
-      <screen x="-313" y="-1080" width="2048" height="824" />
-    </state>
-    <state width="1591" height="230" key="GridCell.Tab.0.center/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1604488179363" />
-    <state width="1024" height="308" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603462808367" />
-    <state width="1591" height="230" key="GridCell.Tab.0.left" timestamp="1604488179363">
-      <screen x="-313" y="-1080" width="2048" height="824" />
-    </state>
-    <state width="1591" height="230" key="GridCell.Tab.0.left/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1604488179363" />
-    <state width="1024" height="308" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603462808367" />
-    <state width="1591" height="230" key="GridCell.Tab.0.right" timestamp="1604488179363">
-      <screen x="-313" y="-1080" width="2048" height="824" />
-    </state>
-    <state width="1591" height="230" key="GridCell.Tab.0.right/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1604488179363" />
-    <state width="1024" height="308" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603462808367" />
-    <state x="220" y="-1003" key="SettingsEditor" timestamp="1604479925417">
-      <screen x="-313" y="-1080" width="2048" height="824" />
-    </state>
-    <state x="220" y="-1003" key="SettingsEditor/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1604479925417" />
-    <state x="442" y="-843" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog" timestamp="1604484754824">
-      <screen x="-313" y="-1080" width="2048" height="824" />
-    </state>
-    <state x="442" y="-843" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1604484754824" />
-    <state x="-213" y="-980" width="1848" height="664" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604488347351">
-      <screen x="-313" y="-1080" width="2048" height="824" />
-    </state>
-    <state x="-213" y="-980" width="1848" height="664" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1604488347351" />
-    <state width="571" height="500" key="javadoc.popup.new" timestamp="1604479914127">
-      <screen x="-313" y="-1080" width="2048" height="824" />
-    </state>
-    <state width="571" height="500" key="javadoc.popup.new/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1604479914127" />
-    <state width="428" height="500" key="javadoc.popup.new/0.0.1536.824@0.0.1536.824" timestamp="1603460324869" />
-    <state x="353" y="14" key="new project wizard" timestamp="1603458264217">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="353" y="14" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1603458264217" />
-    <state x="375" y="-339" key="run.anything.popup" timestamp="1604486015265">
-      <screen x="-313" y="-1080" width="2048" height="824" />
-    </state>
-    <state x="375" y="-339" key="run.anything.popup/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1604486015265" />
   </component>
 </project>

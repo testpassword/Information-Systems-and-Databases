@@ -57,7 +57,7 @@ object TransportOnMissions: Table("missions_transport"), Generable {
     val trans_id = reference("trans_id", TransportTable.trans_id)
 
     override fun generateAndInsert(n: Int) {
-        val transIds = TransportTable.selectAll().map { it[TransportTable.trans_id] }
+        val transIds = TransportTable.select { TransportTable.status eq "available" }.map { it[TransportTable.trans_id] }
         MissionTable.selectAll().map { it[MissionTable.miss_id] }.forEach { m ->
             if (Random.nextBoolean())
                 TransportOnMissions.insert {
@@ -103,7 +103,7 @@ object EmployeeOnMission: Table("missions_emp"), Generable {
         val missIds = MissionTable.selectAll().map { it[MissionTable.miss_id] }
         EmployeeTable
             .leftJoin(PositionTable)
-            .select { PositionTable.rank neq "" }.map { it[EmployeeTable.emp_id] }
+            .select { PositionTable.rank neq null }.map { it[EmployeeTable.emp_id] }
             .forEach { e ->
                 EmployeeOnMission.insert {
                     it[miss_id] = missIds.random()

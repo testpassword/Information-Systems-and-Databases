@@ -1,30 +1,31 @@
 --1: Тех, кто не имеет воинских званий, нельзя отправлять на боевые миссии.
-CREATE FUNCTION is_military_on_mission() RETURNS trigger AS $$
+CREATE FUNCTION check_is_military_on_mission() RETURNS trigger AS $$
     DECLARE enemy TEXT;
-    DECLARE rank TEXT;
+    DECLARE emp_rank TEXT;
     BEGIN
         enemy = (SELECT enemies FROM mission WHERE miss_id = new.miss_id);
-        rank = (SELECT rank FROM position JOIN employee USING (pos_id) WHERE emp_id = new.emp_id);
-        IF (enemy IS NOT NULL OR !~~ '') AND (rank IS NULL OR ~~ '') THEN
+        emp_rank = (SELECT rank FROM position JOIN employee USING (pos_id) WHERE emp_id = new.emp_id);
+        IF enemy IS NOT NULL AND emp_rank IS NULL THEN
             RAISE EXCEPTION 'Cannot set not military employee to a combat mission';
         ELSE RETURN new;
         END IF;
     END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER is_military_on_mission BEFORE INSERT OR UPDATE ON missions_emp
-    FOR EACH ROW EXECUTE PROCEDURE is_military_on_mission();
+CREATE TRIGGER check_is_military_on_mission BEFORE INSERT ON missions_emp
+    FOR EACH ROW EXECUTE PROCEDURE check_is_military_on_mission();
 
 /*
 2: Информационная система должна учитывая какие сотрудники отправились на миссии (один и тот же сотрудник не
     может находиться на двух миссиях одновременно).
 */
 CREATE FUNCTION check_periods_of_emp_missions() RETURNS trigger AS $$
-    DECLARE inserted_miss mission;
+    DECLARE start_time TIMESTAMP;
+    DECLARE end_time TIMESTAMP;
     BEGIN
-        inserted_miss = (SELECT * FROM mission WHERE miss_id = new.miss_id);
+        SELECT start_time, end_time INTO start_time, end_time FROM mission WHERE miss_id = new.miss_id;
         IF (TRUE) IN (
-            SELECT (inserted_miss.start_date_and_time, inserted_miss.end_date_and_time) OVERLAPS
+            SELECT (start_time, end_time) OVERLAPS
                    (start_date_and_time, end_date_and_time) FROM mission
                 WHERE miss_id IN (SELECT miss_id FROM missions_emp WHERE emp_id = new.emp_id)) THEN
             RAISE EXCEPTION 'This worker cannot be assigned to a mission as he was on another mission at the time';
@@ -33,7 +34,7 @@ CREATE FUNCTION check_periods_of_emp_missions() RETURNS trigger AS $$
     END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER check_emp_mission_period BEFORE INSERT OR UPDATE ON missions_emp
+CREATE TRIGGER check_emp_mission_period BEFORE INSERT ON missions_emp
     FOR EACH ROW EXECUTE PROCEDURE check_periods_of_emp_missions();
 
 CREATE INDEX mission_period ON mission USING btree(start_date_and_time, end_date_and_time);
@@ -51,7 +52,7 @@ CREATE FUNCTION check_physical_condition() RETURNS trigger AS $$
     END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER check_physical_condition BEFORE INSERT OR UPDATE ON employee
+CREATE TRIGGER check_physical_condition BEFORE INSERT ON employee
     FOR EACH ROW EXECUTE PROCEDURE check_physical_condition();
 
 /*
@@ -67,7 +68,7 @@ CREATE FUNCTION check_transport_condition() RETURNS trigger AS $$
     END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER check_transport_condition BEFORE INSERT OR UPDATE ON missions_transport
+CREATE TRIGGER check_transport_condition BEFORE INSERT ON missions_transport
     FOR EACH ROW EXECUTE PROCEDURE check_transport_condition();
 
 -- 5: Если за базой не закреплён ни один сотрудник, стоит закрыть её.

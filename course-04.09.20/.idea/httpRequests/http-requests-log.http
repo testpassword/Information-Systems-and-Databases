@@ -1,3 +1,202 @@
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "droppedIds": [2]
+}
+
+<> 2020-12-05T192753.200.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T192259.200.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T192110.200.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T191034.400.txt
+
+###
+
+GET http://localhost:9090/base?ids={ "selectedIds": [] }
+
+<> 2020-12-05T190211.200.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T184324.200.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T184038.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T183258.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T183202.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T182352.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T182240.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T180324.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T180137.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T180022.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T175559.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T175415.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T175032.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T174718.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T174546.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T174031.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T170835.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T170210.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T165414.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T165124.400.txt
+
+###
+
+POST http://localhost:9090/random
+
+<> 2020-12-05T164446.400.txt
+
+###
+
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "droppedIds": [3]
+}
+
+<> 2020-12-05T162541.400.txt
+
+###
+
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "droppedIds": [3]
+}
+
+<> 2020-12-05T161943.400.txt
+
+###
+
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "droppedIds": [3]
+}
+
+<> 2020-12-05T161619.400.txt
+
+###
+
+DELETE http://localhost:9090/base
+Content-Type: application/json
+
+{
+  "droppedIds": [414, 415]
+}
+
+<> 2020-12-05T132935.200.txt
+
+###
+
 GET http://localhost:9090/base?bases={ "selectedIds": [3] }
 
 <> 2020-11-19T051155.200.txt
@@ -157,281 +356,6 @@ Content-Type: application/json
 }
 
 <> 2020-11-13T040202.400.txt
-
-###
-
-POST http://localhost:9090/campaign
-Content-Type: application/json
-
-{
-  "campId": null,
-  "name": "ANARCHY",
-  "customer": "JOKER",
-  "earning": 10000000,
-  "spending": 320000,
-  "executionStatus": "TESTING-POST"
-}
-
-<> 2020-11-13T040153.201.txt
-
-###
-
-POST http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "baseId" : null,
-  "location" : "LUNA",
-  "status" : "TEST-BASE"
-}
-
-<> 2020-11-13T040145.201.txt
-
-###
-
-PUT http://localhost:9090/campaign
-Content-Type: application/json
-
-{
-  "campId": 6,
-  "executionStatus": "TESTING-GET"
-}
-
-<> 2020-11-13T040117.400.txt
-
-###
-
-POST http://localhost:9090/campaign
-Content-Type: application/json
-
-{
-  "campId": null,
-  "name": "ANARCHY",
-  "customer": "JOKER",
-  "earning": 10000000,
-  "spending": 320000,
-  "executionStatus": "TESTING-POST"
-}
-
-<> 2020-11-13T040109.201.txt
-
-###
-
-GET http://localhost:9090/campaign
-Content-Type: application/json
-
-{
-  "selectedIds": "3"
-}
-
-<> 2020-11-13T040101.200.txt
-
-###
-
-GET http://localhost:9090/campaign
-Content-Type: application/json
-
-{
-  "selectedIds": ""
-}
-
-<> 2020-11-13T040057.200.txt
-
-###
-
-DELETE http://localhost:9090/campaign
-Content-Type: application/json
-
-{
-  "selectedIds": "2"
-}
-
-<> 2020-11-13T033657.400.txt
-
-###
-
-POST http://localhost:9090/campaign
-Content-Type: application/json
-
-{
-  "campId": null,
-  "name": "ANARCHY",
-  "customer": "JOKER",
-  "earning": 10000000,
-  "spending": 320000,
-  "executionStatus": "TESTING"
-}
-
-<> 2020-11-13T033631.201.txt
-
-###
-
-POST http://localhost:9090/campaign
-Content-Type: application/json
-
-{
-  "campId": null,
-  "name": "ANARCHY",
-  "customer": "JOKER",
-  "earning": 10000000,
-  "spending": 320000,
-  "executionStatus": "TESTING"
-}
-
-<> 2020-11-13T033255.400.txt
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": ""
-}
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": ""
-}
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": ""
-}
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": ""
-}
-
-<> 2020-11-13T015747.200.txt
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": ""
-}
-
-<> 2020-11-13T015607.200.txt
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": ""
-}
-
-<> 2020-11-13T015356.400.txt
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": ""
-}
-
-<> 2020-11-13T015246.400.txt
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": ""
-}
-
-<> 2020-11-13T015116.400.txt
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": ""
-}
-
-<> 2020-11-13T014912.200.txt
-
-###
-
-POST http://localhost:9090/random
-
-<> 2020-11-13T014140.200.txt
-
-###
-
-POST http://localhost:9090/random
-
-###
-
-POST http://localhost:9090/random
-
-###
-
-POST http://localhost:9090/random
-
-###
-
-POST http://localhost:9090/random
-
-###
-
-POST http://localhost:9090/random
-
-###
-
-POST http://localhost:9090/random
-
-###
-
-POST http://localhost:9090/random
-
-###
-
-POST http://localhost:9090/random
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": "3"
-}
-
-<> 2020-11-13T120630.200.txt
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": ""
-}
-
-<> 2020-11-13T120625.200.txt
 
 ###
 

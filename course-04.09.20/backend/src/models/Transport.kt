@@ -29,7 +29,7 @@ object TransportTable: Table("transport"), Generable {
             TransportTable.insert {
                 it[name] = w.getString("name")
                 it[type] = w.getString("type")
-                it[status] = statuses.random()
+                it[status] = "available"
             }
         }
     }

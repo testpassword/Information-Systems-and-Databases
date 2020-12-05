@@ -23,11 +23,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea524d9-c1b1-4bc9-9f9b-e5b60e2fadf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/presenters/presenters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/EditableRow.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c/storage_v2/_src_/database/pmc.BrIBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c/storage_v2/_src_/database/pmc.BrIBAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c/storage_v2/_src_/database/pmc.BrIBAA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c/storage_v2/_src_/database/pmc.BrIBAA/schema/public.abK9xQ.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T014140.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T014912.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T015116.400.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T015246.400.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T015356.400.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T015607.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T015747.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T033255.400.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T033631.201.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T033657.400.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T040057.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T040101.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T040109.201.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T040117.400.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T040145.201.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T040153.201.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T120625.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T120630.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/models/SimpleModels.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/SimpleModels.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/models/Transport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Transport.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/RandomRoute.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/RandomRoute.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/functions.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/robots.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/ManagementConsole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ManagementConsole.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/models/models.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/presenters/presenters.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/presenters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3-23.10.20/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3-23.10.20/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3-23.10.20/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633/storage_v2/_src_/database/ucheb.t1GfBg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3-23.10.20/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633/storage_v2/_src_/database/ucheb.t1GfBg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3-23.10.20/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3-23.10.20/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +149,7 @@
   </component>
   <component name="JupyterTrust" id="0cdd3348-81c2-42cc-9365-1e022b709529" />
   <component name="KotlinMultiplatform">
-    <executables />
+    <allAvailableExecutables />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -138,8 +171,11 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -151,6 +187,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\components" />
@@ -158,13 +197,81 @@
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\backend\src\models" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\components\models" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\resources" />
-    </key>
   </component>
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:9090/base" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;droppedIds&quot;: [2]&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:9090/random" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:9090/base" />
+          <option name="urlPath" value="" />
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="ids" />
+                <option name="value" value="{ &quot;selectedIds&quot;: [] }" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:9090/base" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;droppedIds&quot;: [3]&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:9090/base" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;droppedIds&quot;: [414, 415]&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="GET" />
           <option name="urlBase" value="http://localhost:9090/base" />
@@ -266,22 +373,6 @@
           </option>
           <option name="haveTextToSend" value="true" />
           <option name="textToSend" value="{&#10;  &quot;selectedIds&quot;: []&#10;}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="DELETE" />
-          <option name="urlBase" value="http://localhost:9090/base" />
-          <option name="urlPath" value="" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Content-Type" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{&#10;  &quot;droppedIds&quot;: [414, 415]&#10;}" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -426,13 +517,6 @@
           </option>
           <option name="haveTextToSend" value="true" />
           <option name="textToSend" value="{&#10;  &quot;selectedIds&quot;: &quot;&quot;&#10;}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:9090/random" />
-          <option name="urlPath" value="" />
-          <option name="textToSend" value="" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
@@ -674,37 +758,29 @@
       <command value="gradle jar" />
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
-    <configuration default="true" type="ccruntests" factoryName="Run Study Tests">
+  <component name="RunManager" selected="HTTP Request.base#5">
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
       <module name="course" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <option name="studyTest" value="" />
+      <option name="ADDITIONAL_ARGS" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -745,7 +821,18 @@
         </option>
         <option name="vmOptions" value="" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="base#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/backend/test/base.http" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="base#5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/backend/test/base.http" index="5" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="random#3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/backend/test/random.http" index="3" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -811,19 +898,6 @@
       <option name="ADDITIONAL_ARGS" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
-      <module name="course" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="course" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -871,14 +945,27 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/frontend/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
+    <configuration default="true" type="ccruntests" factoryName="Run Study Tests">
+      <module name="course" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <option name="studyTest" value="" />
       <method v="2" />
     </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -927,15 +1014,19 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.course-04.09.20 [run]" />
+      <item itemvalue="HTTP Request.base#5" />
       <item itemvalue="JavaScript Debug.Debug Application" />
-      <item itemvalue="npm.build" />
       <item itemvalue="npm.start" />
+      <item itemvalue="HTTP Request.random#3" />
+      <item itemvalue="HTTP Request.base#1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.base#5" />
         <item itemvalue="npm.start" />
+        <item itemvalue="HTTP Request.random#3" />
         <item itemvalue="Gradle.course-04.09.20 [run]" />
-        <item itemvalue="npm.build" />
+        <item itemvalue="HTTP Request.base#1" />
       </list>
     </recent_temporary>
   </component>
@@ -994,6 +1085,10 @@
       <workItem from="1606035433723" duration="12746000" />
       <workItem from="1606069779646" duration="14829000" />
       <workItem from="1606118742729" duration="19374000" />
+      <workItem from="1606604402535" duration="11127000" />
+      <workItem from="1607120014480" duration="29000" />
+      <workItem from="1607158424062" duration="7471000" />
+      <workItem from="1607167714641" duration="21413000" />
     </task>
     <servers />
   </component>
@@ -1011,145 +1106,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="378" y="52" width="490" height="751" key="#JSON" timestamp="1603973378698">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="378" y="52" width="490" height="751" key="#JSON/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1603973378698" />
-    <state x="498" y="0" key="#Project_Structure" timestamp="1604518158793">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="498" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1604518158793" />
-    <state x="207" y="54" key="#SSH_Configurations" timestamp="1604654134880">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="207" y="54" key="#SSH_Configurations/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1604654134880" />
-    <state x="207" y="54" key="#SSH_Configurations/0.0.1536.824@0.0.1536.824" timestamp="1604223889817" />
-    <state x="223" y="67" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606118838469">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606118838469" />
-    <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1605299788809" />
-    <state x="525" y="202" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605787116738">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="387" y="-878" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605729456519" />
-    <state x="525" y="202" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605787116738" />
-    <state x="525" y="202" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1605561529698" />
-    <state x="552" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1604229369819">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="552" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1604229369819" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606080634912">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="352" y="-921" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605733909153" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606080634912" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1605561158700" />
-    <state x="518" y="122" key="FileChooserDialogImpl" timestamp="1606038192614">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="518" y="122" key="FileChooserDialogImpl/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605544041535" />
-    <state x="518" y="122" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606038192614" />
-    <state width="1493" height="188" key="GridCell.Tab.0.bottom" timestamp="1606140521339">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="2004" height="259" key="GridCell.Tab.0.bottom/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605739026929" />
-    <state width="1493" height="188" key="GridCell.Tab.0.bottom/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606140521339" />
-    <state width="1493" height="188" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606063721090" />
-    <state width="1493" height="188" key="GridCell.Tab.0.center" timestamp="1606140521339">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="2004" height="259" key="GridCell.Tab.0.center/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605739026929" />
-    <state width="1493" height="188" key="GridCell.Tab.0.center/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606140521339" />
-    <state width="1493" height="188" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606063721090" />
-    <state width="1493" height="188" key="GridCell.Tab.0.left" timestamp="1606140521339">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="2004" height="259" key="GridCell.Tab.0.left/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605739026929" />
-    <state width="1493" height="188" key="GridCell.Tab.0.left/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606140521339" />
-    <state width="1493" height="188" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606063721090" />
-    <state width="1493" height="188" key="GridCell.Tab.0.right" timestamp="1606140521339">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="2004" height="259" key="GridCell.Tab.0.right/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605739026929" />
-    <state width="1493" height="188" key="GridCell.Tab.0.right/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606140521339" />
-    <state width="1493" height="188" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606063721090" />
-    <state width="1493" height="253" key="GridCell.Tab.1.bottom" timestamp="1605274179525">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="253" key="GridCell.Tab.1.bottom/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605266877531" />
-    <state width="1493" height="253" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605274179525" />
-    <state width="1493" height="253" key="GridCell.Tab.1.center" timestamp="1605274179525">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="253" key="GridCell.Tab.1.center/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605266877531" />
-    <state width="1493" height="253" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1605274179525" />
-    <state width="1493" height="253" key="GridCell.Tab.1.left" timestamp="1605274179524">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="253" key="GridCell.Tab.1.left/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605266877531" />
-    <state width="1493" height="253" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1605274179524" />
-    <state width="1493" height="253" key="GridCell.Tab.1.right" timestamp="1605274179525">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="253" key="GridCell.Tab.1.right/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605266877531" />
-    <state width="1493" height="253" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1605274179525" />
-    <state width="189" height="539" key="HiddenNamespacesPopup" timestamp="1603895387979">
-      <screen x="-313" y="-1080" width="2048" height="824" />
-    </state>
-    <state width="189" height="539" key="HiddenNamespacesPopup/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1603895387979" />
-    <state x="408" y="31" key="NewModule_or_Project.wizard" timestamp="1605299408811">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="408" y="31" key="NewModule_or_Project.wizard/0.0.1536.824@0.0.1536.824" timestamp="1605299408811" />
-    <state width="246" height="198" key="RunAnythingAction_Filter_Popup" timestamp="1603889415244">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="246" height="198" key="RunAnythingAction_Filter_Popup/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1603889415244" />
-    <state x="218" y="0" width="1105" height="824" key="SettingsEditor" timestamp="1605782957597">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="56" y="-1080" key="SettingsEditor/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605217648672" />
-    <state x="277" y="0" key="SettingsEditor/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605547215749" />
-    <state x="218" y="0" width="1105" height="824" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1605782957597" />
-    <state x="610" y="-760" width="307" height="415" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1605220853524">
-      <screen x="-313" y="-1080" width="2048" height="824" />
-    </state>
-    <state x="610" y="-760" width="307" height="415" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605220853524" />
-    <state x="692" y="320" width="307" height="391" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1604654407821" />
-    <state x="692" y="0" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824@0.0.1536.824" timestamp="1604611058379" />
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606082959896">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606082959896" />
-    <state x="480" y="100" width="576" height="624" key="find.popup" timestamp="1603902630309">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="480" y="100" width="576" height="624" key="find.popup/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1603902630309" />
-    <state width="428" height="500" key="javadoc.popup.new" timestamp="1605792334843">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="571" height="500" key="javadoc.popup.new/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605213446238" />
-    <state width="428" height="500" key="javadoc.popup.new/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605792334843" />
-    <state width="428" height="500" key="javadoc.popup.new/0.0.1536.824@0.0.1536.824" timestamp="1605273507230" />
-    <state x="409" y="14" key="new project wizard" timestamp="1605547212554">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="409" y="14" key="new project wizard/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605547212554" />
-    <state x="409" y="14" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1605300074703" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1606134396230">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="254" y="-893" width="896" height="677" key="run.anything.popup/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1605218775711" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1606134396230" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606056305258" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605792640051">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="262" y="-935" width="896" height="678" key="search.everywhere.popup/0.0.1536.824/-313.-1080.2048.824@-313.-1080.2048.824" timestamp="1603901752145" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-313.-1080.2048.824@0.0.1536.824" timestamp="1605792640051" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1604996002634" />
   </component>
 </project>

@@ -1,5 +1,0 @@
-{
-  "baseId" : null,
-  "location" : "LUNA",
-  "status" : "TEST-BASE"
-} added)

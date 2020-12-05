@@ -1,11 +1,11 @@
 import React from "react"
-import { Layout, Menu, Modal, Button, Space } from "antd"
+import { Layout, Menu, Modal } from "antd"
 import Credits from "./Credits"
 import { CalendarOutlined, TeamOutlined, CarOutlined, HomeOutlined, GlobalOutlined, MedicineBoxOutlined,
-    ShoppingOutlined, MoneyCollectOutlined, CoffeeOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons"
+    ShoppingOutlined, MoneyCollectOutlined, CoffeeOutlined } from "@ant-design/icons"
 import EntityTable from "./EntityTable"
 import { BasePresenter, CampaignPresenter, EmployeePresenter, EquipmentPresenter, MedicalCardPresenter, MissionPresenter,
-    MrePresenter, PositionPresenter, TransportPresenter, WeaponPresenter } from "../presenters/presenters.js"
+    MrePresenter, PositionPresenter, TransportPresenter, WeaponPresenter } from "../presenters.js"
 
 class ManagementConsole extends React.Component {
 
@@ -27,7 +27,7 @@ class ManagementConsole extends React.Component {
 
     render() {
         const { menuIsCollapsed } = this.state;
-        const { Content, Footer, Sider, Header } = Layout;
+        const { Content, Footer, Sider } = Layout;
         return (
             <Layout style={{ minHeight: '100vh' }} theme="dark">
                 <Sider collapsible collapsed={menuIsCollapsed} onCollapse={this.onCollapse}>
@@ -84,22 +84,7 @@ class ManagementConsole extends React.Component {
                     </Menu>
                 </Sider>
                 <Layout className="site-layout">
-                    <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-                        <Space size={"middle"}>
-                            <Button
-                                icon={<PlusOutlined/>}
-                                ghost={true}>
-                                Add record
-                            </Button>
-                            <Button
-                                icon={<DeleteOutlined/>}
-                                ghost={true}
-                                danger>
-                                Remove
-                            </Button>
-                        </Space>
-                    </Header>
-                    <Content style={{ marginTop: "64px" }}>
+                    <Content>
                         <div className="site-layout-background" style={{ minHeight: 360 }}>
                             <EntityTable presenter={this.state.presenter}/>
                         </div>

@@ -46,9 +46,9 @@ fun Route.random() {
                     mapOf(
                         BaseTable to 50,
                         MRETable to 30,
-                        EquipmentTable to 100,
-                        PositionTable to 150,
-                        EmployeeTable to 2000,
+                        EquipmentTable to 75,
+                        PositionTable to 50,
+                        EmployeeTable to 1000,
                         MedicalCardTable to 0,
                         WeaponTable to 0,
                         CampaignTable to 40,

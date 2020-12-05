@@ -1,66 +1,21 @@
-import React, { useContext, useState, useEffect, useRef } from "react"
-import {Table, message, Input, Button, Space, Tag, Form } from "antd"
+import React from "react"
+import {Table, message, Input, Button, Space, Layout, Popover, Checkbox} from "antd"
 import Highlighter from "react-highlight-words"
-import { SearchOutlined } from "@ant-design/icons"
-
-const EditableContext = React.createContext()
-
-const EditableRow = ({ index, ...props }) => {
-    const [form] = Form.useForm();
-    return (
-        <Form form={form} component={false}>
-            <EditableContext.Provider value={form}>
-                <tr {...props} />
-            </EditableContext.Provider>
-        </Form>
-    )
-}
-
-const EditableCell = ({ title, editable, children, dataIndex, record, handleSave, ...restProps }) => {
-    const [editing, setEditing] = useState(false)
-    const inputRef = useRef()
-    const form = useContext(EditableContext);
-    useEffect(() => {
-        if (editing) inputRef.current.focus()
-    }, [editing])
-    const toggleEdit = () => {
-        setEditing(!editing)
-        form.setFieldsValue({ [dataIndex]: record[dataIndex] })
-    }
-    const save = async(e) => {
-        try {
-            const values = await form.validateFields()
-            toggleEdit()
-            handleSave({ ...record, ...values })
-        } catch (errInfo) { console.log('Save failed:', errInfo) }
-    }
-    let childNode = children
-    if (editable) {
-        childNode = editing ? (
-            <Form.Item
-                style={{ margin: 0 }}
-                name={dataIndex}
-                rules={[
-                    {
-                        required: true,
-                        message: `${title} is required.`,
-                    }
-                ]}>
-                <Input ref={inputRef} onPressEnter={save} onBlur={save} />
-            </Form.Item>
-        ) : (
-            <div
-                className="editable-cell-value-wrap"
-                style={{ paddingRight: 24 }}
-                onClick={toggleEdit}>
-                {children}
-            </div>
-        )
-    }
-    return <td {...restProps}>{childNode}</td>
-}
+import {DeleteOutlined, PlusOutlined, SearchOutlined} from "@ant-design/icons"
+import {Header, Content } from "antd/lib/layout/layout";
+import {EditableCell, EditableRow} from "./EditableRow.jsx";
 
 class EntityTable extends React.Component {
+
+    state = {
+        error: null,
+        isLoading: true,
+        items: [],
+        searchText: "",
+        searchedColumn: "",
+        selectedRowKeys: [],
+        columns: []
+    }
 
     getColumnSearchProps = dataIndex => ({
         filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
@@ -118,9 +73,9 @@ class EntityTable extends React.Component {
         this.setState({ searchText: "" })
     }
 
-    onSelectChange = selectedRowKeys => this.setState({selectedRowKeys})
+    onSelectChange = selectedRowKeys => { this.setState({selectedRowKeys}) }
 
-    handleSave = (modified_record) => {
+    handleSave = modified_record => {
         const p = this.props.presenter
         const items = this.state.items
         const orig_record = items.find((it) => modified_record.baseId === it.baseId)
@@ -133,7 +88,7 @@ class EntityTable extends React.Component {
                     body: JSON.stringify({
                         [p.idField]: modified_record[p.idField],
                         [key]: modified_record[key]
-                        })
+                    })
                 }
                 this.setState({ isLoading: true })
                 fetch(p.url, req).then(res => res.text()).then(
@@ -163,33 +118,50 @@ class EntityTable extends React.Component {
         })
     }
 
-    state = {
-        error: null,
-        isLoading: true,
-        items: [],
-        searchText: "",
-        searchedColumn: "",
-        selectedRowKeys: [],
-        columns: []
-    }
-
-    createColumnsFromObject(object) {
+    createColumnsFromObject = object => {
         const cols = Object.keys(object).map(key => {
             const strKey = key.toString()
-            return {
-                title: strKey.toUpperCase(),
+            const filters = this.props.presenter.filteredColumns
+            let modifiedColumn = {
+                title: strKey.split(/(?=[A-Z])/).map(s => s.toUpperCase()).join(" "),
                 dataIndex: strKey,
                 defaultSortOrder: "ascend",
                 sortDirections: ["ascend", "descend"],
-                editable: true,
+                editable: (strKey !== this.props.presenter.idField),
                 sorter: (a, b) => a[key].localeCompare(b[key]),
-                ...this.getColumnSearchProps(strKey)
             }
+            modifiedColumn = (filters !== undefined && strKey in filters) ?
+                {
+                    ...modifiedColumn,
+                    filters: filters[strKey],
+                    onFilter: (v, r) => r[strKey] === v
+            } :
+                {
+                    ...this.getColumnSearchProps(strKey),
+                    ...modifiedColumn
+                }
+            if (typeof object[key] === "boolean")
+                modifiedColumn = {
+                    ...modifiedColumn,
+                    render: t => <Checkbox checked={t}/>
+                }
+            if (modifiedColumn.editable)
+                modifiedColumn = {
+                    ...modifiedColumn,
+                    onCell: (record) => ({
+                        record,
+                        editable: modifiedColumn.editable,
+                        dataIndex: modifiedColumn.dataIndex,
+                        title: modifiedColumn.title,
+                        handleSave: this.handleSave,
+                    })
+                }
+            return modifiedColumn
         })
         this.setState({ columns: cols })
     }
 
-    getData() {
+    getRecords = () => {
         /* Это наглядный пример плохого дизайна: изначально когда я писал api для бекенда, я предполагал, что в теле GET
         запроса будет передаваться json-массив с id нужных элементов и пустой массив, если клиент хочет получить все элементы.
         На этапе создания фронтенда я вспомнил, что по спецификации HTTP передавать тело с GET не рекомендуется, а fetch()
@@ -198,18 +170,11 @@ class EntityTable extends React.Component {
         const url = this.props.presenter.url + "?=" + new URLSearchParams({
             "ids": '{ "selectedIds": [] }'
         })
-        const req = {
-            method: "GET",
-            mode: "cors"
-        }
+        const req = { method: "GET", mode: "cors" }
         fetch(url, req).then(res => res.json()).then(
             data => {
-                this.setState({
-                    isLoading: false,
-                    items: data
-                })
-                // TODO: проверка системы, если данных нет
-                this.createColumnsFromObject(data[0])
+                this.setState({ isLoading: false, items: data })
+                if (data.length !== 0) this.createColumnsFromObject(data[0])
                 message.success({
                     top: 100,
                     content: "Data loaded",
@@ -219,8 +184,7 @@ class EntityTable extends React.Component {
             error => {
                 this.setState({
                     isLoading: false,
-                    error: error
-                })
+                    error: error })
                 message.error({
                     top: 24,
                     content: error.message.toLocaleString(),
@@ -229,11 +193,35 @@ class EntityTable extends React.Component {
             })
     }
 
-    componentDidMount() { this.getData() } // Вызывается лишь раз, при создании компонента
-
-    componentDidUpdate(prevProps) { // Вызывается каждый раз при обновлении props-ов из родителя
-        if (this.props.presenter !== prevProps.presenter) this.getData()
+    removeRecords = () => {
+        const url = this.props.presenter.url
+        const req = {
+            method: "DELETE",
+            mode: "cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ droppedIds: this.state.selectedRowKeys })
+        }
+        fetch(url, req).then(res => res.text()).then(
+            data => {
+                message.success({ top: 100, content: data, marginTop: "20vh" })
+                const newItems = this.state.items.filter(x => !this.state.selectedRowKeys.includes(x[this.props.presenter.idField]))
+                this.setState({ items: newItems })
+            },
+            error => {
+                this.setState({ error: error })
+                message.error({ top: 24, content: error.message.toLocaleString(), marginTop: "20vh" })
+            })
     }
+
+    addRecord = () => {
+        //TODO: взять колонки, убрать ту, где id собрать элемент
+    }
+
+    // Вызывается лишь раз, при создании компонента
+    componentDidMount() { this.getRecords() }
+
+    // Вызывается каждый раз при обновлении props-ов из родителя
+    componentDidUpdate(prevProps) { if (this.props.presenter !== prevProps.presenter) this.getRecords() }
 
     render() {
         const { isLoading, items, selectedRowKeys } = this.state
@@ -242,34 +230,52 @@ class EntityTable extends React.Component {
             onChange: this.onSelectChange,
             selections: [Table.SELECTION_ALL, Table.SELECTION_INVERT]
         }
-        const components = {
-            body: {
-                row: EditableRow,
-                cell: EditableCell
-            }
-        }
-        const columns = this.state.columns.map((col) => {
-            if (!col.editable) return col
-            return {
-                ...col,
-                onCell: (record) => ({
-                    record,
-                    editable: col.editable,
-                    dataIndex: col.dataIndex,
-                    title: col.title,
-                    handleSave: this.handleSave,
-                })
-            }
-        })
-        return <Table
-            components={components}
-            rowKey={this.props.presenter.idField}
-            rowSelection={rowSelection}
-            columns={columns}
-            dataSource={items}
-            loading={isLoading}
-            pagination={{ position: ["bottomCenter"] }}
-        />
+        const components = {body: { row: EditableRow, cell: EditableCell }}
+        return <Layout className="site-layout">
+            <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+                <Space size={"middle"}>
+                    <Popover trigger="click" content={<EntityCreator/>}>
+                        <Button
+                            icon={<PlusOutlined/>}
+                            ghost={true}
+                            onClick={this.addRecord}>
+                            Add record
+                        </Button>
+                    </Popover>
+                    <Button
+                        icon={<DeleteOutlined/>}
+                        ghost={true}
+                        danger
+                        onClick={this.removeRecords}>
+                        Remove
+                    </Button>
+                </Space>
+            </Header>
+            <Content style={{ marginTop: "64px" }}>
+                <div className="site-layout-background" style={{ minHeight: 360 }}>
+                    <Table
+                        components={components}
+                        rowKey={this.props.presenter.idField}
+                        rowSelection={rowSelection}
+                        columns={this.state.columns}
+                        dataSource={items}
+                        loading={isLoading}
+                        pagination={{ position: ["bottomCenter"] }}
+                    />
+                </div>
+            </Content>
+        </Layout>
+    }
+}
+
+class EntityCreator extends React.Component {
+    /*Это пример плохого дизайна 2, но уже со стороны фронта*/
+    render() {
+        return <div>
+            <Table
+            />
+            <Button>Create</Button>
+        </div>
     }
 }
 

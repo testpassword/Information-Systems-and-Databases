@@ -1,3 +1,0 @@
-org.jetbrains.exposed.exceptions.ExposedSQLException: org.postgresql.util.PSQLException: ОШИБКА: столбец base.id не существует
-  Позиция: 8
-SQL: [Failed on expanding args for SELECT: org.jetbrains.exposed.sql.Query@6d48de5d]

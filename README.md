@@ -119,5 +119,5 @@ c) Н_СЕССИЯ.УЧГОД = 2001/2002.
 ***Даталогическая модель***
 ![Datalogical model](course-04.09.20/docs/datalogical.jpg)
 
-***Компонентная модель**
+***Компонентная модель***
 ![Components model](course-04.09.20/docs/system.png)
