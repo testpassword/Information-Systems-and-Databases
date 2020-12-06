@@ -1,7 +1,7 @@
 package com.testpassword
 
 import com.testpassword.models.*
-import com.testpassword.routes.random
+import com.testpassword.routes.god
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import io.ktor.application.*
@@ -30,7 +30,7 @@ fun Application.module() {
     this.initDB()
     this.allowCORS()
     routing {
-        route("random") { random() }
+        route("god") { god() }
         route("base") { base() }
         route("campaign") { campaign() }
         route("employee") { employee() }

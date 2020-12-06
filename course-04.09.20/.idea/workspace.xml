@@ -23,44 +23,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea524d9-c1b1-4bc9-9f9b-e5b60e2fadf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/EditableRow.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c/storage_v2/_src_/database/pmc.BrIBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c/storage_v2/_src_/database/pmc.BrIBAA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c/storage_v2/_src_/database/pmc.BrIBAA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c/storage_v2/_src_/database/pmc.BrIBAA/schema/public.abK9xQ.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T014140.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T014912.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T015116.400.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T015246.400.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T015356.400.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T015607.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T015747.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T033255.400.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T033631.201.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T033657.400.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T040057.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T040101.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T040109.201.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T040117.400.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T040145.201.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T040153.201.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T120625.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T120630.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/BasePresenter.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/CampaignPresenter.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EmployeePresenter.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EquipmentPresenter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/SimpleModels.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/SimpleModels.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Transport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Transport.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/RandomRoute.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/RandomRoute.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/functions.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Application.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/RandomRoute.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/GodRoute.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/test/random.http" beforeDir="false" afterPath="$PROJECT_DIR$/backend/test/god.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/ManagementConsole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ManagementConsole.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/presenters/presenters.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/presenters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3-23.10.20/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3-23.10.20/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3-23.10.20/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633/storage_v2/_src_/database/ucheb.t1GfBg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3-23.10.20/.idea/dataSources/a4fcfe7b-795d-4068-af35-f0178518a633/storage_v2/_src_/database/ucheb.t1GfBg/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3-23.10.20/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3-23.10.20/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/presenters.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presenters.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,6 +157,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Users\pugalol\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-1\202.7660.26\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -191,8 +167,8 @@
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\components" />
+      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\public" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\backend\src\models" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\components\models" />
@@ -758,7 +734,7 @@
       <command value="gradle jar" />
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.base#5">
+  <component name="RunManager" selected="npm.start">
     <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
       <module name="course" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -772,15 +748,13 @@
       <option name="ADDITIONAL_ARGS" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -1015,17 +989,17 @@
     <list>
       <item itemvalue="Gradle.course-04.09.20 [run]" />
       <item itemvalue="HTTP Request.base#5" />
-      <item itemvalue="JavaScript Debug.Debug Application" />
-      <item itemvalue="npm.start" />
       <item itemvalue="HTTP Request.random#3" />
       <item itemvalue="HTTP Request.base#1" />
+      <item itemvalue="JavaScript Debug.Debug Application" />
+      <item itemvalue="npm.start" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.base#5" />
         <item itemvalue="npm.start" />
-        <item itemvalue="HTTP Request.random#3" />
         <item itemvalue="Gradle.course-04.09.20 [run]" />
+        <item itemvalue="HTTP Request.base#5" />
+        <item itemvalue="HTTP Request.random#3" />
         <item itemvalue="HTTP Request.base#1" />
       </list>
     </recent_temporary>
@@ -1088,7 +1062,10 @@
       <workItem from="1606604402535" duration="11127000" />
       <workItem from="1607120014480" duration="29000" />
       <workItem from="1607158424062" duration="7471000" />
-      <workItem from="1607167714641" duration="21413000" />
+      <workItem from="1607167714641" duration="21798000" />
+      <workItem from="1607257363554" duration="23364000" />
+      <workItem from="1607292792615" duration="28000" />
+      <workItem from="1607292846225" duration="1305000" />
     </task>
     <servers />
   </component>

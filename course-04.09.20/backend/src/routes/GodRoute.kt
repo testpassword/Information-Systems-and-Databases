@@ -7,19 +7,16 @@ import io.ktor.html.*
 import io.ktor.http.*
 import io.ktor.response.*
 import io.ktor.routing.*
-import kotlinx.html.body
-import kotlinx.html.h1
-import kotlinx.html.li
-import kotlinx.html.ul
+import kotlinx.html.*
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
 
-fun Route.random() {
+fun Route.god() {
 
     get {
         call.respondHtml {
             body {
-                h1 { +"TIP" }
+                h1 { +"GOD-MODE" }
                 ul {
                     li { +"Use DELETE method to drop tables" }
                     li { +"POST to fill tables" }

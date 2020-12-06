@@ -4,8 +4,12 @@ import Credits from "./Credits"
 import { CalendarOutlined, TeamOutlined, CarOutlined, HomeOutlined, GlobalOutlined, MedicineBoxOutlined,
     ShoppingOutlined, MoneyCollectOutlined, CoffeeOutlined } from "@ant-design/icons"
 import EntityTable from "./EntityTable"
-import { BasePresenter, CampaignPresenter, EmployeePresenter, EquipmentPresenter, MedicalCardPresenter, MissionPresenter,
-    MrePresenter, PositionPresenter, TransportPresenter, WeaponPresenter } from "../presenters.js"
+import { MedicalCardPresenter, MissionPresenter, MrePresenter,
+    PositionPresenter, TransportPresenter, WeaponPresenter } from "./presenters.js"
+import BasePresenter from "./presentors/BasePresenter.jsx"
+import CampaignPresenter from "./presentors/CampaignPresenter.jsx"
+import EmployeePresenter from "./presentors/EmployeePresenter.jsx"
+import EquipmentPresenter from "./presentors/EquipmentPresenter"
 
 class ManagementConsole extends React.Component {
 
