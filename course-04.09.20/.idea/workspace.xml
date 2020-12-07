@@ -23,19 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea524d9-c1b1-4bc9-9f9b-e5b60e2fadf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/BasePresenter.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/CampaignPresenter.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EmployeePresenter.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EquipmentPresenter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Application.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/RandomRoute.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/GodRoute.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/test/random.http" beforeDir="false" afterPath="$PROJECT_DIR$/backend/test/god.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ManagementConsole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ManagementConsole.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/presenters.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presenters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/GodRoute.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/GodRoute.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/EmployeePresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EmployeePresenter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/EquipmentPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EquipmentPresenter.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +107,7 @@
         <option value="Kotlin File" />
         <option value="HTTP Request" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -145,6 +137,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/resources" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -734,7 +727,7 @@
       <command value="gradle jar" />
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="Gradle.course-04.09.20 [run]">
     <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
       <module name="course" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -748,13 +741,15 @@
       <option name="ADDITIONAL_ARGS" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -996,8 +991,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
         <item itemvalue="Gradle.course-04.09.20 [run]" />
+        <item itemvalue="npm.start" />
         <item itemvalue="HTTP Request.base#5" />
         <item itemvalue="HTTP Request.random#3" />
         <item itemvalue="HTTP Request.base#1" />
@@ -1065,8 +1060,17 @@
       <workItem from="1607167714641" duration="21798000" />
       <workItem from="1607257363554" duration="23364000" />
       <workItem from="1607292792615" duration="28000" />
-      <workItem from="1607292846225" duration="1305000" />
+      <workItem from="1607292846225" duration="2071000" />
+      <workItem from="1607336749104" duration="2101000" />
     </task>
+    <task id="LOCAL-00001" summary="Random route renamed to God route in backend; Created add form for Base, Campaign, Employee, Equipment entities; Render NumberInput and stub for SelectInput; Added downloading records in json">
+      <created>1607294700699</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607294700699</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1083,5 +1087,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Random route renamed to God route in backend; Created add form for Base, Campaign, Employee, Equipment entities; Render NumberInput and stub for SelectInput; Added downloading records in json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Random route renamed to God route in backend; Created add form for Base, Campaign, Employee, Equipment entities; Render NumberInput and stub for SelectInput; Added downloading records in json" />
   </component>
 </project>

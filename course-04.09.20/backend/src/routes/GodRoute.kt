@@ -13,14 +13,34 @@ import org.jetbrains.exposed.sql.transactions.transaction
 
 fun Route.god() {
 
+    val GOD_URL = "localhost:9090/god"
+
     get {
         call.respondHtml {
             body {
                 h1 { +"GOD-MODE" }
                 ul {
-                    li { +"Use DELETE method to drop tables" }
-                    li { +"POST to fill tables" }
-                    li { +"PUT to create tables before fill" }
+                    li {
+                        form(action = GOD_URL, method = FormMethod.put) {
+                            button(type = ButtonType.submit) {
+                                +"PUT to create tables before fill"
+                            }
+                        }
+                    }
+                    li {
+                        form(action = GOD_URL, method = FormMethod.post) {
+                            button(type=ButtonType.submit) {
+                                + "POST to fill tables"
+                            }
+                        }
+                    }
+                    li {
+                        form(action = GOD_URL, method = FormMethod.delete) {
+                            button(type = ButtonType.submit) {
+                                + "DELETE to drop table and all data"
+                            }
+                        }
+                    }
                 }
             }
         }

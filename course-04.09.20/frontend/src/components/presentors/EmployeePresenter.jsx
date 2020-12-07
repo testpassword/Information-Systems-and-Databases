@@ -1,5 +1,5 @@
 import React from "react"
-import {Button, DatePicker, Form, Input, Radio} from "antd"
+import { Button, DatePicker, Form, Input, Radio } from "antd"
 import moment from "moment"
 
 class EmployeeCreator extends React.Component {
