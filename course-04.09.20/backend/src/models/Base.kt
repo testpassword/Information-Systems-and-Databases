@@ -65,6 +65,7 @@ fun Route.base() {
         val (t, s) = try {
             val raw = call.receiveText()
             val b = P.parse<Base>(raw)!!
+            println("PARSED: " + b)
             transaction {
                 BaseTable.insert {
                     it[location] = b.location

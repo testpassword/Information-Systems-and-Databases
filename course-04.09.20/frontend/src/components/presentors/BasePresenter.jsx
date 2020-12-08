@@ -1,10 +1,12 @@
 import React from "react"
-import {Input, Form, Button, Radio} from "antd"
+import { Input, Form, Button, Radio } from "antd"
+import AbstractCreator from "./AbstractCreator.jsx"
 
-class BaseCreator extends React.Component {
+class BaseCreator extends AbstractCreator {
 
     render() {
-        return <Form>
+        return <Form
+                onFinish={this.onTrigger}>
                 <Form.Item
                     label="Location"
                     name="location"

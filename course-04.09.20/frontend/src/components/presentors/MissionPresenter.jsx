@@ -13,7 +13,7 @@ class MissionCreator extends React.Component {
             </Form.Item>
             <Form.Item
                 label="Departure location"
-                name="arrivalLocation">
+                name="departureLocation">
                 <Input placeholder="Use space as separator"/>
             </Form.Item>
             <Form.Item

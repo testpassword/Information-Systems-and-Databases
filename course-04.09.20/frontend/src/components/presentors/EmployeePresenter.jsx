@@ -8,7 +8,7 @@ class EmployeeCreator extends React.Component {
         return <Form>
             <Form.Item
                 label="Date of birth"
-                name="date_of_birth"
+                name="dateOfBirth"
                 rules={[{ required: true, message: "Input date of birth new employee" }]}>
                 <DatePicker format={['DD/MM/YYYY', 'DD/MM/YY']}/>
             </Form.Item>
@@ -20,7 +20,7 @@ class EmployeeCreator extends React.Component {
             </Form.Item>
             <Form.Item
                 label="Hiring date"
-                name="hiring_birth"
+                name="hiringDate"
                 rules={[{ required: true, message: "Input date of hiring new employee" }]}>
                 <DatePicker format={"DD.MM.YYYY"} defaultValue={moment()}/>
             </Form.Item>

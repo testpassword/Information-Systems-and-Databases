@@ -21,7 +21,7 @@ class CampaignCreator extends React.Component {
             </Form.Item>
             <Form.Item
                 label="Execution status"
-                name="execution_status"
+                name="executionStatus"
                 rules={[{ required: true, message: "Execution status of campaign" }]}>
                 <Radio.Group
                     options={CampaignPresenter.filteredColumns.executionStatus.map(o => o.text)}

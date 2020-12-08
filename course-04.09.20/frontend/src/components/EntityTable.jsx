@@ -8,6 +8,13 @@ import { last } from "underscore"
 
 class EntityTable extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.props.presenter.creator =
+            React.cloneElement(this.props.presenter.creator, { parentCallback: this.addRecord }, null)
+    }
+
+
     state = {
         error: null,
         isLoading: true,
@@ -63,10 +70,7 @@ class EntityTable extends React.Component {
 
     handleSearch = (selectedKeys, confirm, dataIndex) => {
         confirm()
-        this.setState({
-            searchText: selectedKeys[0],
-            searchedColumn: dataIndex
-        })
+        this.setState({ searchText: selectedKeys[0], searchedColumn: dataIndex })
     }
 
     handleReset = clearFilters => {
@@ -96,24 +100,13 @@ class EntityTable extends React.Component {
                     data => {
                         this.setState({ isLoading: false })
                         console.log(data)
-                        message.success({
-                            top: 100,
-                            content: data,
-                            marginTop: "20vh"
-                        })
+                        message.success({ content: data })
                         orig_record[key] = modified_record[key]
                         this.setState({ items: items })
                     },
                     error => {
-                        this.setState({
-                            isLoading: false,
-                            error: error
-                        })
-                        message.error({
-                            top: 24,
-                            content: error.message.toLocaleString(),
-                            marginTop: "20vh"
-                        })
+                        this.setState({ isLoading: false, error: error })
+                        message.error({ content: error.message.toLocaleString() })
                     })
             }
         })
@@ -185,27 +178,19 @@ class EntityTable extends React.Component {
             data => {
                 this.setState({ isLoading: false, items: data })
                 if (data.length !== 0) this.createColumnsFromObject(data[0])
-                message.success({
-                    top: 100,
-                    content: "Data loaded",
-                    marginTop: "20vh"
-                })
+                message.success({ content: "Data loaded" })
             },
             error => {
                 this.setState({
                     isLoading: false,
                     error: error })
-                message.error({
-                    top: 24,
-                    content: error.message.toLocaleString(),
-                    marginTop: "20vh"
-                })
+                message.error({ content: error.message.toLocaleString() })
             })
     }
 
     removeRecords = () => {
         if (this.state.selectedRowKeys.length === 0)
-            message.success({ top: 100, content: "Can't delete, nothing selected", marginTop: "20vh" })
+            message.success({ content: "Can't delete, nothing selected" })
         else {
             const url = this.props.presenter.url
             const req = {
@@ -216,7 +201,7 @@ class EntityTable extends React.Component {
             }
             fetch(url, req).then(res => res.text()).then(
                 data => {
-                    message.success({ top: 100, content: data, marginTop: "20vh" })
+                    message.success({ content: data })
                     this.setState(
                         { items: this.state.items.filter(x =>
                                 !this.state.selectedRowKeys.includes(x[this.props.presenter.idField]))
@@ -224,14 +209,37 @@ class EntityTable extends React.Component {
                 },
                 error => {
                     this.setState({ error: error })
-                    message.error({ top: 24, content: error.message.toLocaleString(), marginTop: "20vh" })
+                    message.error({ content: error.message.toLocaleString() })
                 })
         }
     }
 
-    addRecord = () => {
-        //TODO: взять колонки, убрать ту, где id собрать элемент
+    addRecord = (childData) => {
+        if (childData === undefined) return
+        const url = this.props.presenter.url
+        const req = {
+            method: "POST",
+            mode: "cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                [this.props.presenter.idField]: null,
+                ...childData
+            })
+        }
+        fetch(url, req).then(res => res.text()).then(
+            data => {
+                message.success({content: data})
+                // Чтобы не перезагружать всю таблицу, добавим к ней только новый объект, но необходимо получить его id
+                //TODO: добавление нового объекта
+            },
+            error => {
+                this.setState({ error: error })
+                message.error({ content: error.message.toLocaleString() })
+            })
     }
+
+    //Пример плохого планирования. Я попал в ад коллбеков, из-за чего на нажатие кнопки открытия формы пришлось добавить отдельную функцию
+    handleAddClick = () => this.addRecord()
 
     downloadRecords = () => {
         const url = this.props.presenter.url + "?=" + new URLSearchParams({
@@ -248,11 +256,7 @@ class EntityTable extends React.Component {
                 )
             },
             error => {
-                message.error({
-                    top: 24,
-                    content: error.message.toLocaleString(),
-                    marginTop: "20vh"
-                })
+                message.error({ content: error.message.toLocaleString() })
             })
     }
 
@@ -278,7 +282,7 @@ class EntityTable extends React.Component {
                             type="primary"
                             icon={<PlusOutlined/>}
                             ghost={true}
-                            onClick={this.addRecord}>
+                            onClick={this.handleAddClick}>
                             Add record
                         </Button>
                     </Popover>
