@@ -13,7 +13,7 @@ CREATE TABLE mre
     lunch          TEXT     NOT NULL,
     dinner         TEXT     NOT NULL,
     food_additives TEXT,
-    kkal           SMALLINT NOT NULL CHECK (kkal >= 1000),
+    kkal           SMALLINT NOT NULL CHECK (kkal >= 3000),
     proteins       SMALLINT NOT NULL CHECK (proteins > 0),
     fats           SMALLINT NOT NULL CHECK (fats > 0),
     carbohydrate   SMALLINT NOT NULL CHECK (carbohydrate > 0)
@@ -36,7 +36,7 @@ CREATE TABLE position
 (
     pos_id   SERIAL PRIMARY KEY,
     name     TEXT           NOT NULL,
-    salary   NUMERIC(11, 2) NOT NULL CHECK (salary >= 12130),
+    salary   NUMERIC(11, 2) NOT NULL CHECK (salary >= 300),
     rank     TEXT,
     equip_id INTEGER        REFERENCES equipment ON DELETE SET NULL,
     forces   FORCE
@@ -92,7 +92,7 @@ CREATE TABLE mission
     camp_id             INTEGER NOT NULL REFERENCES campaign ON DELETE CASCADE,
     start_date_and_time TIMESTAMP,
     end_date_and_time   TIMESTAMP,
-    legal_status        BOOLEAN,
+    legal_status        BOOLEAN NOT NULL,
     departure_location  TEXT,
     arrival_location    TEXT,
     enemies             TEXT

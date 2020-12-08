@@ -4,19 +4,8 @@ import moment from "moment"
 
 class EmployeeCreator extends React.Component {
 
-    onFinish = values => {
-        //TODO: вернуть EntityTable
-        console.log('Success:', values)
-    }
-
-    onFinishFailed = errorInfo => {
-        console.log('Failed:', errorInfo)
-    }
-
     render() {
-        return <Form
-            onFinish={this.onFinish}
-            onFinishFailed={this.onFinishFailed}>
+        return <Form>
             <Form.Item
                 label="Date of birth"
                 name="date_of_birth"

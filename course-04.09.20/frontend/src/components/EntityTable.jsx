@@ -4,7 +4,7 @@ import Highlighter from "react-highlight-words"
 import { DeleteOutlined, PlusOutlined, SearchOutlined, DownloadOutlined } from "@ant-design/icons"
 import { Header, Content } from "antd/lib/layout/layout"
 import { EditableCell, EditableRow } from "./EditableRow.jsx"
-import { last, without } from "underscore"
+import { last } from "underscore"
 
 class EntityTable extends React.Component {
 

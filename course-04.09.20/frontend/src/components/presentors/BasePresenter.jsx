@@ -3,19 +3,8 @@ import {Input, Form, Button, Radio} from "antd"
 
 class BaseCreator extends React.Component {
 
-    onFinish = values => {
-        //TODO: вернуть EntityTable
-        console.log('Success:', values)
-    }
-
-    onFinishFailed = errorInfo => {
-        console.log('Failed:', errorInfo)
-    }
-
     render() {
-        return <Form
-            onFinish={this.onFinish}
-            onFinishFailed={this.onFinishFailed}>
+        return <Form>
                 <Form.Item
                     label="Location"
                     name="location"

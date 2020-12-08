@@ -22,7 +22,7 @@ object MissionTable: Table("mission"), Generable {
     val camp_id = reference("camp_id", CampaignTable.camp_id, onDelete = ReferenceOption.CASCADE)
     val start_date_and_time = datetime("start_date_and_time").nullable()
     val end_date_and_time = datetime("end_date_and_time").nullable()
-    val legal_status = bool("legal_status").nullable()
+    val legal_status = bool("legal_status")
     val departure_location = text("departure_location").nullable()
     val arrival_location = text("arrival_location").nullable()
     val enemies = text("enemies").nullable()
@@ -54,7 +54,7 @@ fun ResultRow.toMission() = Mission(this[MissionTable.miss_id], this[MissionTabl
     this[MissionTable.departure_location], this[MissionTable.arrival_location], this[MissionTable.enemies])
 
 data class Mission(val missId: Int?, val campId: Int, val startDateAndTime: LocalDateTime?,
-                   val endDateAndTime: LocalDateTime?, val legalStatus: Boolean?, val departureLocation: String?,
+                   val endDateAndTime: LocalDateTime?, val legalStatus: Boolean, val departureLocation: String?,
                    val arrivalLocation: String?, val enemies: String?)
 
 fun Route.mission() {

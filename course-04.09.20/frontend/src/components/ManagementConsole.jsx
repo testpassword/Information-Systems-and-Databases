@@ -1,15 +1,19 @@
 import React from "react"
 import { Layout, Menu, Modal } from "antd"
 import Credits from "./Credits"
-import { CalendarOutlined, TeamOutlined, CarOutlined, HomeOutlined, GlobalOutlined, MedicineBoxOutlined,
-    ShoppingOutlined, MoneyCollectOutlined, CoffeeOutlined } from "@ant-design/icons"
+import { CalendarOutlined, TeamOutlined, CarOutlined, HomeOutlined, GlobalOutlined, MedicineBoxOutlined, ShoppingOutlined,
+    MoneyCollectOutlined, CoffeeOutlined } from "@ant-design/icons"
 import EntityTable from "./EntityTable"
-import { MedicalCardPresenter, MissionPresenter, MrePresenter,
-    PositionPresenter, TransportPresenter, WeaponPresenter } from "./presenters.js"
 import BasePresenter from "./presentors/BasePresenter.jsx"
 import CampaignPresenter from "./presentors/CampaignPresenter.jsx"
 import EmployeePresenter from "./presentors/EmployeePresenter.jsx"
 import EquipmentPresenter from "./presentors/EquipmentPresenter"
+import MedicalCardPresenter from "./presentors/MedicalCardPresenter"
+import MissionPresenter from "./presentors/MissionPresenter"
+import MrePresenter from "./presentors/MrePresenter"
+import PositionPresenter from "./presentors/PositionPresenter"
+import TransportPresenter from "./presentors/TransportPresenter"
+import WeaponPresenter from "./presentors/WeaponPresenter"
 
 class ManagementConsole extends React.Component {
 

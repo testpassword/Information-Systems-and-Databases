@@ -16,7 +16,7 @@ object MRETable: Table("mre"), Generable {
     val lunch = text("lunch")
     val dinner = text("dinner")
     val food_additives = text("food_additives").nullable()
-    val kkal = integer("kkal").check { it greaterEq 1000 }
+    val kkal = integer("kkal").check { it greaterEq 3000 }
     val proteins = integer("proteins").check { it greater 0 }
     val fats = integer("fats").check { it greater 0 }
     val carbohydrate = integer("carbohydrate").check { it greater 0 }

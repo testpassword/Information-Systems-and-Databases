@@ -3,19 +3,8 @@ import { Button, Form, Input } from "antd"
 
 class EquipmentCreator extends React.Component {
 
-    onFinish = values => {
-        //TODO: вернуть EntityTable
-        console.log('Success:', values)
-    }
-
-    onFinishFailed = errorInfo => {
-        console.log('Failed:', errorInfo)
-    }
-
     render() {
-        return <Form
-            onFinish={this.onFinish}
-            onFinishFailed={this.onFinishFailed}>
+        return <Form>
             <Form.Item
                 label="Camouflage"
                 name="camouflage">

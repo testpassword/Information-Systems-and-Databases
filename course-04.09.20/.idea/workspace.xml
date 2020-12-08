@@ -23,8 +23,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea524d9-c1b1-4bc9-9f9b-e5b60e2fadf8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/MedicalCardPresenter.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/MissionPresenter.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/MrePresenter.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/PositionPresenter.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/TransportPresenter.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/presentors/WeaponPresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/GodRoute.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/GodRoute.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/models/MRE.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/MRE.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/models/Mission.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Mission.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/models/Position.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Position.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/scheme.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/scheme.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ManagementConsole.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ManagementConsole.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presenters.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/BasePresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/BasePresenter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/CampaignPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/CampaignPresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/EmployeePresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EmployeePresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/EquipmentPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EquipmentPresenter.jsx" afterDir="false" />
     </list>
@@ -727,7 +741,7 @@
       <command value="gradle jar" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.course-04.09.20 [run]">
+  <component name="RunManager" selected="npm.start">
     <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
       <module name="course" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -740,19 +754,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="ADDITIONAL_ARGS" value="" />
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="course" />
@@ -991,8 +992,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.course-04.09.20 [run]" />
         <item itemvalue="npm.start" />
+        <item itemvalue="Gradle.course-04.09.20 [run]" />
         <item itemvalue="HTTP Request.base#5" />
         <item itemvalue="HTTP Request.random#3" />
         <item itemvalue="HTTP Request.base#1" />
@@ -1061,7 +1062,13 @@
       <workItem from="1607257363554" duration="23364000" />
       <workItem from="1607292792615" duration="28000" />
       <workItem from="1607292846225" duration="2071000" />
-      <workItem from="1607336749104" duration="2101000" />
+      <workItem from="1607336749104" duration="2232000" />
+      <workItem from="1607348084466" duration="1239000" />
+      <workItem from="1607373304315" duration="1449000" />
+      <workItem from="1607375103239" duration="3797000" />
+      <workItem from="1607382163568" duration="1875000" />
+      <workItem from="1607423371823" duration="731000" />
+      <workItem from="1607424494711" duration="3051000" />
     </task>
     <task id="LOCAL-00001" summary="Random route renamed to God route in backend; Created add form for Base, Campaign, Employee, Equipment entities; Render NumberInput and stub for SelectInput; Added downloading records in json">
       <created>1607294700699</created>
@@ -1070,7 +1077,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607294700699</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Clickable godmode">
+      <created>1607338963716</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607338963716</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1090,6 +1104,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Random route renamed to God route in backend; Created add form for Base, Campaign, Employee, Equipment entities; Render NumberInput and stub for SelectInput; Added downloading records in json" />
-    <option name="LAST_COMMIT_MESSAGE" value="Random route renamed to God route in backend; Created add form for Base, Campaign, Employee, Equipment entities; Render NumberInput and stub for SelectInput; Added downloading records in json" />
+    <MESSAGE value="Clickable godmode" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clickable godmode" />
   </component>
 </project>

@@ -15,7 +15,7 @@ object PositionTable: Table("Position"), Generable {
 
     val pos_id = integer("pos_id").autoIncrement().primaryKey()
     val name = text("name")
-    val salary = decimal("salary", 2, 11).check { it greater 12130.0 }
+    val salary = decimal("salary", 2, 11).check { it greater 300.0 }
     val rank = text("rank").nullable()
     val equip_id = reference("equip_id", EquipmentTable.equip_id, onDelete = ReferenceOption.SET_NULL).nullable()
     val forces = postgresEnumeration<FORCES>("forces", "force").nullable()
@@ -32,7 +32,7 @@ object PositionTable: Table("Position"), Generable {
             PositionTable.insert {
                 val empPos = if (Random.nextDouble(1.0, 100.0) >= 65) armyPositions.random() else F.job().position()
                 it[name] = empPos
-                it[salary] = F.number().randomDouble(2, 12130, 1000000).toBigDecimal()
+                it[salary] = F.number().randomDouble(2, 300, 1000000).toBigDecimal()
                 if (empPos in armyPositions) it[rank] = ranks.random()
                 it[equip_id] = equipIds.random()
                 it[forces] = FORCES.values().random()
