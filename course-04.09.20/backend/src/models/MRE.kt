@@ -27,7 +27,7 @@ object MRETable: Table("mre"), Generable {
                 it[breakfast] = F.food().dish()
                 it[lunch] = F.food().dish()
                 it[dinner] = F.food().dish()
-                it[food_additives] = generateSequence { F.food().ingredient() }.take(3).joinToString(separator = "_")
+                it[food_additives] = generateSequence { F.food().ingredient() }.take(3).joinToString(separator = " ")
                 it[kkal] = F.number().numberBetween(1000, 4000)
                 it[proteins] = F.number().numberBetween(1, 400)
                 it[fats] = F.number().numberBetween(1, 400)

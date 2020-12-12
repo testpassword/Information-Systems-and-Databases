@@ -25,6 +25,11 @@ class EquipmentCreator extends React.Component {
                 name="medical">
                 <Input/>
             </Form.Item>
+            <Form.Item
+                label="Extras"
+                name="extra">
+                <Input placeholder="Use space as separator"/>
+            </Form.Item>
             <Form.Item>
                 <Button type="primary" htmlType="submit">Submit</Button>
             </Form.Item>

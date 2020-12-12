@@ -37,7 +37,7 @@ class MreCreator extends React.Component {
             <Form.Item
                 label="Kkal"
                 name="kkal"
-                rules={[{ required: true, message: "Set total fats value in MRE" }]}>
+                rules={[{ required: true, message: "Set total kkal value in MRE" }]}>
                 <InputNumber min={3000}/>
             </Form.Item>
             <Form.Item
@@ -45,6 +45,12 @@ class MreCreator extends React.Component {
                 name="lunch"
                 rules={[{ required: true, message: "Set lunch! Hungry solder - dead solder." }]}>
                 <Input/>
+            </Form.Item>
+            <Form.Item
+                label="Proteins"
+                name="proteins"
+                rules={[{ required: true, message: "Set total proteins value in MRE" }]}>
+                <Input min={0}/>
             </Form.Item>
             <Form.Item>
                 <Button type="primary" htmlType="submit">Submit</Button>

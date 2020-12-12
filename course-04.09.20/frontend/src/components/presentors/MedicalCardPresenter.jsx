@@ -1,5 +1,5 @@
 import React from "react"
-import {Button, Form, Input, InputNumber, Radio} from "antd";
+import {Button, Form, Input, InputNumber, Radio} from "antd"
 
 class MedicalCardCreator extends React.Component {
 
@@ -30,6 +30,15 @@ class MedicalCardCreator extends React.Component {
                 name="weightKg"
                 rules={[ { required: true, message: "Input employee weight" }]}>
                 <InputNumber/>
+            </Form.Item>
+            <Form.Item
+                label="Blood"
+                name="blood"
+                rules={[ { required: true, message: "Choose blood type - it's about saving life!" }]}>
+                <Radio.Group
+                    options={MedicalCardPresenter.filteredColumns.blood.map(o => o.text)}
+                    optionType="button"
+                />
             </Form.Item>
             <Form.Item>
                 <Button type="primary" htmlType="submit">Submit</Button>

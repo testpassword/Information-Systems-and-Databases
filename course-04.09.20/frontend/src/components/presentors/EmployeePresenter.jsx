@@ -1,11 +1,20 @@
 import React from "react"
 import { Button, DatePicker, Form, Input, Radio } from "antd"
 import moment from "moment"
+import EntitySimpleTable from "../EntitySimpleTable"
 
 class EmployeeCreator extends React.Component {
 
     render() {
         return <Form>
+            <Form.Item
+                label="Base ID"
+                name="baseId">
+                <Button type="link">select base</Button>
+                <EntitySimpleTable presenter={EmployeePresenter}/>
+                {/*TODO: модальное окно после закрытия возвращает id выбранного элемента*/}
+                <Input style={{display: "none"}}/>
+            </Form.Item>
             <Form.Item
                 label="Date of birth"
                 name="dateOfBirth"

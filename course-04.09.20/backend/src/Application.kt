@@ -27,8 +27,8 @@ fun Application.allowCORS() {
 
 //https://stefangaller.at/app-development/kotlin/ktor-rest-api-exposed/
 fun Application.module() {
-    this.initDB()
-    this.allowCORS()
+    initDB()
+    allowCORS()
     routing {
         route("god") { god() }
         route("base") { base() }

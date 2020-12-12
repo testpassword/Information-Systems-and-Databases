@@ -5,6 +5,7 @@ import { DeleteOutlined, PlusOutlined, SearchOutlined, DownloadOutlined } from "
 import { Header, Content } from "antd/lib/layout/layout"
 import { EditableCell, EditableRow } from "./EditableRow.jsx"
 import { last } from "underscore"
+import EntitiesApi from "../EntitiesApi.js"
 
 class EntityTable extends React.Component {
 
@@ -16,7 +17,6 @@ class EntityTable extends React.Component {
 
 
     state = {
-        error: null,
         isLoading: true,
         items: [],
         searchText: "",
@@ -83,29 +83,19 @@ class EntityTable extends React.Component {
     handleSave = modified_record => {
         const p = this.props.presenter
         const items = this.state.items
-        const orig_record = items.find((it) => modified_record.baseId === it.baseId)
+        const orig_record = items.find((it) => modified_record[p.idField] === it[p.idField])
         Object.keys(orig_record).forEach(key => {
             if (orig_record[key] !== modified_record[key]) {
-                const req = {
-                    method: "PUT",
-                    mode: "cors",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        [p.idField]: modified_record[p.idField],
-                        [key]: modified_record[key]
-                    })
-                }
-                this.setState({ isLoading: true })
-                fetch(p.url, req).then(res => res.text()).then(
+                EntitiesApi.put(this.props.presenter.url, this.props.presenter.idField, modified_record, key)
+                    .then(res => res.text()).then(
                     data => {
                         this.setState({ isLoading: false })
-                        console.log(data)
                         message.success({ content: data })
                         orig_record[key] = modified_record[key]
                         this.setState({ items: items })
                     },
                     error => {
-                        this.setState({ isLoading: false, error: error })
+                        this.setState({ isLoading: false })
                         message.error({ content: error.message.toLocaleString() })
                     })
             }
@@ -157,107 +147,76 @@ class EntityTable extends React.Component {
                         handleSave: this.handleSave,
                     })
                 }
+
             return modifiedColumn
         })
         this.setState({ columns: cols })
     }
 
     getRecords = () => {
-        /* Это наглядный пример плохого дизайна: изначально когда я писал api для бекенда, я предполагал, что в теле GET
-        запроса будет передаваться json-массив с id нужных элементов и пустой массив, если клиент хочет получить все элементы.
-        На этапе создания фронтенда я вспомнил, что по спецификации HTTP передавать тело с GET не рекомендуется, а fetch()
-        и вовсе это запрещает. Т.к. кардинально менять api бэка не хотелось, решил костыльно передавать json-массив как
-        параметр запроса. */
-        const url = this.props.presenter.url + "?=" + new URLSearchParams({
-            "ids":  JSON.stringify({
-                selectedIds: []
-            })
-        })
-        const req = { method: "GET", mode: "cors" }
-        fetch(url, req).then(res => res.json()).then(
-            data => {
-                this.setState({ isLoading: false, items: data })
-                if (data.length !== 0) this.createColumnsFromObject(data[0])
-                message.success({ content: "Data loaded" })
-            },
-            error => {
-                this.setState({
-                    isLoading: false,
-                    error: error })
-                message.error({ content: error.message.toLocaleString() })
-            })
+        EntitiesApi.get(this.props.presenter.url)
+            .then(res => {
+                this.setState({isLoading: false})
+                return res.json()
+                }
+            )
+            .then(
+                data => {
+                    this.setState({ items: data })
+                    this.createColumnsFromObject(data[0])
+                    message.success({ content: "Data loaded" })
+                },
+                error => message.error({ content: error.message.toLocaleString() })
+            )
     }
 
     removeRecords = () => {
         if (this.state.selectedRowKeys.length === 0)
             message.success({ content: "Can't delete, nothing selected" })
         else {
-            const url = this.props.presenter.url
-            const req = {
-                method: "DELETE",
-                mode: "cors",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ droppedIds: this.state.selectedRowKeys })
-            }
-            fetch(url, req).then(res => res.text()).then(
-                data => {
-                    message.success({ content: data })
-                    this.setState(
-                        { items: this.state.items.filter(x =>
+            EntitiesApi.delete(this.props.presenter.url, this.state.selectedRowKeys)
+                .then(res => res.text())
+                .then(
+                    data => {
+                        message.success({ content: data })
+                        this.setState(
+                            { items: this.state.items.filter(x =>
                                 !this.state.selectedRowKeys.includes(x[this.props.presenter.idField]))
-                    })
-                },
-                error => {
-                    this.setState({ error: error })
-                    message.error({ content: error.message.toLocaleString() })
-                })
+                            })
+                    },
+                        error => message.error({ content: error.message.toLocaleString() })
+                )
         }
     }
 
     addRecord = (childData) => {
         if (childData === undefined) return
-        const url = this.props.presenter.url
-        const req = {
-            method: "POST",
-            mode: "cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                [this.props.presenter.idField]: null,
-                ...childData
-            })
-        }
-        fetch(url, req).then(res => res.text()).then(
+        EntitiesApi.post(this.props.presenter.url, this.props.presenter.idField, childData).then(res => res.text()).then(
             data => {
                 message.success({content: data})
-                // Чтобы не перезагружать всю таблицу, добавим к ней только новый объект, но необходимо получить его id
-                //TODO: добавление нового объекта
+                this.getRecords()
             },
-            error => {
-                this.setState({ error: error })
-                message.error({ content: error.message.toLocaleString() })
-            })
+            error => message.error({ content: error.message.toLocaleString() })
+        )
     }
 
     //Пример плохого планирования. Я попал в ад коллбеков, из-за чего на нажатие кнопки открытия формы пришлось добавить отдельную функцию
     handleAddClick = () => this.addRecord()
 
     downloadRecords = () => {
-        const url = this.props.presenter.url + "?=" + new URLSearchParams({
-            "ids": JSON.stringify({
-                selectedIds: (this.state.selectedRowKeys === 0) ? [] : this.state.selectedRowKeys
-            })
-        })
-        const req = { method: "GET", mode: "cors" }
-        fetch(url, req).then(res => res.text()).then(
-            data => {
+        EntitiesApi.get(
+            this.props.presenter.url,
+            (this.state.selectedRowKeys === 0) ? [] : this.state.selectedRowKeys)
+            .then(res => res.text())
+            .then(
+                data => {
                 require("file-saver").saveAs(
                     new Blob([data], { type: "text/json;charset=utf-8" }),
                     last(this.props.presenter.url.split("/")) + ".json"
                 )
             },
-            error => {
-                message.error({ content: error.message.toLocaleString() })
-            })
+            error => message.error({ content: error.message.toLocaleString() })
+            )
     }
 
     // Вызывается лишь раз, при создании компонента
@@ -319,7 +278,5 @@ class EntityTable extends React.Component {
         </Layout>
     }
 }
-
-//TODO: освобождение ресурсов
 
 export default EntityTable
