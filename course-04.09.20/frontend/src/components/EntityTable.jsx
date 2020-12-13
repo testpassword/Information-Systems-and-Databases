@@ -15,14 +15,14 @@ class EntityTable extends React.Component {
             React.cloneElement(this.props.presenter.creator, { parentCallback: this.addRecord }, null)
     }
 
-
     state = {
         isLoading: true,
         items: [],
         searchText: "",
         searchedColumn: "",
         selectedRowKeys: [],
-        columns: []
+        columns: [],
+        addFormVisible: false
     }
 
     getColumnSearchProps = dataIndex => ({
@@ -201,7 +201,10 @@ class EntityTable extends React.Component {
     }
 
     //Пример плохого планирования. Я попал в ад коллбеков, из-за чего на нажатие кнопки открытия формы пришлось добавить отдельную функцию
-    handleAddClick = () => this.addRecord()
+    handleAddClick = () => {
+        this.addRecord()
+        this.setState({ addFormVisible: true })
+    }
 
     downloadRecords = () => {
         EntitiesApi.get(
@@ -236,7 +239,7 @@ class EntityTable extends React.Component {
         return <Layout className="site-layout">
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
                 <Space size={"middle"}>
-                    <Popover trigger="click" content={this.props.presenter.creator}>
+                    <Popover trigger="click" content={this.props.presenter.creator} visible={this.state.addFormVisible}>
                         <Button
                             type="primary"
                             icon={<PlusOutlined/>}

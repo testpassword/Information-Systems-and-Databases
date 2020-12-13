@@ -1,10 +1,11 @@
 import React from "react"
 import { Button, Form, Input } from "antd"
+import AbstractCreator from "./AbstractCreator.jsx"
 
-class EquipmentCreator extends React.Component {
+class EquipmentCreator extends AbstractCreator {
 
     render() {
-        return <Form>
+        return <Form onFinish={this.onTrigger}>
             <Form.Item
                 label="Camouflage"
                 name="camouflage">

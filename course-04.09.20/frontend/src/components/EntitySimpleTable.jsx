@@ -1,36 +1,21 @@
 import React from "react"
 import EntitiesApi from "../EntitiesApi.js"
-import {Table, message, Modal } from "antd"
+import {Table, message } from "antd"
 
 class EntitySimpleTable extends React.Component {
 
-    state = {
-        items: [],
-        isModalVisible: true
-    }
-
-    handleOk = () => this.setState({ isModalVisible: false })
-
-    handleCancel = () => this.setState({ isModalVisible: false })
+    state = { items: [] }
 
     createSimpleColumnsFromObject = object => {
         const cols = Object.keys(object).map(key => {
             const strKey = key.toString()
-            const filters = this.props.presenter.filteredColumns
-            let modifiedColumn = {
+            return {
                 title: strKey.split(/(?=[A-Z])/).map(s => s.toUpperCase()).join(" "),
                 dataIndex: strKey,
                 defaultSortOrder: "ascend",
                 sortDirections: ["ascend", "descend"],
-                sorter: (a, b) => a[key].localeCompare(b[key]),
+                sorter: (a, b) => a[key].localeCompare(b[key])
             }
-            if (filters !== undefined && strKey in filters)
-                modifiedColumn = {
-                    ...modifiedColumn,
-                    filters: filters[strKey],
-                    onFilter: (v, r) => r[strKey] === v
-                }
-            return modifiedColumn
         })
         this.setState({ columns: cols })
     }
@@ -43,24 +28,26 @@ class EntitySimpleTable extends React.Component {
                     this.setState({ items: data })
                     this.createSimpleColumnsFromObject(data[0])
                 },
-                error => {
-                    //TODO: message и закрыть окно
-                }
+                error => message.error({ content: error.message.toLocaleString() })
             )
     }
 
+    componentDidMount() { this.getRecords() }
+
+    /* Здесь я не придумал, как передать ключ выбранного элемента на два родителя вверх, поэтому просто отправил его
+    в глобальную переменную. ПОВТОРЯТЬ ТАКОЕ НЕЛЬЗЯ! */
+    rowSelection = {
+        onChange: (selectedRowKey) => EntitiesApi.idBuffer = selectedRowKey
+    }
+
     render() {
-        return <Modal
-                title="Select a required entity"
-                visible={this.state.isModalVisible}
-                onOk={this.handleOk}
-                onCancel={this.handleCancel}>
-            <Table
-                rowKey={this.props.presenter.idField}
-                columns={this.state.columns}
-                dataSource={this.state.items}
-            />
-        </Modal>
+        return <Table
+            scroll={{ x: 800 }}
+            rowSelection={{ type: 'radio', ...this.rowSelection }}
+            rowKey={this.props.presenter.idField}
+            columns={this.state.columns}
+            dataSource={this.state.items}
+        />
     }
 }
 

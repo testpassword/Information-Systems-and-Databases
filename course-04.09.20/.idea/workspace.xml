@@ -23,17 +23,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea524d9-c1b1-4bc9-9f9b-e5b60e2fadf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/EntitiesApi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/EntitySimpleTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Application.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/MRE.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/MRE.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/EntitiesApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/EntitiesApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/EntitySimpleTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntitySimpleTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/AbstractCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/AbstractCreator.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/BasePresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/BasePresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/CampaignPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/CampaignPresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/EmployeePresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EmployeePresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/EquipmentPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EquipmentPresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/MedicalCardPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/MedicalCardPresenter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/MissionPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/MissionPresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/MrePresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/MrePresenter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/PositionPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/PositionPresenter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/TransportPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/TransportPresenter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/WeaponPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/WeaponPresenter.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -748,17 +752,6 @@
       <option name="ADDITIONAL_ARGS" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="course" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -988,9 +981,9 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.course-04.09.20 [run]" />
+      <item itemvalue="HTTP Request.base#1" />
       <item itemvalue="HTTP Request.base#5" />
       <item itemvalue="HTTP Request.random#3" />
-      <item itemvalue="HTTP Request.base#1" />
       <item itemvalue="JavaScript Debug.Debug Application" />
       <item itemvalue="npm.start" />
     </list>
@@ -998,8 +991,8 @@
       <list>
         <item itemvalue="npm.start" />
         <item itemvalue="Gradle.course-04.09.20 [run]" />
-        <item itemvalue="HTTP Request.base#5" />
         <item itemvalue="HTTP Request.random#3" />
+        <item itemvalue="HTTP Request.base#5" />
         <item itemvalue="HTTP Request.base#1" />
       </list>
     </recent_temporary>
@@ -1078,6 +1071,7 @@
       <workItem from="1607552791977" duration="2054000" />
       <workItem from="1607588365002" duration="44000" />
       <workItem from="1607800385869" duration="10641000" />
+      <workItem from="1607849420322" duration="16909000" />
     </task>
     <task id="LOCAL-00001" summary="Random route renamed to God route in backend; Created add form for Base, Campaign, Employee, Equipment entities; Render NumberInput and stub for SelectInput; Added downloading records in json">
       <created>1607294700699</created>

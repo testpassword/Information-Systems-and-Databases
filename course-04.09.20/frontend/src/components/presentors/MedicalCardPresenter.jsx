@@ -1,10 +1,11 @@
 import React from "react"
 import {Button, Form, Input, InputNumber, Radio} from "antd"
+import AbstractCreator from "./AbstractCreator.jsx"
 
-class MedicalCardCreator extends React.Component {
+class MedicalCardCreator extends AbstractCreator {
 
     render() {
-        return <Form>
+        return <Form onFinish={this.onTrigger}>
             <Form.Item
                 label="Diseases"
                 name="diseases">

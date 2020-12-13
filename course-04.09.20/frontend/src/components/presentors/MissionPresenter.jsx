@@ -1,11 +1,12 @@
 import React from "react"
-import {Button, DatePicker, Form, Input, Radio} from "antd";
+import {Button, DatePicker, Form, Input, Radio} from "antd"
+import AbstractCreator from "./AbstractCreator.jsx"
 
-class MissionCreator extends React.Component {
+class MissionCreator extends AbstractCreator {
 
     render() {
         const { RangePicker } = DatePicker
-        return <Form>
+        return <Form onFinish={this.onTrigger}>
             <Form.Item
                 label="Arrival location"
                 name="arrivalLocation">

@@ -1,11 +1,11 @@
 import React from "react"
-import {Button, Form, Input, Radio} from "antd";
-import BasePresenter from "./BasePresenter";
+import {Button, Form, Input, Radio} from "antd"
+import AbstractCreator from "./AbstractCreator.jsx"
 
-class TransportCreator extends React.Component {
+class TransportCreator extends AbstractCreator {
 
     render() {
-        return <Form>
+        return <Form onFinish={this.onTrigger}>
             <Form.Item
                 label="Name"
                 name="name"
@@ -17,7 +17,7 @@ class TransportCreator extends React.Component {
                 name="status"
                 rules={[{ required: true, message: "Choose status of transport" }]}>
                 <Radio.Group
-                    options={BasePresenter.filteredColumns.status.map(o => o.text)}
+                    options={TransportPresenter.filteredColumns.status.map(o => o.text)}
                     optionType="button"
                 />
             </Form.Item>

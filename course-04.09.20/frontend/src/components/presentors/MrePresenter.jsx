@@ -1,10 +1,11 @@
 import React from "react"
 import {Button, Form, Input, InputNumber} from "antd"
+import AbstractCreator from "./AbstractCreator.jsx"
 
-class MreCreator extends React.Component {
+class MreCreator extends AbstractCreator {
 
     render() {
-        return <Form>
+        return <Form onFinish={this.onTrigger}>
             <Form.Item
                 label="Breakfast"
                 name="breakfast"

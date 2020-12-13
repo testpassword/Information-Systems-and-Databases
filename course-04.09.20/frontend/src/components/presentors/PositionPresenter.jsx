@@ -1,11 +1,12 @@
 import React from "react"
 import {Button, Form, Input, InputNumber, Radio} from "antd"
-import BasePresenter from "./BasePresenter";
+import BasePresenter from "./BasePresenter"
+import AbstractCreator from "./AbstractCreator.jsx"
 
-class PositionCreator extends React.Component {
+class PositionCreator extends AbstractCreator {
 
     render() {
-        return <Form>
+        return <Form onFinish={this.onTrigger}>
             <Form.Item
                 label="Forces"
                 name="forces">

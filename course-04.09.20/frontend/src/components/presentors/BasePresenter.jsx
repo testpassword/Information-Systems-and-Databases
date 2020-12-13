@@ -5,8 +5,7 @@ import AbstractCreator from "./AbstractCreator.jsx"
 class BaseCreator extends AbstractCreator {
 
     render() {
-        return <Form
-                onFinish={this.onTrigger}>
+        return <Form onFinish={this.onTrigger}>
                 <Form.Item
                     label="Location"
                     name="location"

@@ -1,10 +1,11 @@
 import React from "react"
-import {Button, Form, Input, InputNumber} from "antd";
+import {Button, Form, Input, InputNumber} from "antd"
+import AbstractCreator from "./AbstractCreator.jsx"
 
-class WeaponCreator extends React.Component {
+class WeaponCreator extends AbstractCreator {
 
     render() {
-        return <Form>
+        return <Form onFinish={this.onTrigger}>
             <Form.Item
                 label="Caliber"
                 name="caliber">
