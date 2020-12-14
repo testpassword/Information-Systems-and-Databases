@@ -1,4 +1,0 @@
-{
-  "baseId": 419,
-  "location": "MARS"
-} updated)

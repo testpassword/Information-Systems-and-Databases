@@ -49,7 +49,7 @@ class MedicalCardCreator extends AbstractCreator {
 }
 
 const MedicalCardPresenter = {
-    url: "http://localhost:9090/medicalCard",
+    url: "medicalCard",
     idField: "medId",
     filteredColumns: {
         blood: [

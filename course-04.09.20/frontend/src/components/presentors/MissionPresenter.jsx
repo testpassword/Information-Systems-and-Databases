@@ -1,8 +1,23 @@
 import React from "react"
-import {Button, DatePicker, Form, Input, Radio} from "antd"
+import {Button, DatePicker, Form, Input, message, Radio} from "antd"
 import AbstractCreator from "./AbstractCreator.jsx"
+import EntitySimpleTable from "../EntitySimpleTable"
+import CampaignPresenter from "./CampaignPresenter"
+import EntitiesApi from "../../EntitiesApi";
 
 class MissionCreator extends AbstractCreator {
+
+    state = {
+        campBtn: "select campaign",
+        campId: null
+    }
+
+    campOk = () => {
+        if (EntitiesApi.idBuffer !== null) {
+            this.setState({ campBtn: EntitiesApi.idBuffer })
+            EntitiesApi.idBuffer = null
+        } else message.error({ content: "You should choose base from table" })
+    }
 
     render() {
         const { RangePicker } = DatePicker
@@ -11,6 +26,16 @@ class MissionCreator extends AbstractCreator {
                 label="Arrival location"
                 name="arrivalLocation">
                 <Input placeholder="Use space as separator"/>
+            </Form.Item>
+            <Form.Item
+                label="Campaign ID"
+                name="campId">
+                <Button
+                    type="link"
+                    onClick={ () => this.showConfirm(<EntitySimpleTable presenter={CampaignPresenter}/>, this.campOk) }>
+                    {this.state.campBtn}
+                </Button>
+                <Input value={this.state.campId} style={{display: "none"}}/>
             </Form.Item>
             <Form.Item
                 label="Departure location"
@@ -44,7 +69,7 @@ class MissionCreator extends AbstractCreator {
 }
 
 const MissionPresenter = {
-    url: "http://localhost:9090/mission",
+    url: "mission",
     idField: "missId",
     filteredColumns: {
         legalStatus: [

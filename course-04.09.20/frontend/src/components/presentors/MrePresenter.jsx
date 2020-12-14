@@ -61,7 +61,7 @@ class MreCreator extends AbstractCreator {
 }
 
 const MrePresenter = {
-    url: "http://localhost:9090/mre",
+    url: "mre",
     idField: "mreId",
     creator: <MreCreator/>
 }

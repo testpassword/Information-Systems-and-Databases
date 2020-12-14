@@ -51,7 +51,7 @@ class CampaignCreator extends AbstractCreator {
 }
 
 const CampaignPresenter = {
-    url: "http://localhost:9090/campaign",
+    url: "campaign",
     idField: "campId",
     filteredColumns: {
         executionStatus: [

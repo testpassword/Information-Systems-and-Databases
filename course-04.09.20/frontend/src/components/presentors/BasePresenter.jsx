@@ -29,7 +29,7 @@ class BaseCreator extends AbstractCreator {
 }
 
 const BasePresenter = {
-    url: "http://localhost:9090/base",
+    url: "base",
     idField: "baseId",
     filteredColumns: {
         status: [

@@ -8,9 +8,7 @@ class ReferenceEntityError(e: Table): Error() {
     override val message = "Reference entity table ${e.tableName} does not contains such records"
 }
 
-object RecordsGenerator {
-    fun fillDb(sizes: Map<Generable, Int>) = sizes.forEach { it.key.generateAndInsert(it.value) }
-}
+fun fillDb(sizes: Map<Generable, Int>) = sizes.forEach { it.key.generateAndInsert(it.value) }
 
 fun dropRecordsWithIds(s: String, entityTable: Table) {
     val ids = JSONObject(s).getJSONArray("droppedIds")

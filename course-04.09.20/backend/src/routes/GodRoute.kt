@@ -13,7 +13,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
 
 fun Route.god() {
 
-    val GOD_URL = "localhost:9090/god"
+    val GOD_URL = "localhost:9090/god" //TODO: убрать захардкоженый урл
 
     get {
         call.respondHtml {
@@ -59,7 +59,7 @@ fun Route.god() {
     post {
         val (t, s) = try {
             transaction {
-                RecordsGenerator.fillDb(
+                fillDb(
                     mapOf(
                         BaseTable to 50,
                         MRETable to 30,

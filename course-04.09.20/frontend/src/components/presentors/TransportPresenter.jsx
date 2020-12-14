@@ -35,7 +35,7 @@ class TransportCreator extends AbstractCreator {
 }
 
 const TransportPresenter = {
-    url: "http://localhost:9090/transport",
+    url: "transport",
     idField: "transId",
     filteredColumns: {
         status: [

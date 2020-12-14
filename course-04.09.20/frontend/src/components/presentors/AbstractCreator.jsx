@@ -3,7 +3,7 @@ import { Modal } from "antd"
 
 class AbstractCreator extends React.Component {
 
-    onTrigger = (formData) => { this.props.parentCallback(formData) }
+    onTrigger = (formData) => this.props.parentCallback(formData)
 
     showConfirm = (table, onOkCallback, onCancelCallback) => {
         const { confirm } = Modal
@@ -13,7 +13,7 @@ class AbstractCreator extends React.Component {
             title: "Select record",
             content: table,
             onOk() { onOkCallback() },
-            onCancel() { onCancelCallback() }
+            //onCancel() { onCancelCallback() }
         })
     }
 }

@@ -1,19 +1,13 @@
 import React from "react"
 import { Table, message, Input, Button, Space, Layout, Popover, Checkbox, InputNumber, Select, Tooltip } from "antd"
 import Highlighter from "react-highlight-words"
-import { DeleteOutlined, PlusOutlined, SearchOutlined, DownloadOutlined } from "@ant-design/icons"
+import { DeleteOutlined, PlusOutlined, SearchOutlined, DownloadOutlined, CloseOutlined } from "@ant-design/icons"
 import { Header, Content } from "antd/lib/layout/layout"
 import { EditableCell, EditableRow } from "./EditableRow.jsx"
 import { last } from "underscore"
 import EntitiesApi from "../EntitiesApi.js"
 
 class EntityTable extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.props.presenter.creator =
-            React.cloneElement(this.props.presenter.creator, { parentCallback: this.addRecord }, null)
-    }
 
     state = {
         isLoading: true,
@@ -112,7 +106,7 @@ class EntityTable extends React.Component {
                 defaultSortOrder: "ascend",
                 sortDirections: ["ascend", "descend"],
                 editable: (strKey !== this.props.presenter.idField),
-                sorter: (a, b) => a[key].localeCompare(b[key]),
+                sorter: (a, b) => (typeof a[key] === "string") ? (a[key].localeCompare(b[key])) : (a[key] - b[key])
             }
             modifiedColumn = (filters !== undefined && strKey in filters) ?
                 {
@@ -223,10 +217,18 @@ class EntityTable extends React.Component {
     }
 
     // Вызывается лишь раз, при создании компонента
-    componentDidMount() { this.getRecords() }
+    componentDidMount() {
+        this.getRecords()
+        this.updatePresenter()
+    }
 
     // Вызывается каждый раз при обновлении props-ов из родителя
-    componentDidUpdate(prevProps) { if (this.props.presenter !== prevProps.presenter) this.getRecords() }
+    componentDidUpdate(prevProps) {
+        if (this.props.presenter !== prevProps.presenter) this.getRecords()
+        this.updatePresenter()
+    }
+
+    updatePresenter() { this.props.presenter.creator = React.cloneElement(this.props.presenter.creator, { parentCallback: this.addRecord }, null) }
 
     render() {
         const { isLoading, items, selectedRowKeys } = this.state

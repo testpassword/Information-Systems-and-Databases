@@ -40,7 +40,7 @@ class WeaponCreator extends AbstractCreator {
 }
 
 const WeaponPresenter = {
-    url: "http://localhost:9090/weapon",
+    url: "weapon",
     idField: "weaponId",
     creator: <WeaponCreator/>
 }

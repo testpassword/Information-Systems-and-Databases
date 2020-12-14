@@ -1,3 +1,54 @@
+POST http://localhost:9090/employee
+Content-Type: application/json
+
+{
+  "empId": null,
+  "dateOfBirth": "12313",
+  "education": "ITMO",
+  "hiringDate": "324234234",
+  "isMarried": false,
+  "name":"Artemy",
+  "surname":"Kulbako"
+}
+
+<> 2020-12-15T000552.400.txt
+
+###
+
+POST http://localhost:9090/employee
+Content-Type: application/json
+
+{
+  "empId": null,
+  "dateOfBirth": "12313",
+  "education": "ITMO",
+  "hiringDate": "324234234",
+  "isMarried": false,
+  "name":"Artemy",
+  "surname":"Kulbako"
+}
+
+<> 2020-12-15T000549.400.txt
+
+###
+
+POST http://localhost:9090/employee
+Content-Type: application/json
+
+{
+  "empId": null,
+  "dateOfBirth": "2020-12-01T20:30:52.303Z",
+  "education": "ITMO",
+  "hiringDate": "2020-12-16T20:30:41.387Z",
+  "isMarried": false,
+  "name":"Artemy",
+  "surname":"Kulbako"
+}
+
+<> 2020-12-15T000241.400.txt
+
+###
+
 DELETE http://localhost:9090/base
 Content-Type: application/json
 
@@ -320,42 +371,6 @@ Content-Type: application/json
 }
 
 <> 2020-11-13T041123.400.txt
-
-###
-
-PUT http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "baseId": 419,
-  "location": "MARS"
-}
-
-<> 2020-11-13T040809.200.txt
-
-###
-
-PUT http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "baseId": 419,
-  "location": "MARS"
-}
-
-<> 2020-11-13T040806.200.txt
-
-###
-
-PUT http://localhost:9090/campaign
-Content-Type: application/json
-
-{
-  "campId": 6,
-  "executionStatus": "TESTING-GET"
-}
-
-<> 2020-11-13T040202.400.txt
 
 ###
 

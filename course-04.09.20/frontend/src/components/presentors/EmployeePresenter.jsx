@@ -15,14 +15,19 @@ class EmployeeCreator extends AbstractCreator {
         posId: null
     }
 
-    onOk = () => {
+    baseOk = () => {
         if (EntitiesApi.idBuffer !== null) {
-            this.setState({ btnText: EntitiesApi.idBuffer })
+            this.setState({ baseBtn: EntitiesApi.idBuffer })
             EntitiesApi.idBuffer = null
-        } else message.error({ content: "Nothing is select" })
+        } else message.error({ content: "You should choose base from table" })
     }
 
-    onCancel() {}
+    posOk = () => {
+        if (EntitiesApi.idBuffer !== null) {
+            this.setState({ posBtn: EntitiesApi.idBuffer })
+            EntitiesApi.idBuffer = null
+        } else message.error({ content: "You should choose employee position from table" })
+    }
 
     render() {
         return <Form onFinish={this.onTrigger}>
@@ -31,8 +36,7 @@ class EmployeeCreator extends AbstractCreator {
                 name="baseId">
                 <Button
                     type="link"
-                    onClick={ () => this.showConfirm(
-                        <EntitySimpleTable presenter={EmployeePresenter}/>, this.onOk, this.onCancel) }>
+                    onClick={ () => this.showConfirm(<EntitySimpleTable presenter={EmployeePresenter}/>, this.baseOk) }>
                     {this.state.baseBtn}
                 </Button>
                 <Input value={this.state.baseId} style={{display: "none"}}/>
@@ -75,11 +79,9 @@ class EmployeeCreator extends AbstractCreator {
                 name="posId">
                 <Button
                     type="link"
-                    onClick={ () => this.showConfirm(
-                        <EntitySimpleTable presenter={PositionPresenter}/>, this.onOk, this.onCancel) }>
+                    onClick={ () => this.showConfirm(<EntitySimpleTable presenter={PositionPresenter}/>, this.posOk) }>
                     {this.state.posBtn}
                 </Button>
-                TODO: смена надписи на кнопке
                 <Input value={this.state.posId} style={{display: "none"}}/>
             </Form.Item>
             <Form.Item
@@ -96,7 +98,7 @@ class EmployeeCreator extends AbstractCreator {
 }
 
 const EmployeePresenter = {
-    url: "http://localhost:9090/employee",
+    url: "employee",
     idField: "empId",
     filteredColumns: {
         isMarried: [

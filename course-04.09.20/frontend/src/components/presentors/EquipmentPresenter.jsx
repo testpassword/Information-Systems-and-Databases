@@ -1,8 +1,23 @@
 import React from "react"
-import { Button, Form, Input } from "antd"
+import {Button, Form, Input, message} from "antd"
 import AbstractCreator from "./AbstractCreator.jsx"
+import EntitySimpleTable from "../EntitySimpleTable"
+import MrePresenter from "./MrePresenter"
+import EntitiesApi from "../../EntitiesApi";
 
 class EquipmentCreator extends AbstractCreator {
+
+    state = {
+        mreBtn: "select mre",
+        mreId: null
+    }
+
+    mreOk = () => {
+        if (EntitiesApi.idBuffer !== null) {
+            this.setState({ mreBtn: EntitiesApi.idBuffer })
+            EntitiesApi.idBuffer = null
+        } else message.error({ content: "You should choose mre from table" })
+    }
 
     render() {
         return <Form onFinish={this.onTrigger}>
@@ -31,6 +46,16 @@ class EquipmentCreator extends AbstractCreator {
                 name="extra">
                 <Input placeholder="Use space as separator"/>
             </Form.Item>
+            <Form.Item
+                label="Mre ID"
+                name="mreId">
+                <Button
+                    type="link"
+                    onClick={ () => this.showConfirm(<EntitySimpleTable presenter={MrePresenter}/>, this.mreOk) }>
+                    {this.state.mreBtn}
+                </Button>
+                <Input value={this.state.mreId} style={{display: "none"}}/>
+            </Form.Item>
             <Form.Item>
                 <Button type="primary" htmlType="submit">Submit</Button>
             </Form.Item>
@@ -39,7 +64,7 @@ class EquipmentCreator extends AbstractCreator {
 }
 
 const EquipmentPresenter = {
-    url: "http://localhost:9090/equipment",
+    url: "equipment",
     idField: "equipId",
     creator: <EquipmentCreator/>
 }

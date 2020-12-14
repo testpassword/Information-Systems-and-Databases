@@ -1,0 +1,13 @@
+###
+POST http://localhost:9090/employee
+Content-Type: application/json
+
+{
+  "empId": null,
+  "dateOfBirth": "2020-12-01T20:30:52.303Z",
+  "education": "ITMO",
+  "hiringDate": "2020-12-16T20:30:41.387Z",
+  "isMarried": false,
+  "name":"Artemy",
+  "surname":"Kulbako"
+}

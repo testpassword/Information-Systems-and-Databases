@@ -62,12 +62,25 @@ object EmployeeTable: Table("employee"), Generable {
     }
 }
 
-fun ResultRow.toEmployee() = Employee(this[EmployeeTable.emp_id], this[EmployeeTable.name], this[EmployeeTable.surname],
-    this[EmployeeTable.date_of_birth], this[EmployeeTable.education], this[EmployeeTable.hiring_date],
-    this[EmployeeTable.pos_id], this[EmployeeTable.is_married], this[EmployeeTable.base_id])
+fun ResultRow.toEmployee() = Employee(
+    this[EmployeeTable.emp_id],
+    this[EmployeeTable.name],
+    this[EmployeeTable.surname],
+    this[EmployeeTable.date_of_birth],
+    this[EmployeeTable.education],
+    this[EmployeeTable.hiring_date],
+    this[EmployeeTable.pos_id],
+    this[EmployeeTable.is_married],
+    this[EmployeeTable.base_id])
 
-data class Employee(val empId: Int?, val name: String, val surname: String, val dateOfBirth: LocalDate,
-                    val education: String?, val hiringDate: LocalDate, val posId: Int, val isMarried: Boolean,
+data class Employee(val empId: Int?,
+                    val name: String,
+                    val surname: String,
+                    val dateOfBirth: LocalDate,
+                    val education: String?,
+                    val hiringDate: LocalDate,
+                    val posId: Int,
+                    val isMarried: Boolean,
                     val baseId: Int?)
 
 fun Route.employee() {
@@ -107,7 +120,13 @@ fun Route.employee() {
     post {
         val (t, s) = try {
             val raw = call.receiveText()
+
+            println(raw)
+
             val e = P.parse<Employee>(raw)!!
+
+            println(e)
+
             transaction {
                 EmployeeTable.insert {
                     it[name] = e.name

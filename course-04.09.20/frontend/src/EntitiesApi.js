@@ -1,6 +1,7 @@
 class EntitiesApi {
 
     static idBuffer = null
+    static rootUrl = "http://localhost:9090/"
 
     static get(entityUrl, ids = []) {
         /* Это наглядный пример плохого дизайна: изначально когда я писал api для бекенда, я предполагал, что в теле GET
@@ -8,7 +9,7 @@ class EntitiesApi {
         На этапе создания фронтенда я вспомнил, что по спецификации HTTP передавать тело с GET не рекомендуется, а fetch()
         и вовсе это запрещает. Т.к. кардинально менять api бэка не хотелось, решил костыльно передавать json-массив как
         параметр запроса. */
-        const url = entityUrl + "?=" + new URLSearchParams({ "ids":  JSON.stringify({ selectedIds: ids }) })
+        const url = this.rootUrl + entityUrl + "?=" + new URLSearchParams({ "ids":  JSON.stringify({ selectedIds: ids }) })
         const req = { method: "GET", mode: "cors" }
         return fetch(url, req)
     }
@@ -23,7 +24,7 @@ class EntitiesApi {
                 ...item
             })
         }
-        return fetch(entityUrl, req)
+        return fetch(this.rootUrl + entityUrl, req)
     }
 
     static put(entityUrl, idField, item, key) {
@@ -36,7 +37,7 @@ class EntitiesApi {
                 [key]: item[key]
             })
         }
-        return fetch(entityUrl, req)
+        return fetch(this.rootUrl + entityUrl, req)
     }
 
     static delete(entityUrl, ids) {
@@ -46,7 +47,7 @@ class EntitiesApi {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ droppedIds: ids })
         }
-        return fetch(entityUrl, req)
+        return fetch(this.rootUrl + entityUrl, req)
     }
 }
 
