@@ -1,5 +1,6 @@
 package com.testpassword.models
 
+import com.testpassword.PARSER
 import com.testpassword.dropRecordsWithIds
 import com.testpassword.explodeJsonForModel
 import com.testpassword.getRecordsWithIds
@@ -46,7 +47,7 @@ fun Route.transport() {
         val (t, s) = try {
             call.parameters["ids"]!!.let {
                 transaction {
-                    P.toJsonString(getRecordsWithIds(it, TransportTable).map { it.toTransport() }) to HttpStatusCode.OK
+                    PARSER.toJson(getRecordsWithIds(it, TransportTable).map { it.toTransport() }) to HttpStatusCode.OK
                 }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
@@ -70,7 +71,7 @@ fun Route.transport() {
     post {
         val (t, s) = try {
             val raw = call.receiveText()
-            val t = P.parse<Transport>(raw)!!
+            val t = PARSER.fromJson(raw, Transport::class.java)
             transaction {
                 TransportTable.insert {
                     it[name] = t.name

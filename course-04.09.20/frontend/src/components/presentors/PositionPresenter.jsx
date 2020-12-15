@@ -1,6 +1,5 @@
 import React from "react"
 import {Button, Form, Input, InputNumber, message, Radio} from "antd"
-import BasePresenter from "./BasePresenter"
 import AbstractCreator from "./AbstractCreator.jsx"
 import EntitiesApi from "../../EntitiesApi";
 import EntitySimpleTable from "../EntitySimpleTable"
@@ -8,16 +7,20 @@ import EquipmentPresenter from "./EquipmentPresenter"
 
 class PositionCreator extends AbstractCreator {
 
-    state = {
-        equipBtn: "select position",
-        equipId: null
-    }
+    state = { equipBtn: "select position" }
 
     equipOk = () => {
         if (EntitiesApi.idBuffer !== null) {
             this.setState({ equipBtn: EntitiesApi.idBuffer })
             EntitiesApi.idBuffer = null
         } else message.error({ content: "You should choose equipment from table" })
+    }
+
+    onTrigger = (formData) => {
+        this.props.parentCallback({
+            ...formData,
+            equipId: this.state.equipBtn
+        })
     }
 
     render() {
@@ -30,13 +33,12 @@ class PositionCreator extends AbstractCreator {
                     onClick={ () => this.showConfirm(<EntitySimpleTable presenter={EquipmentPresenter}/>, this.equipOk) }>
                     {this.state.equipBtn}
                 </Button>
-                <Input value={this.state.equipId} style={{display: "none"}}/>
             </Form.Item>
             <Form.Item
                 label="Forces"
                 name="forces">
                 <Radio.Group
-                    options={BasePresenter.filteredColumns.status.map(o => o.text)}
+                    options={PositionPresenter.filteredColumns.forces.map(o => o.text)}
                     optionType="button"
                 />
             </Form.Item>

@@ -13,7 +13,7 @@ class AbstractCreator extends React.Component {
             title: "Select record",
             content: table,
             onOk() { onOkCallback() },
-            //onCancel() { onCancelCallback() }
+            onCancel() { if (onCancelCallback !== undefined) onCancelCallback() }
         })
     }
 }

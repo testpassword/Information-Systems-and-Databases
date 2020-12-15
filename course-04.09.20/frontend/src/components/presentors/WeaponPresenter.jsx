@@ -15,6 +15,7 @@ class WeaponCreator extends AbstractCreator {
                 label="Name"
                 name="name"
                 rules={[{ required: true, message: "Input name of weapon" }]}>
+                <Input/>
             </Form.Item>
             <Form.Item
                 label="Rate of fire"

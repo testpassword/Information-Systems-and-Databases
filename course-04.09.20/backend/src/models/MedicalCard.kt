@@ -1,5 +1,6 @@
 package com.testpassword.models
 
+import com.testpassword.PARSER
 import com.testpassword.dropRecordsWithIds
 import com.testpassword.explodeJsonForModel
 import com.testpassword.getRecordsWithIds
@@ -35,7 +36,7 @@ fun Route.medicalCard() {
         val (t, s) = try {
             call.parameters["ids"]!!.let {
                 transaction {
-                    P.toJsonString(getRecordsWithIds(it, MedicalCardTable).map { it.toMedicalCard() }) to HttpStatusCode.OK
+                    PARSER.toJson(getRecordsWithIds(it, MedicalCardTable).map { it.toMedicalCard() }) to HttpStatusCode.OK
                 }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
@@ -64,7 +65,7 @@ fun Route.medicalCard() {
     post {
         val (t, s) = try {
             val raw = call.receiveText()
-            val m = P.parse<MedicalCard>(raw)!!
+            val m = PARSER.fromJson(raw, MedicalCard::class.java)
             transaction {
                 MedicalCardTable.insert {
                     it[emp_id] = m.empId

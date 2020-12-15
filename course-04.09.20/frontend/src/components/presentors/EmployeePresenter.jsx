@@ -4,15 +4,14 @@ import moment from "moment"
 import EntitySimpleTable from "../EntitySimpleTable.jsx"
 import AbstractCreator from "./AbstractCreator.jsx"
 import EntitiesApi from "../../EntitiesApi.js"
+import BasePresenter from "./BasePresenter"
 import PositionPresenter from "./PositionPresenter"
 
 class EmployeeCreator extends AbstractCreator {
 
     state = {
         baseBtn: "select base",
-        baseId: null,
         posBtn: "select position",
-        posId: null
     }
 
     baseOk = () => {
@@ -29,6 +28,13 @@ class EmployeeCreator extends AbstractCreator {
         } else message.error({ content: "You should choose employee position from table" })
     }
 
+    onTrigger = (formData) =>
+        this.props.parentCallback({
+            ...formData,
+            posId: this.state.posBtn,
+            baseId: this.state.baseBtn
+        })
+
     render() {
         return <Form onFinish={this.onTrigger}>
             <Form.Item
@@ -36,10 +42,9 @@ class EmployeeCreator extends AbstractCreator {
                 name="baseId">
                 <Button
                     type="link"
-                    onClick={ () => this.showConfirm(<EntitySimpleTable presenter={EmployeePresenter}/>, this.baseOk) }>
+                    onClick={ () => this.showConfirm(<EntitySimpleTable presenter={BasePresenter}/>, this.baseOk) }>
                     {this.state.baseBtn}
                 </Button>
-                <Input value={this.state.baseId} style={{display: "none"}}/>
             </Form.Item>
             <Form.Item
                 label="Date of birth"
@@ -82,7 +87,6 @@ class EmployeeCreator extends AbstractCreator {
                     onClick={ () => this.showConfirm(<EntitySimpleTable presenter={PositionPresenter}/>, this.posOk) }>
                     {this.state.posBtn}
                 </Button>
-                <Input value={this.state.posId} style={{display: "none"}}/>
             </Form.Item>
             <Form.Item
                 label="Surname"

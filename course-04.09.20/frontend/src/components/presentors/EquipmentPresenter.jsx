@@ -7,16 +7,20 @@ import EntitiesApi from "../../EntitiesApi";
 
 class EquipmentCreator extends AbstractCreator {
 
-    state = {
-        mreBtn: "select mre",
-        mreId: null
-    }
+    state = { mreBtn: "select mre" }
 
     mreOk = () => {
         if (EntitiesApi.idBuffer !== null) {
             this.setState({ mreBtn: EntitiesApi.idBuffer })
             EntitiesApi.idBuffer = null
         } else message.error({ content: "You should choose mre from table" })
+    }
+
+    onTrigger = (formData) => {
+        this.props.parentCallback({
+            ...formData,
+            mreId: this.state.mreBtn
+        })
     }
 
     render() {
@@ -54,7 +58,6 @@ class EquipmentCreator extends AbstractCreator {
                     onClick={ () => this.showConfirm(<EntitySimpleTable presenter={MrePresenter}/>, this.mreOk) }>
                     {this.state.mreBtn}
                 </Button>
-                <Input value={this.state.mreId} style={{display: "none"}}/>
             </Form.Item>
             <Form.Item>
                 <Button type="primary" htmlType="submit">Submit</Button>

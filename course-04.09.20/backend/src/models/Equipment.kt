@@ -1,5 +1,6 @@
 package com.testpassword.models
 
+import com.testpassword.PARSER
 import com.testpassword.dropRecordsWithIds
 import com.testpassword.explodeJsonForModel
 import com.testpassword.getRecordsWithIds
@@ -54,7 +55,7 @@ fun Route.equipment() {
         val (t, s) = try {
             call.parameters["ids"]!!.let {
                 transaction {
-                    P.toJsonString(getRecordsWithIds(it, EquipmentTable).map { it.toEquipment() }) to HttpStatusCode.OK
+                    PARSER.toJson(getRecordsWithIds(it, EquipmentTable).map { it.toEquipment() }) to HttpStatusCode.OK
                 }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
@@ -83,7 +84,7 @@ fun Route.equipment() {
     post {
         val (t, s) = try {
             val raw = call.receiveText()
-            val e = P.parse<Equipment>(raw)!!
+            val e = PARSER.fromJson(raw, Equipment::class.java)
             transaction {
                 EquipmentTable.insert {
                     it[camouflage] = e.camouflage

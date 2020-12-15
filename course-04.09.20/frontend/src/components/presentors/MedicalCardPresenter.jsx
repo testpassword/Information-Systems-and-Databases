@@ -1,8 +1,27 @@
 import React from "react"
-import {Button, Form, Input, InputNumber, Radio} from "antd"
+import {Button, Form, Input, InputNumber, message, Radio} from "antd"
 import AbstractCreator from "./AbstractCreator.jsx"
+import EntitySimpleTable from "../EntitySimpleTable"
+import EmployeePresenter from "./EmployeePresenter"
+import EntitiesApi from "../../EntitiesApi";
 
 class MedicalCardCreator extends AbstractCreator {
+
+    state = { empBtn: "select employee" }
+
+    empOk = () => {
+        if (EntitiesApi.idBuffer !== null) {
+            this.setState({ empBtn: EntitiesApi.idBuffer })
+            EntitiesApi.idBuffer = null
+        } else message.error({ content: "You should choose employee from table" })
+    }
+
+    onTrigger = (formData) => {
+        this.props.parentCallback({
+            ...formData,
+            empId: this.state.empBtn
+        })
+    }
 
     render() {
         return <Form onFinish={this.onTrigger}>
@@ -40,6 +59,15 @@ class MedicalCardCreator extends AbstractCreator {
                     options={MedicalCardPresenter.filteredColumns.blood.map(o => o.text)}
                     optionType="button"
                 />
+            </Form.Item>
+            <Form.Item
+                label="Employee ID"
+                name="empId">
+                <Button
+                    type="link"
+                    onClick={ () => this.showConfirm(<EntitySimpleTable presenter={EmployeePresenter}/>, this.empOk) }>
+                    {this.state.empBtn}
+                </Button>
             </Form.Item>
             <Form.Item>
                 <Button type="primary" htmlType="submit">Submit</Button>

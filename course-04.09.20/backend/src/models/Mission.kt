@@ -63,7 +63,7 @@ fun Route.mission() {
         val (t, s) = try {
             call.parameters["ids"]!!.let {
                 transaction {
-                    P.toJsonString(getRecordsWithIds(it, MissionTable).map { it.toMission() }) to HttpStatusCode.OK
+                    PARSER.toJson(getRecordsWithIds(it, MissionTable).map { it.toMission() }) to HttpStatusCode.OK
                 }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
@@ -93,7 +93,7 @@ fun Route.mission() {
     post {
         val (t, s) = try {
             val raw = call.receiveText()
-            val m = P.parse<Mission>(raw)!!
+            val m = PARSER.fromJson(raw, Mission::class.java)
             transaction {
                 MissionTable.insert {
                     it[camp_id] = m.campId

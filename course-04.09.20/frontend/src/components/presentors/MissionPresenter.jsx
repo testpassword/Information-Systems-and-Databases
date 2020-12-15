@@ -7,16 +7,20 @@ import EntitiesApi from "../../EntitiesApi";
 
 class MissionCreator extends AbstractCreator {
 
-    state = {
-        campBtn: "select campaign",
-        campId: null
-    }
+    state = { campBtn: "select campaign" }
 
     campOk = () => {
         if (EntitiesApi.idBuffer !== null) {
             this.setState({ campBtn: EntitiesApi.idBuffer })
             EntitiesApi.idBuffer = null
         } else message.error({ content: "You should choose base from table" })
+    }
+
+    onTrigger = (formData) => {
+        this.props.parentCallback({
+            ...formData,
+            campId: this.state.campBtn
+        })
     }
 
     render() {
@@ -35,7 +39,6 @@ class MissionCreator extends AbstractCreator {
                     onClick={ () => this.showConfirm(<EntitySimpleTable presenter={CampaignPresenter}/>, this.campOk) }>
                     {this.state.campBtn}
                 </Button>
-                <Input value={this.state.campId} style={{display: "none"}}/>
             </Form.Item>
             <Form.Item
                 label="Departure location"

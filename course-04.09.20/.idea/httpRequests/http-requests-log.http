@@ -1,3 +1,95 @@
+GET http://localhost:9090/base?ids={ "selectedIds": [] }
+
+<> 2020-12-15T013301.200.txt
+
+###
+
+POST http://localhost:9090/employee
+Content-Type: application/json
+
+{
+  "empId": null,
+  "dateOfBirth": "1998-12-01T20:30:52.303Z",
+  "education": "ITMO",
+  "hiringDate": "2020-12-16T20:30:41.387Z",
+  "isMarried": false,
+  "name":"Artemy",
+  "posId": 3,
+  "surname":"Kulbako"
+}
+
+<> 2020-12-15T005646.201.txt
+
+###
+
+POST http://localhost:9090/employee
+Content-Type: application/json
+
+{
+  "empId": null,
+  "dateOfBirth": "1998-12-01T20:30:52.303Z",
+  "education": "ITMO",
+  "hiringDate": "2020-12-16T20:30:41.387Z",
+  "isMarried": false,
+  "name":"Artemy",
+  "surname":"Kulbako"
+}
+
+<> 2020-12-15T005616.400.txt
+
+###
+
+POST http://localhost:9090/employee
+Content-Type: application/json
+
+{
+  "empId": null,
+  "dateOfBirth": "2020-12-01T20:30:52.303Z",
+  "education": "ITMO",
+  "hiringDate": "2020-12-16T20:30:41.387Z",
+  "isMarried": false,
+  "name":"Artemy",
+  "surname":"Kulbako"
+}
+
+<> 2020-12-15T005528.400.txt
+
+###
+
+POST http://localhost:9090/employee
+Content-Type: application/json
+
+{
+  "empId": null,
+  "dateOfBirth": "2020-12-01T20:30:52.303Z",
+  "education": "ITMO",
+  "hiringDate": "2020-12-16T20:30:41.387Z",
+  "isMarried": false,
+  "name":"Artemy",
+  "surname":"Kulbako"
+}
+
+<> 2020-12-15T005431.400.txt
+
+###
+
+POST http://localhost:9090/employee
+Content-Type: application/json
+
+{
+  "empId": null,
+  "dateOfBirth": "2020-12-01T20:30:52.303Z",
+  "education": "ITMO",
+  "hiringDate": "2020-12-16T20:30:41.387Z",
+  "isMarried": false,
+  "name":"Artemy",
+  "surname":"Kulbako"
+}
+
+<> 2020-12-15T004659.400.txt
+
+###
+
 POST http://localhost:9090/employee
 Content-Type: application/json
 
@@ -307,70 +399,6 @@ Content-Type: application/json
 { "selectedIds": [] }
 
 <> 2020-11-19T044054.200.txt
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": []
-}
-
-<> 2020-11-13T113905.200.txt
-
-###
-
-GET http://localhost:9090/campaign
-Content-Type: application/json
-
-{
-  "selectedIds": []
-}
-
-###
-
-GET http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "selectedIds": []
-}
-
-<> 2020-11-13T042219.200.txt
-
-###
-
-DELETE http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "droppedIds": [414, 415]
-}
-
-<> 2020-11-13T041734.200.txt
-
-###
-
-DELETE http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "droppedIds": [414, 415]
-}
-
-<> 2020-11-13T041419.400.txt
-
-###
-
-DELETE http://localhost:9090/base
-Content-Type: application/json
-
-{
-  "droppedIds": [414, 415]
-}
-
-<> 2020-11-13T041123.400.txt
 
 ###
 

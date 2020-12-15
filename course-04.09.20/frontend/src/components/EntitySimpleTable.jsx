@@ -1,6 +1,6 @@
 import React from "react"
 import EntitiesApi from "../EntitiesApi.js"
-import {Table, message } from "antd"
+import {Table, message, Checkbox} from "antd"
 
 class EntitySimpleTable extends React.Component {
 
@@ -9,13 +9,19 @@ class EntitySimpleTable extends React.Component {
     createSimpleColumnsFromObject = object => {
         const cols = Object.keys(object).map(key => {
             const strKey = key.toString()
-            return {
+            let modifiedColumn = {
                 title: strKey.split(/(?=[A-Z])/).map(s => s.toUpperCase()).join(" "),
                 dataIndex: strKey,
                 defaultSortOrder: "ascend",
                 sortDirections: ["ascend", "descend"],
                 sorter: (a, b) => a[key].localeCompare(b[key])
             }
+            if (typeof object[key] === "boolean")
+                modifiedColumn = {
+                    ...modifiedColumn,
+                    render: t => <Checkbox checked={t}/>
+                }
+            return modifiedColumn
         })
         this.setState({ columns: cols })
     }
@@ -37,7 +43,7 @@ class EntitySimpleTable extends React.Component {
     /* Здесь я не придумал, как передать ключ выбранного элемента на два родителя вверх, поэтому просто отправил его
     в глобальную переменную. ПОВТОРЯТЬ ТАКОЕ НЕЛЬЗЯ! */
     rowSelection = {
-        onChange: (selectedRowKey) => EntitiesApi.idBuffer = selectedRowKey
+        onChange: (selectedRowKeys) => EntitiesApi.idBuffer = selectedRowKeys[0]
     }
 
     render() {

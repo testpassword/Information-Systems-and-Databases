@@ -1,5 +1,6 @@
 package com.testpassword.models
 
+import com.testpassword.PARSER
 import com.testpassword.dropRecordsWithIds
 import com.testpassword.explodeJsonForModel
 import com.testpassword.getRecordsWithIds
@@ -50,7 +51,7 @@ fun Route.weapon() {
         val (t, s) = try {
             call.parameters["ids"]!!.let {
                 transaction {
-                    P.toJsonString(getRecordsWithIds(it, WeaponTable).map { it.toWeapon() }) to HttpStatusCode.OK
+                    PARSER.toJson(getRecordsWithIds(it, WeaponTable).map { it.toWeapon() }) to HttpStatusCode.OK
                 }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
@@ -76,7 +77,7 @@ fun Route.weapon() {
     post {
         val (t, s) = try {
             val raw = call.receiveText()
-            val w = P.parse<Weapon>(raw)!!
+            val w = PARSER.fromJson(raw, Weapon::class.java)
             transaction {
                 WeaponTable.insert {
                     it[name] = w.name

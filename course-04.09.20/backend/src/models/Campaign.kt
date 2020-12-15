@@ -45,7 +45,7 @@ fun Route.campaign() {
         val (t, s) = try {
             call.parameters["ids"]!!.let {
                 transaction {
-                    P.toJsonString(getRecordsWithIds(it, CampaignTable).map { it.toCampaign() }) to HttpStatusCode.OK
+                    PARSER.toJson(getRecordsWithIds(it, CampaignTable).map { it.toCampaign() }) to HttpStatusCode.OK
                 }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
@@ -71,7 +71,7 @@ fun Route.campaign() {
     post {
         val (t, s) = try {
             val raw = call.receiveText()
-            val b = P.parse<Campaign>(raw)!!
+            val b = PARSER.fromJson(raw, Campaign::class.java)
             transaction {
                 CampaignTable.insert {
                     it[name] = b.name

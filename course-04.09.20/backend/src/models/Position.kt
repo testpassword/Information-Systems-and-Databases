@@ -53,7 +53,7 @@ fun Route.position() {
         val (t, s) = try {
             call.parameters["ids"]!!.let {
                 transaction {
-                    P.toJsonString(getRecordsWithIds(it, PositionTable).map { it.toPosition() }) to HttpStatusCode.OK
+                    PARSER.toJson(getRecordsWithIds(it, PositionTable).map { it.toPosition() }) to HttpStatusCode.OK
                 }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
@@ -79,7 +79,7 @@ fun Route.position() {
     post {
         val (t, s) = try {
             val raw = call.receiveText()
-            val p = P.parse<Position>(raw)!!
+            val p = PARSER.fromJson(raw, Position::class.java)
             transaction {
                 PositionTable.insert {
                     it[name] = p.name

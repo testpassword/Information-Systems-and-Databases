@@ -1,6 +1,5 @@
 package com.testpassword.models
 
-import com.beust.klaxon.Klaxon
 import com.testpassword.*
 import io.ktor.application.*
 import io.ktor.http.*
@@ -9,8 +8,6 @@ import io.ktor.response.*
 import io.ktor.routing.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
-
-val P = Klaxon() // parser
 
 object BaseTable: Table("base"), Generable {
 
@@ -39,7 +36,7 @@ fun Route.base() {
         val (t, s) = try {
             call.parameters["ids"]!!.let {
                 transaction {
-                    P.toJsonString(getRecordsWithIds(it, BaseTable).map { it.toBase() }) to HttpStatusCode.OK
+                    PARSER.toJson(getRecordsWithIds(it, BaseTable).map { it.toBase() }) to HttpStatusCode.OK
                 }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
@@ -64,7 +61,7 @@ fun Route.base() {
     post {
         val (t, s) = try {
             val raw = call.receiveText()
-            val b = P.parse<Base>(raw)!!
+            val b = PARSER.fromJson(raw, Base::class.java)
             println("PARSED: " + b)
             transaction {
                 BaseTable.insert {

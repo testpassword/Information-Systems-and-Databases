@@ -1,5 +1,6 @@
 package com.testpassword.models
 
+import com.google.gson.*
 import com.testpassword.*
 import io.ktor.application.*
 import io.ktor.http.*
@@ -16,6 +17,7 @@ import java.time.LocalDate
 import java.time.ZoneId
 import java.util.*
 import kotlin.random.Random
+
 
 object EmployeeTable: Table("employee"), Generable {
 
@@ -89,7 +91,7 @@ fun Route.employee() {
         val (t, s) = try {
             call.parameters["ids"]!!.let {
                 transaction {
-                    P.toJsonString(getRecordsWithIds(it, EmployeeTable).map { it.toEmployee() }) to HttpStatusCode.OK
+                    PARSER.toJson(getRecordsWithIds(it, EmployeeTable).map { it.toEmployee() }) to HttpStatusCode.OK
                 }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
@@ -120,13 +122,7 @@ fun Route.employee() {
     post {
         val (t, s) = try {
             val raw = call.receiveText()
-
-            println(raw)
-
-            val e = P.parse<Employee>(raw)!!
-
-            println(e)
-
+            val e = PARSER.fromJson(raw, Employee::class.java)
             transaction {
                 EmployeeTable.insert {
                     it[name] = e.name

@@ -50,7 +50,7 @@ fun Route.mre() {
         val (t, s) = try {
             call.parameters["ids"]!!.let {
                 transaction {
-                    P.toJsonString(getRecordsWithIds(it, MRETable).map { it.toMRE() }) to HttpStatusCode.OK
+                    PARSER.toJson(getRecordsWithIds(it, MRETable).map { it.toMRE() }) to HttpStatusCode.OK
                 }
             }
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }
@@ -81,7 +81,7 @@ fun Route.mre() {
     post {
         val (t, s) = try {
             val raw = call.receiveText()
-            val m = P.parse<MRE>(raw)!!
+            val m = PARSER.fromJson(raw, MRE::class.java)
             transaction {
                 MRETable.insert {
                     it[breakfast] = m.breakfast

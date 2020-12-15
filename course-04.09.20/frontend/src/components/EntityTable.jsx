@@ -9,6 +9,11 @@ import EntitiesApi from "../EntitiesApi.js"
 
 class EntityTable extends React.Component {
 
+    constructor(props) {
+        super(props)
+        message.config({ duration: 4 })
+    }
+
     state = {
         isLoading: true,
         items: [],
