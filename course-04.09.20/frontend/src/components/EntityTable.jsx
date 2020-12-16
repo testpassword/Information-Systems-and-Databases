@@ -1,5 +1,6 @@
 import React from "react"
-import { Table, message, Input, Button, Space, Layout, Popover, Checkbox, InputNumber, Select, Tooltip, Modal } from "antd"
+import {
+    Table, message, Input, Button, Space, Layout, Popover, Checkbox, InputNumber, Select, Tooltip, Modal, DatePicker } from "antd"
 import Highlighter from "react-highlight-words"
 import { DeleteOutlined, PlusOutlined, SearchOutlined, DownloadOutlined, CloseOutlined } from "@ant-design/icons"
 import { Header, Content } from "antd/lib/layout/layout"
@@ -8,6 +9,7 @@ import { last } from "underscore"
 import { first } from "underscore"
 import EntitiesApi from "../EntitiesApi.js"
 import EntitySimpleTable from "./EntitySimpleTable"
+import moment from "moment"
 import PositionPresenter from "./presentors/PositionPresenter"
 import BasePresenter from "./presentors/BasePresenter"
 import MrePresenter from "./presentors/MrePresenter"
@@ -186,6 +188,16 @@ class EntityTable extends React.Component {
                         ...modifiedColumn,
                         render: t => <InputNumber defaultValue={t}/>
                     }
+            if (typeof object[key] === "object")
+                modifiedColumn = {
+                    ...modifiedColumn,
+                    render: t => {
+                        const format = "DD-MM-YYYY/HH:mm:ss"
+                        const timestamp = t.date.toString() + "/" + t.time.hour + ":" + t.time.minute + ":" + t.time.second
+                        console.log(timestamp)
+                        return <DatePicker showTime defaultValue={moment(timestamp, format)} format={format}/>
+                    }
+                }
             if (modifiedColumn.editable)
                 modifiedColumn = {
                     ...modifiedColumn,
@@ -240,7 +252,8 @@ class EntityTable extends React.Component {
         if (childData === undefined) return
         EntitiesApi.post(this.props.presenter.url, this.props.presenter.idField, childData).then(res => res.text()).then(
             data => {
-                message.success({content: data})
+                message.success({ content: data })
+                this.setState({ addFormVisible: false })
                 this.getRecords()
             },
             error => message.error({ content: error.message.toLocaleString() })
@@ -294,20 +307,30 @@ class EntityTable extends React.Component {
         return <Layout className="site-layout">
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
                 <Space size={"middle"}>
-                    <Popover trigger="click" content={this.props.presenter.creator} visible={this.state.addFormVisible}>
-                        <Button
-                            type="primary"
-                            icon={<PlusOutlined/>}
-                            ghost={true}
-                            onClick={this.handleAddClick}>
+                    <Popover
+                        trigger="click"
+                        content={
+                            <div>
+                                {this.props.presenter.creator}
+                                <Button shape="round"
+                                        icon={<CloseOutlined/>}
+                                        size="small"
+                                        onClick={() => this.setState({ addFormVisible: false })}
+                                />
+                            </div>
+                        }
+                        visible={this.state.addFormVisible}>
+                        <Button type="primary"
+                                icon={<PlusOutlined/>}
+                                ghost={true}
+                                onClick={this.handleAddClick}>
                             Add record
                         </Button>
                     </Popover>
-                    <Button
-                        icon={<DeleteOutlined/>}
-                        ghost={true}
-                        danger
-                        onClick={this.removeRecords}>
+                    <Button icon={<DeleteOutlined/>}
+                            ghost={true}
+                            danger
+                            onClick={this.removeRecords}>
                         Remove
                     </Button>
                     <Tooltip title="All objects from table will be downloaded if nothing is selected">
@@ -315,7 +338,7 @@ class EntityTable extends React.Component {
                             icon={<DownloadOutlined/>}
                             ghost={true}
                             onClick={this.downloadRecords}>
-                            Download as json
+                            { `Download as json (${(this.state.items === undefined) ? 0 : this.state.items.length})` }
                         </Button>
                     </Tooltip>
                 </Space>

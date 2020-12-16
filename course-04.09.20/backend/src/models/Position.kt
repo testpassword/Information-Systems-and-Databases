@@ -75,7 +75,7 @@ fun Route.position() {
             val (id, f) = explodeJsonForModel("posId", raw)
             PositionTable.update({ PositionTable.pos_id eq id }) { p ->
                 f["name"]?.let { p[name] = it as String }
-                f["salary"]?.let { p[salary] = it as BigDecimal }
+                f["salary"]?.let { p[salary] = (it as Double).toBigDecimal() }
                 f["rank"]?.let { p[rank] = it as String }
                 f["equipId"]?.let { p[equip_id] = it as Int }
                 f["forces"]?.let { p[forces] = FORCES.valueOf(it as String) }

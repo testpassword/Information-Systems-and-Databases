@@ -29,19 +29,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T042219.200.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T113905.200.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Utils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Base.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Base.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/models/Campaign.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Campaign.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Employee.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Employee.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Equipment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Equipment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/MRE.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/MRE.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/MedicalCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/MedicalCard.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Mission.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Mission.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/models/Position.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Position.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Transport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Transport.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Weapon.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Weapon.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/EntitiesApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/EntitiesApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/EntitySimpleTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntitySimpleTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/BasePresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/BasePresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/CampaignPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/CampaignPresenter.jsx" afterDir="false" />
@@ -1165,7 +1154,7 @@
       <workItem from="1607849420322" duration="17085000" />
       <workItem from="1607898210971" duration="5362000" />
       <workItem from="1607948253190" duration="6937000" />
-      <workItem from="1607977319171" duration="43356000" />
+      <workItem from="1607977319171" duration="49528000" />
     </task>
     <task id="LOCAL-00001" summary="Random route renamed to God route in backend; Created add form for Base, Campaign, Employee, Equipment entities; Render NumberInput and stub for SelectInput; Added downloading records in json">
       <created>1607294700699</created>
@@ -1209,7 +1198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608028775119</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed bug with parsing not String json key in PUT method in backend; added global buffer for edited key; added functionality to change references key in table">
+      <created>1608120154299</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608120154299</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1234,6 +1230,7 @@
     <MESSAGE value="Added AbstractCreator.jsx with called to parent; Added add entities functionality (prototype)" />
     <MESSAGE value="Every creator object extends from AbstractCreator.jsx; Added buffer with id for passing it from modal record chooser to form with record creators; Created EntitySimpleTable.jsx for porpoise for choosing entities;" />
     <MESSAGE value="Fixed LocalDate parsing on backend; Klaxon replaced to Gson; Entities add now working with all entities; EntitySimpleTable.jsx renders boolean columns;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed LocalDate parsing on backend; Klaxon replaced to Gson; Entities add now working with all entities; EntitySimpleTable.jsx renders boolean columns;" />
+    <MESSAGE value="Fixed bug with parsing not String json key in PUT method in backend; added global buffer for edited key; added functionality to change references key in table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug with parsing not String json key in PUT method in backend; added global buffer for edited key; added functionality to change references key in table" />
   </component>
 </project>

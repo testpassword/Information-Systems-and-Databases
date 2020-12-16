@@ -6,31 +6,26 @@ class WeaponCreator extends AbstractCreator {
 
     render() {
         return <Form onFinish={this.onTrigger}>
-            <Form.Item
-                label="Caliber"
-                name="caliber">
+            <Form.Item label="Caliber"
+                       name="caliber">
                 <InputNumber min={0}/>
             </Form.Item>
-            <Form.Item
-                label="Name"
-                name="name"
-                rules={[{ required: true, message: "Input name of weapon" }]}>
+            <Form.Item label="Name"
+                       name="name"
+                       rules={[{ required: true, message: "Input name of weapon" }]}>
                 <Input/>
             </Form.Item>
-            <Form.Item
-                label="Rate of fire"
-                name="rateOfFire">
+            <Form.Item label="Rate of fire"
+                       name="rateOfFire">
                 <InputNumber min={0}/>
             </Form.Item>
-            <Form.Item
-                label="Sighting range m"
-                name="sightingRangeM">
+            <Form.Item label="Sighting range m"
+                       name="sightingRangeM">
                 <InputNumber min={0}/>
             </Form.Item>
-            <Form.Item
-                label="Type"
-                name="type"
-                rules={[{ required: true, message: "Input type of weapon" }]}>
+            <Form.Item label="Type"
+                       name="type"
+                       rules={[{ required: true, message: "Input type of weapon" }]}>
                 <Input/>
             </Form.Item>
             <Form.Item>

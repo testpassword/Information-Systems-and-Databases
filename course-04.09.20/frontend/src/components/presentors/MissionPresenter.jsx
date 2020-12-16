@@ -25,39 +25,32 @@ class MissionCreator extends AbstractCreator {
     render() {
         const { RangePicker } = DatePicker
         return <Form onFinish={this.onTrigger}>
-            <Form.Item
-                label="Arrival location"
-                name="arrivalLocation">
+            <Form.Item label="Arrival location"
+                       name="arrivalLocation">
                 <Input placeholder="Use space as separator"/>
             </Form.Item>
-            <Form.Item
-                label="Campaign ID"
-                name="campId">
-                <Button
-                    type="link"
-                    onClick={ () => this.showConfirm(<EntitySimpleTable presenter={CampaignPresenter}/>, this.campOk) }>
+            <Form.Item label="Campaign ID"
+                       name="campId">
+                <Button type="link"
+                        onClick={ () => this.showConfirm(<EntitySimpleTable presenter={CampaignPresenter}/>, this.campOk) }>
                     {this.state.campBtn}
                 </Button>
             </Form.Item>
-            <Form.Item
-                label="Departure location"
-                name="departureLocation">
+            <Form.Item label="Departure location"
+                       name="departureLocation">
                 <Input placeholder="Use space as separator"/>
             </Form.Item>
-            <Form.Item
-                label="Period"
-                name="period">
+            <Form.Item label="Period"
+                       name="period">
                 <RangePicker showTime/>
             </Form.Item>
-            <Form.Item
-                label="Enemies"
-                name="enemies">
+            <Form.Item label="Enemies"
+                       name="enemies">
                 <Input/>
             </Form.Item>
-            <Form.Item
-                label="Legal status"
-                name="legalStatus"
-                rules={[ { required: true, message: "Choose legality status of mission" }]}>
+            <Form.Item label="Legal status"
+                       name="legalStatus"
+                       rules={[ { required: true, message: "Choose legality status of mission" }]}>
                 <Radio.Group>
                     <Radio value={true}>legal</Radio>
                     <Radio value={false}>illegal</Radio>

@@ -6,25 +6,22 @@ class TransportCreator extends AbstractCreator {
 
     render() {
         return <Form onFinish={this.onTrigger}>
-            <Form.Item
-                label="Name"
-                name="name"
-                rules={[{ required: true, message: "Input transport name" }]}>
+            <Form.Item label="Name"
+                       name="name"
+                       rules={[{ required: true, message: "Input transport name" }]}>
                 <Input/>
             </Form.Item>
-            <Form.Item
-                label="Status"
-                name="status"
-                rules={[{ required: true, message: "Choose status of transport" }]}>
+            <Form.Item label="Status"
+                       name="status"
+                       rules={[{ required: true, message: "Choose status of transport" }]}>
                 <Radio.Group
                     options={TransportPresenter.filteredColumns.status.map(o => o.text)}
                     optionType="button"
                 />
             </Form.Item>
-            <Form.Item
-                label="Type"
-                name="type"
-                rules={[{ required: true, message: "Input type of transport" }]}>
+            <Form.Item label="Type"
+                       name="type"
+                       rules={[{ required: true, message: "Input type of transport" }]}>
                 <Input/>
             </Form.Item>
             <Form.Item>

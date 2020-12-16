@@ -69,8 +69,8 @@ fun Route.campaign() {
             CampaignTable.update({ CampaignTable.camp_id eq id }) { c ->
                 f["name"]?.let { c[name] = it as String }
                 f["customer"]?.let { c[customer] = it as String }
-                f["earning"]?.let { c[earning] = it as BigDecimal }
-                f["spending"]?.let { c[spending] = it as BigDecimal }
+                f["earning"]?.let { c[earning] = (it as Double).toBigDecimal() }
+                f["spending"]?.let { c[spending] = (it as Double).toBigDecimal() }
                 f["executionStatus"]?.let { c[execution_status] = it as String }
             }
             "$raw updated)" to HttpStatusCode.OK

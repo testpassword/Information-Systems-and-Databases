@@ -24,47 +24,40 @@ class MedicalCardCreator extends AbstractCreator {
 
     render() {
         return <Form onFinish={this.onTrigger}>
-            <Form.Item
-                label="Diseases"
-                name="diseases">
+            <Form.Item label="Diseases"
+                       name="diseases">
                 <Input placeholder="Use space as separator"/>
             </Form.Item>
-            <Form.Item
-                label="Gender"
-                name="gender"
-                rules={[ { required: true, message: "Choose gender" }]}>
+            <Form.Item label="Gender"
+                       name="gender"
+                       rules={[ { required: true, message: "Choose gender" }]}>
                 <Radio.Group>
                     <Radio value={true}>male</Radio>
                     <Radio value={false}>female</Radio>
                 </Radio.Group>
             </Form.Item>
-            <Form.Item
-                label="Height cm"
-                name="heightCm"
-                rules={[ { required: true, message: "Input employee height" }]}>
+            <Form.Item label="Height cm"
+                       name="heightCm"
+                       rules={[ { required: true, message: "Input employee height" }]}>
                 <InputNumber/>
             </Form.Item>
-            <Form.Item
-                label="Weight kg"
-                name="weightKg"
-                rules={[ { required: true, message: "Input employee weight" }]}>
+            <Form.Item label="Weight kg"
+                       name="weightKg"
+                       rules={[ { required: true, message: "Input employee weight" }]}>
                 <InputNumber/>
             </Form.Item>
-            <Form.Item
-                label="Blood"
-                name="blood"
-                rules={[ { required: true, message: "Choose blood type - it's about saving life!" }]}>
+            <Form.Item label="Blood"
+                       name="blood"
+                       rules={[ { required: true, message: "Choose blood type - it's about saving life!" }]}>
                 <Radio.Group
                     options={MedicalCardPresenter.filteredColumns.blood.map(o => o.text)}
                     optionType="button"
                 />
             </Form.Item>
-            <Form.Item
-                label="Employee ID"
-                name="empId">
-                <Button
-                    type="link"
-                    onClick={ () => this.showConfirm(<EntitySimpleTable presenter={EmployeePresenter}/>, this.empOk) }>
+            <Form.Item label="Employee ID"
+                       name="empId">
+                <Button type="link"
+                        onClick={ () => this.showConfirm(<EntitySimpleTable presenter={EmployeePresenter}/>, this.empOk) }>
                     {this.state.empBtn}
                 </Button>
             </Form.Item>

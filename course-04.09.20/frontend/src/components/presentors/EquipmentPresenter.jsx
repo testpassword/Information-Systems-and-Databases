@@ -24,37 +24,30 @@ class EquipmentCreator extends AbstractCreator {
 
     render() {
         return <Form onFinish={this.onTrigger}>
-            <Form.Item
-                label="Camouflage"
-                name="camouflage">
+            <Form.Item label="Camouflage"
+                       name="camouflage">
                 <Input/>
             </Form.Item>
-            <Form.Item
-                label="Communication"
-                name="communication">
+            <Form.Item label="Communication"
+                       name="communication">
                 <Input/>
             </Form.Item>
-            <Form.Item
-                label="Intelligence"
-                name="intelligence">
+            <Form.Item label="Intelligence"
+                       name="intelligence">
                 <Input/>
             </Form.Item>
-            <Form.Item
-                label="Medical"
-                name="medical">
+            <Form.Item label="Medical"
+                       name="medical">
                 <Input/>
             </Form.Item>
-            <Form.Item
-                label="Extras"
-                name="extra">
+            <Form.Item label="Extras"
+                       name="extra">
                 <Input placeholder="Use space as separator"/>
             </Form.Item>
-            <Form.Item
-                label="Mre ID"
-                name="mreId">
-                <Button
-                    type="link"
-                    onClick={ () => this.showConfirm(<EntitySimpleTable presenter={MrePresenter}/>, this.mreOk) }>
+            <Form.Item label="Mre ID"
+                       name="mreId">
+                <Button type="link"
+                        onClick={ () => this.showConfirm(<EntitySimpleTable presenter={MrePresenter}/>, this.mreOk) }>
                     {this.state.mreBtn}
                 </Button>
             </Form.Item>

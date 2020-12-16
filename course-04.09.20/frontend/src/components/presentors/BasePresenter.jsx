@@ -6,16 +6,14 @@ class BaseCreator extends AbstractCreator {
 
     render() {
         return <Form onFinish={this.onTrigger}>
-                <Form.Item
-                    label="Location"
-                    name="location"
-                    rules={[{ required: true, message: "Input base location" }]}>
+                <Form.Item label="Location"
+                           name="location"
+                           rules={[{ required: true, message: "Input base location" }]}>
                     <Input/>
                 </Form.Item>
-                <Form.Item
-                    label="Status"
-                    name="status"
-                    rules={[{ required: true, message: "Choose base status" }]}>
+                <Form.Item label="Status"
+                           name="status"
+                           rules={[{ required: true, message: "Choose base status" }]}>
                     <Radio.Group
                         options={BasePresenter.filteredColumns.status.map(o => o.text)}
                         optionType="button"
