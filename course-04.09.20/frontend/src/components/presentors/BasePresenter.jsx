@@ -1,6 +1,6 @@
 import React from "react"
 import { Input, Form, Button, Radio } from "antd"
-import AbstractCreator from "./AbstractCreator.jsx"
+import AbstractCreator from "./AbstractCreator"
 
 class BaseCreator extends AbstractCreator {
 

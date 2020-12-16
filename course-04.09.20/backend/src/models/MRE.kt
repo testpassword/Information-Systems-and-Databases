@@ -37,12 +37,26 @@ object MRETable: Table("mre"), Generable {
     }
 }
 
-fun ResultRow.toMRE() = MRE(this[MRETable.mre_id], this[MRETable.breakfast], this[MRETable.lunch],
-    this[MRETable.dinner], this[MRETable.food_additives], this[MRETable.kkal], this[MRETable.proteins],
-    this[MRETable.fats], this[MRETable.carbohydrate])
+fun ResultRow.toMRE() = MRE(
+    this[MRETable.mre_id],
+    this[MRETable.breakfast],
+    this[MRETable.lunch],
+    this[MRETable.dinner],
+    this[MRETable.food_additives],
+    this[MRETable.kkal],
+    this[MRETable.proteins],
+    this[MRETable.fats],
+    this[MRETable.carbohydrate])
 
-data class MRE(val mreId: Int?, val breakfast: String, val lunch: String, val dinner: String, val foodAdditives: String?,
-               val kkal: Int, val proteins: Int, val fats: Int, val carbohydrate: Int)
+data class MRE(val mreId: Int?,
+               val breakfast: String,
+               val lunch: String,
+               val dinner: String,
+               val foodAdditives: String?,
+               val kkal: Int,
+               val proteins: Int,
+               val fats: Int,
+               val carbohydrate: Int)
 
 fun Route.mre() {
 
@@ -63,14 +77,14 @@ fun Route.mre() {
             val (id, f) = explodeJsonForModel("missId", raw)
             transaction {
                 MRETable.update({ MRETable.mre_id eq id }) { m ->
-                    f["breakfast"]?.let { m[breakfast] = it }
-                    f["lunch"]?.let { m[lunch] = it }
-                    f["dinner"]?.let { m[dinner] = it }
-                    f["foodAdditives"]?.let { m[food_additives] = it }
-                    f["kkal"]?.let { m[kkal] = it.toInt() }
-                    f["proteins"]?.let { m[proteins] = it.toInt() }
-                    f["fats"]?.let { m[fats] = it.toInt() }
-                    f["carbohydrate"]?.let { m[carbohydrate] = it.toInt() }
+                    f["breakfast"]?.let { m[breakfast] = it as String }
+                    f["lunch"]?.let { m[lunch] = it as String }
+                    f["dinner"]?.let { m[dinner] = it as String }
+                    f["foodAdditives"]?.let { m[food_additives] = it as String }
+                    f["kkal"]?.let { m[kkal] = it as Int }
+                    f["proteins"]?.let { m[proteins] = it as Int }
+                    f["fats"]?.let { m[fats] = it as Int }
+                    f["carbohydrate"]?.let { m[carbohydrate] = it as Int }
                 }
             }
             "$raw updated)" to HttpStatusCode.OK

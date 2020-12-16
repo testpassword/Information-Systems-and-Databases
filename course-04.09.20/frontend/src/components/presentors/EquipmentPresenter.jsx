@@ -1,9 +1,9 @@
 import React from "react"
 import {Button, Form, Input, message} from "antd"
-import AbstractCreator from "./AbstractCreator.jsx"
+import AbstractCreator from "./AbstractCreator"
 import EntitySimpleTable from "../EntitySimpleTable"
 import MrePresenter from "./MrePresenter"
-import EntitiesApi from "../../EntitiesApi";
+import EntitiesApi from "../../EntitiesApi"
 
 class EquipmentCreator extends AbstractCreator {
 
@@ -12,7 +12,6 @@ class EquipmentCreator extends AbstractCreator {
     mreOk = () => {
         if (EntitiesApi.idBuffer !== null) {
             this.setState({ mreBtn: EntitiesApi.idBuffer })
-            EntitiesApi.idBuffer = null
         } else message.error({ content: "You should choose mre from table" })
     }
 

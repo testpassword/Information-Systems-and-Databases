@@ -1,9 +1,9 @@
 import React from "react"
 import {Button, DatePicker, Form, Input, message, Radio} from "antd"
-import AbstractCreator from "./AbstractCreator.jsx"
+import AbstractCreator from "./AbstractCreator"
 import EntitySimpleTable from "../EntitySimpleTable"
 import CampaignPresenter from "./CampaignPresenter"
-import EntitiesApi from "../../EntitiesApi";
+import EntitiesApi from "../../EntitiesApi"
 
 class MissionCreator extends AbstractCreator {
 
@@ -12,7 +12,6 @@ class MissionCreator extends AbstractCreator {
     campOk = () => {
         if (EntitiesApi.idBuffer !== null) {
             this.setState({ campBtn: EntitiesApi.idBuffer })
-            EntitiesApi.idBuffer = null
         } else message.error({ content: "You should choose base from table" })
     }
 

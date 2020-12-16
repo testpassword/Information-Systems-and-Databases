@@ -28,9 +28,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T041734.200.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T042219.200.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T113905.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Utils.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/models/Base.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Base.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/models/Campaign.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Campaign.kt" afterDir="false" />
@@ -42,16 +40,18 @@
       <change beforePath="$PROJECT_DIR$/backend/src/models/Position.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Position.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/models/Transport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Transport.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/models/Weapon.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Weapon.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/test/employee.http" beforeDir="false" afterPath="$PROJECT_DIR$/backend/test/employee.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/EntitiesApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/EntitiesApi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/EntitySimpleTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntitySimpleTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/AbstractCreator.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/AbstractCreator.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/BasePresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/BasePresenter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/CampaignPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/CampaignPresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/EmployeePresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EmployeePresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/EquipmentPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EquipmentPresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/MedicalCardPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/MedicalCardPresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/MissionPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/MissionPresenter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/MrePresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/MrePresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/PositionPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/PositionPresenter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/TransportPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/TransportPresenter.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/WeaponPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/WeaponPresenter.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,7 +164,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../work/Luxoft/rpr_pipelines" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -1165,7 +1165,7 @@
       <workItem from="1607849420322" duration="17085000" />
       <workItem from="1607898210971" duration="5362000" />
       <workItem from="1607948253190" duration="6937000" />
-      <workItem from="1607977319171" duration="16068000" />
+      <workItem from="1607977319171" duration="43356000" />
     </task>
     <task id="LOCAL-00001" summary="Random route renamed to God route in backend; Created add form for Base, Campaign, Employee, Equipment entities; Render NumberInput and stub for SelectInput; Added downloading records in json">
       <created>1607294700699</created>
@@ -1202,7 +1202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607883650186</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed LocalDate parsing on backend; Klaxon replaced to Gson; Entities add now working with all entities; EntitySimpleTable.jsx renders boolean columns;">
+      <created>1608028775119</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608028775119</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1226,6 +1233,7 @@
     <MESSAGE value="Changed some checks in entities; added forms for all entities in front" />
     <MESSAGE value="Added AbstractCreator.jsx with called to parent; Added add entities functionality (prototype)" />
     <MESSAGE value="Every creator object extends from AbstractCreator.jsx; Added buffer with id for passing it from modal record chooser to form with record creators; Created EntitySimpleTable.jsx for porpoise for choosing entities;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Every creator object extends from AbstractCreator.jsx; Added buffer with id for passing it from modal record chooser to form with record creators; Created EntitySimpleTable.jsx for porpoise for choosing entities;" />
+    <MESSAGE value="Fixed LocalDate parsing on backend; Klaxon replaced to Gson; Entities add now working with all entities; EntitySimpleTable.jsx renders boolean columns;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed LocalDate parsing on backend; Klaxon replaced to Gson; Entities add now working with all entities; EntitySimpleTable.jsx renders boolean columns;" />
   </component>
 </project>

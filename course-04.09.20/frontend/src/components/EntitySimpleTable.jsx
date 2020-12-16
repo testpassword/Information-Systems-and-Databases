@@ -43,7 +43,10 @@ class EntitySimpleTable extends React.Component {
     /* Здесь я не придумал, как передать ключ выбранного элемента на два родителя вверх, поэтому просто отправил его
     в глобальную переменную. ПОВТОРЯТЬ ТАКОЕ НЕЛЬЗЯ! */
     rowSelection = {
-        onChange: (selectedRowKeys) => EntitiesApi.idBuffer = selectedRowKeys[0]
+        onChange: (selectedRowKeys) => {
+            EntitiesApi.idKey = this.props.presenter.idField
+            EntitiesApi.idBuffer = selectedRowKeys[0]
+        }
     }
 
     render() {

@@ -1,6 +1,6 @@
 import React from "react"
 import {Button, Form, Input, Radio} from "antd"
-import AbstractCreator from "./AbstractCreator.jsx"
+import AbstractCreator from "./AbstractCreator"
 
 class TransportCreator extends AbstractCreator {
 

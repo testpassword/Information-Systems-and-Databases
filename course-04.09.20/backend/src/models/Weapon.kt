@@ -39,10 +39,19 @@ object WeaponTable: Table("weapon"), Generable {
     }
 }
 
-fun ResultRow.toWeapon() = Weapon(this[WeaponTable.weapon_id], this[WeaponTable.name], this[WeaponTable.type],
-    this[WeaponTable.caliber]?.toDouble(), this[WeaponTable.rate_of_fire], this[WeaponTable.sighting_range_m])
+fun ResultRow.toWeapon() = Weapon(
+    this[WeaponTable.weapon_id],
+    this[WeaponTable.name],
+    this[WeaponTable.type],
+    this[WeaponTable.caliber]?.toDouble(),
+    this[WeaponTable.rate_of_fire],
+    this[WeaponTable.sighting_range_m])
 
-data class Weapon(val weaponId: Int?, val name: String, val type: String, val caliber: Double?, val rateOfFire: Int?,
+data class Weapon(val weaponId: Int?,
+                  val name: String,
+                  val type: String,
+                  val caliber: Double?,
+                  val rateOfFire: Int?,
                   val sightingRangeM: Int?)
 
 fun Route.weapon() {
@@ -63,11 +72,11 @@ fun Route.weapon() {
             val raw = call.receiveText()
             val (id, f) = explodeJsonForModel("weaponId", raw)
             WeaponTable.update({ WeaponTable.weapon_id eq id }) { w ->
-                f["name"]?.let { w[name] = it }
-                f["type"]?.let { w[type] = it }
-                f["caliber"]?.let { w[caliber] = it.toFloat() }
-                f["rateOfFire"]?.let { w[rate_of_fire] = it.toInt() }
-                f["sighting_rangeM"]?.let { w[sighting_range_m] = it.toInt() }
+                f["name"]?.let { w[name] = it as String }
+                f["type"]?.let { w[type] = it as String }
+                f["caliber"]?.let { w[caliber] = it as Float }
+                f["rateOfFire"]?.let { w[rate_of_fire] = it as Int }
+                f["sighting_rangeM"]?.let { w[sighting_range_m] = it as Int }
             }
             "$raw updated)" to HttpStatusCode.OK
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }

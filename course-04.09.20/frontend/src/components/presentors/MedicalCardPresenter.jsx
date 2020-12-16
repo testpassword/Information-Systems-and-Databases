@@ -1,9 +1,9 @@
 import React from "react"
 import {Button, Form, Input, InputNumber, message, Radio} from "antd"
-import AbstractCreator from "./AbstractCreator.jsx"
+import AbstractCreator from "./AbstractCreator"
 import EntitySimpleTable from "../EntitySimpleTable"
 import EmployeePresenter from "./EmployeePresenter"
-import EntitiesApi from "../../EntitiesApi";
+import EntitiesApi from "../../EntitiesApi"
 
 class MedicalCardCreator extends AbstractCreator {
 
@@ -12,7 +12,6 @@ class MedicalCardCreator extends AbstractCreator {
     empOk = () => {
         if (EntitiesApi.idBuffer !== null) {
             this.setState({ empBtn: EntitiesApi.idBuffer })
-            EntitiesApi.idBuffer = null
         } else message.error({ content: "You should choose employee from table" })
     }
 

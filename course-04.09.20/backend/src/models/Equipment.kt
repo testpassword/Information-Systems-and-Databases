@@ -42,12 +42,22 @@ object EquipmentTable: Table("equipment"), Generable {
     }
 }
 
-fun ResultRow.toEquipment() = Equipment(this[EquipmentTable.equip_id], this[EquipmentTable.camouflage],
-    this[EquipmentTable.communication], this[EquipmentTable.intelligence], this[EquipmentTable.medical],
-    this[EquipmentTable.mre_id], this[EquipmentTable.extra])
+fun ResultRow.toEquipment() = Equipment(
+    this[EquipmentTable.equip_id],
+    this[EquipmentTable.camouflage],
+    this[EquipmentTable.communication],
+    this[EquipmentTable.intelligence],
+    this[EquipmentTable.medical],
+    this[EquipmentTable.mre_id],
+    this[EquipmentTable.extra])
 
-data class Equipment(val equipId: Int?, val camouflage: String?, val communication: String?, val intelligence: String?,
-                     val medical: String?, val mreId: Int, val extra: String?)
+data class Equipment(val equipId: Int?,
+                     val camouflage: String?,
+                     val communication: String?,
+                     val intelligence: String?,
+                     val medical: String?,
+                     val mreId: Int,
+                     val extra: String?)
 
 fun Route.equipment() {
 
@@ -68,12 +78,12 @@ fun Route.equipment() {
             val (id, f) = explodeJsonForModel("equipId", raw)
             transaction {
                 EquipmentTable.update({ EquipmentTable.equip_id eq id }) { e ->
-                    f["camouflage"]?.let { e[camouflage] = it }
-                    f["communication"]?.let { e[communication] = it }
-                    f["intelligence"]?.let { e[intelligence] = it }
-                    f["medical"]?.let { e[medical] = it }
-                    f["mreId"]?.let { e[mre_id] = it.toInt() }
-                    f["extra"]?.let { e[extra] = it }
+                    f["camouflage"]?.let { e[camouflage] = it as String }
+                    f["communication"]?.let { e[communication] = it as String }
+                    f["intelligence"]?.let { e[intelligence] = it as String }
+                    f["medical"]?.let { e[medical] = it as String }
+                    f["mreId"]?.let { e[mre_id] = it as Int }
+                    f["extra"]?.let { e[extra] = it as String }
                 }
             }
             "$raw updated)" to HttpStatusCode.OK

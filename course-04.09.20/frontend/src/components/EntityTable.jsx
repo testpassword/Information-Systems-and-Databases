@@ -1,20 +1,37 @@
 import React from "react"
-import { Table, message, Input, Button, Space, Layout, Popover, Checkbox, InputNumber, Select, Tooltip } from "antd"
+import { Table, message, Input, Button, Space, Layout, Popover, Checkbox, InputNumber, Select, Tooltip, Modal } from "antd"
 import Highlighter from "react-highlight-words"
 import { DeleteOutlined, PlusOutlined, SearchOutlined, DownloadOutlined, CloseOutlined } from "@ant-design/icons"
 import { Header, Content } from "antd/lib/layout/layout"
 import { EditableCell, EditableRow } from "./EditableRow.jsx"
 import { last } from "underscore"
+import { first } from "underscore"
 import EntitiesApi from "../EntitiesApi.js"
+import EntitySimpleTable from "./EntitySimpleTable"
+import PositionPresenter from "./presentors/PositionPresenter"
+import BasePresenter from "./presentors/BasePresenter"
+import MrePresenter from "./presentors/MrePresenter"
+import EmployeePresenter from "./presentors/EmployeePresenter"
+import CampaignPresenter from "./presentors/CampaignPresenter"
+import EquipmentPresenter from "./presentors/EquipmentPresenter"
 
 class EntityTable extends React.Component {
 
     constructor(props) {
         super(props)
-        message.config({ duration: 4 })
+        message.config({ duration: 5 })
+        const presenters = new Map()
+        presenters.set("posId", PositionPresenter)
+        presenters.set("baseId", BasePresenter)
+        presenters.set("mreId", MrePresenter)
+        presenters.set("empId", EmployeePresenter)
+        presenters.set("campId", CampaignPresenter)
+        presenters.set("equipId", EquipmentPresenter)
+        this.state = { additionalPresenters: presenters }
     }
 
     state = {
+        additionalPresenters: [],
         isLoading: true,
         items: [],
         searchText: "",
@@ -30,7 +47,7 @@ class EntityTable extends React.Component {
                 <Input
                     ref={ node => { this.searchInput = node} }
                     placeholder={`Search ${dataIndex}`}
-                    value={selectedKeys[0]}
+                    value={first(selectedKeys)}
                     onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
                     onPressEnter={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
                     style={{ width: 188, marginBottom: 8, display: 'block' }}
@@ -69,7 +86,7 @@ class EntityTable extends React.Component {
 
     handleSearch = (selectedKeys, confirm, dataIndex) => {
         confirm()
-        this.setState({ searchText: selectedKeys[0], searchedColumn: dataIndex })
+        this.setState({ searchText: first(selectedKeys), searchedColumn: dataIndex })
     }
 
     handleReset = clearFilters => {
@@ -81,36 +98,57 @@ class EntityTable extends React.Component {
 
     handleSave = modified_record => {
         const p = this.props.presenter
-        const items = this.state.items
-        const orig_record = items.find((it) => modified_record[p.idField] === it[p.idField])
-        Object.keys(orig_record).forEach(key => {
-            if (orig_record[key] !== modified_record[key]) {
-                EntitiesApi.put(this.props.presenter.url, this.props.presenter.idField, modified_record, key)
-                    .then(res => res.text()).then(
-                    data => {
-                        this.setState({ isLoading: false })
-                        message.success({ content: data })
-                        orig_record[key] = modified_record[key]
+        EntitiesApi.put(p.url, modified_record)
+            .then(res => res.text())
+            .then(
+                data => {
+                    message.success({ content: data })
+                    const items = this.state.items
+                    const orig_record = items.find((it) => it[p.idField] === modified_record[p.idField])
+                    Object.keys(modified_record).forEach(key => {
+                        if (modified_record[key] !== orig_record[key]) orig_record[key] = modified_record[key]
                         this.setState({ items: items })
-                    },
-                    error => {
-                        this.setState({ isLoading: false })
-                        message.error({ content: error.message.toLocaleString() })
                     })
-            }
+                },
+                error => message.error({ content: error.message.toLocaleString() })
+            )
+    }
+
+    showConfirm = (table, onOkCallback, onCancelCallback) => {
+        const { confirm } = Modal
+        confirm({
+            zIndex: 1100,
+            width: 1100,
+            title: "Select record",
+            content: table,
+            onOk() { onOkCallback() },
+            onCancel() { if (onCancelCallback !== undefined) onCancelCallback() }
         })
     }
 
+    onSelectReferenceId = (key) => {
+        const editedEntityId = first(this.state.selectedRowKeys)
+        if (editedEntityId === undefined) message.error({ content: "Use should choose record before set reference" })
+        else {
+            this.setState({ selectedRowKeys: [] })
+            this.handleSave({
+                [this.props.presenter.idField]: editedEntityId,
+                [key]: EntitiesApi.idBuffer
+            })
+        }
+    }
+
     createColumnsFromObject = object => {
+        const p = this.props.presenter
         const cols = Object.keys(object).map(key => {
             const strKey = key.toString()
-            const filters = this.props.presenter.filteredColumns
+            const filters = p.filteredColumns
             let modifiedColumn = {
                 title: strKey.split(/(?=[A-Z])/).map(s => s.toUpperCase()).join(" "),
                 dataIndex: strKey,
                 defaultSortOrder: "ascend",
                 sortDirections: ["ascend", "descend"],
-                editable: (strKey !== this.props.presenter.idField),
+                editable: (strKey !== p.idField),
                 sorter: (a, b) => (typeof a[key] === "string") ? (a[key].localeCompare(b[key])) : (a[key] - b[key])
             }
             modifiedColumn = (filters !== undefined && strKey in filters) ?
@@ -131,10 +169,23 @@ class EntityTable extends React.Component {
                     render: t => <Checkbox checked={t}/>
                 }
             if (typeof object[key] === "number" && modifiedColumn.editable)
-                modifiedColumn = {
-                    ...modifiedColumn,
-                    render: t => <InputNumber defaultValue={t}/>
-                }
+                modifiedColumn = (key.includes("Id") && key !== p.idField) ?
+                    {
+                        ...modifiedColumn,
+                        editable: false,
+                        render: val =>
+                            <Button
+                                type="link"
+                                onClick={ () => this.showConfirm(
+                                    <EntitySimpleTable presenter={this.state.additionalPresenters.get(key)}/>,
+                                    () => this.onSelectReferenceId(key)) }>
+                                {val}
+                            </Button>
+                    } :
+                    {
+                        ...modifiedColumn,
+                        render: t => <InputNumber defaultValue={t}/>
+                    }
             if (modifiedColumn.editable)
                 modifiedColumn = {
                     ...modifiedColumn,
@@ -146,7 +197,6 @@ class EntityTable extends React.Component {
                         handleSave: this.handleSave,
                     })
                 }
-
             return modifiedColumn
         })
         this.setState({ columns: cols })
@@ -155,18 +205,16 @@ class EntityTable extends React.Component {
     getRecords = () => {
         EntitiesApi.get(this.props.presenter.url)
             .then(res => {
-                this.setState({isLoading: false})
+                this.setState({ isLoading: false} )
                 return res.json()
-                }
-            )
+                })
             .then(
                 data => {
                     this.setState({ items: data })
-                    this.createColumnsFromObject(data[0])
+                    this.createColumnsFromObject(first(data))
                     message.success({ content: "Data loaded" })
                 },
-                error => message.error({ content: error.message.toLocaleString() })
-            )
+                error => message.error({ content: error.message.toLocaleString() }))
     }
 
     removeRecords = () => {

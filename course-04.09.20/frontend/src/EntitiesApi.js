@@ -1,5 +1,6 @@
 class EntitiesApi {
 
+    static idKey = null
     static idBuffer = null
     static rootUrl = "http://localhost:9090/"
 
@@ -27,15 +28,12 @@ class EntitiesApi {
         return fetch(this.rootUrl + entityUrl, req)
     }
 
-    static put(entityUrl, idField, item, key) {
+    static put(entityUrl, item) {
         const req = {
             method: "PUT",
             mode: "cors",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                [idField]: item[idField],
-                [key]: item[key]
-            })
+            body: JSON.stringify(item)
         }
         return fetch(this.rootUrl + entityUrl, req)
     }

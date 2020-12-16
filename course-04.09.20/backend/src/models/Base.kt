@@ -26,9 +26,14 @@ object BaseTable: Table("base"), Generable {
     }
 }
 
-fun ResultRow.toBase() = Base(this[BaseTable.base_id], this[BaseTable.location], this[BaseTable.status])
+fun ResultRow.toBase() = Base(
+    this[BaseTable.base_id],
+    this[BaseTable.location],
+    this[BaseTable.status])
 
-data class Base(val baseId: Int?, val location: String, val status: String)
+data class Base(val baseId: Int?,
+                val location: String,
+                val status: String)
 
 fun Route.base() {
 
@@ -49,8 +54,8 @@ fun Route.base() {
             val (id, f) = explodeJsonForModel("baseId", raw)
             transaction {
                 BaseTable.update({ BaseTable.base_id eq id }) { b ->
-                    f["location"]?.let { b[location] = it }
-                    f["status"]?.let { b[status] = it }
+                    f["location"]?.let { b[location] = it as String }
+                    f["status"]?.let { b[status] = it as String }
                 }
             }
             "$raw updated)" to HttpStatusCode.OK
@@ -62,7 +67,6 @@ fun Route.base() {
         val (t, s) = try {
             val raw = call.receiveText()
             val b = PARSER.fromJson(raw, Base::class.java)
-            println("PARSED: " + b)
             transaction {
                 BaseTable.insert {
                     it[location] = b.location

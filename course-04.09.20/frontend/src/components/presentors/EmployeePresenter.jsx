@@ -1,9 +1,9 @@
 import React from "react"
-import {Button, DatePicker, Form, Input, Radio, Modal, message} from "antd"
+import {Button, DatePicker, Form, Input, Radio, message} from "antd"
 import moment from "moment"
-import EntitySimpleTable from "../EntitySimpleTable.jsx"
-import AbstractCreator from "./AbstractCreator.jsx"
-import EntitiesApi from "../../EntitiesApi.js"
+import EntitySimpleTable from "../EntitySimpleTable"
+import AbstractCreator from "./AbstractCreator"
+import EntitiesApi from "../../EntitiesApi"
 import BasePresenter from "./BasePresenter"
 import PositionPresenter from "./PositionPresenter"
 
@@ -17,14 +17,12 @@ class EmployeeCreator extends AbstractCreator {
     baseOk = () => {
         if (EntitiesApi.idBuffer !== null) {
             this.setState({ baseBtn: EntitiesApi.idBuffer })
-            EntitiesApi.idBuffer = null
         } else message.error({ content: "You should choose base from table" })
     }
 
     posOk = () => {
         if (EntitiesApi.idBuffer !== null) {
             this.setState({ posBtn: EntitiesApi.idBuffer })
-            EntitiesApi.idBuffer = null
         } else message.error({ content: "You should choose employee position from table" })
     }
 

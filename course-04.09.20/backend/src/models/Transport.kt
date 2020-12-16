@@ -36,10 +36,16 @@ object TransportTable: Table("transport"), Generable {
     }
 }
 
-fun ResultRow.toTransport() = Transport(this[TransportTable.trans_id], this[TransportTable.name],
-    this[TransportTable.type], this[TransportTable.status])
+fun ResultRow.toTransport() = Transport(
+    this[TransportTable.trans_id],
+    this[TransportTable.name],
+    this[TransportTable.type],
+    this[TransportTable.status])
 
-data class Transport(val transId: Int?, val name: String, val type: String, val status: String)
+data class Transport(val transId: Int?,
+                     val name: String,
+                     val type: String,
+                     val status: String)
 
 fun Route.transport() {
 
@@ -59,9 +65,9 @@ fun Route.transport() {
             val raw = call.receiveText()
             val (id, f) = explodeJsonForModel("transId", raw)
             TransportTable.update({ TransportTable.trans_id eq id }) { t ->
-                f["name"]?.let { t[name] = it }
-                f["type"]?.let { t[type] = it }
-                f["status"]?.let { t[status] = it }
+                f["name"]?.let { t[name] = it as String }
+                f["type"]?.let { t[type] = it as String }
+                f["status"]?.let { t[status] = it as String }
             }
             "$raw updated)" to HttpStatusCode.OK
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }

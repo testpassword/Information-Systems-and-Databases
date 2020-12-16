@@ -49,13 +49,24 @@ object MissionTable: Table("mission"), Generable {
     }
 }
 
-fun ResultRow.toMission() = Mission(this[MissionTable.miss_id], this[MissionTable.camp_id],
-    this[MissionTable.start_date_and_time], this[MissionTable.end_date_and_time], this[MissionTable.legal_status],
-    this[MissionTable.departure_location], this[MissionTable.arrival_location], this[MissionTable.enemies])
+fun ResultRow.toMission() = Mission(
+    this[MissionTable.miss_id],
+    this[MissionTable.camp_id],
+    this[MissionTable.start_date_and_time],
+    this[MissionTable.end_date_and_time],
+    this[MissionTable.legal_status],
+    this[MissionTable.departure_location],
+    this[MissionTable.arrival_location],
+    this[MissionTable.enemies])
 
-data class Mission(val missId: Int?, val campId: Int, val startDateAndTime: LocalDateTime?,
-                   val endDateAndTime: LocalDateTime?, val legalStatus: Boolean, val departureLocation: String?,
-                   val arrivalLocation: String?, val enemies: String?)
+data class Mission(val missId: Int?,
+                   val campId: Int,
+                   val startDateAndTime: LocalDateTime?,
+                   val endDateAndTime: LocalDateTime?,
+                   val legalStatus: Boolean,
+                   val departureLocation: String?,
+                   val arrivalLocation: String?,
+                   val enemies: String?)
 
 fun Route.mission() {
 
@@ -76,13 +87,13 @@ fun Route.mission() {
             val (id, f) = explodeJsonForModel("missId", raw)
             transaction {
                 MissionTable.update({ MissionTable.miss_id eq id }) { m ->
-                    f["camp_id"]?.let { m[camp_id] = it.toInt() }
-                    f["start_date_and_time"]?.let { m[start_date_and_time] = LocalDateTime.parse(it) }
-                    f["end_date_and_time"]?.let { m[end_date_and_time] = LocalDateTime.parse(it) }
-                    f["legal_status"]?.let { m[legal_status] = it.toBoolean() }
-                    f["departure_location"]?.let { m[departure_location] = it }
-                    f["arrival_location"]?.let { m[arrival_location] = it }
-                    f["enemies"]?.let { m[enemies] = it }
+                    f["camp_id"]?.let { m[camp_id] = it as Int }
+                    f["start_date_and_time"]?.let { m[start_date_and_time] = LocalDateTime.parse(it as String) }
+                    f["end_date_and_time"]?.let { m[end_date_and_time] = LocalDateTime.parse(it as String) }
+                    f["legal_status"]?.let { m[legal_status] = it as Boolean }
+                    f["departure_location"]?.let { m[departure_location] = it as String }
+                    f["arrival_location"]?.let { m[arrival_location] = it as String }
+                    f["enemies"]?.let { m[enemies] = it as String }
                 }
             }
             "$raw updated)" to HttpStatusCode.OK

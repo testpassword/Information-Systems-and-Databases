@@ -8,6 +8,7 @@ import io.ktor.response.*
 import io.ktor.routing.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
+import java.math.BigDecimal
 import kotlin.random.Random
 
 object CampaignTable: Table("campaign"), Generable {
@@ -33,11 +34,20 @@ object CampaignTable: Table("campaign"), Generable {
     }
 }
 
-fun ResultRow.toCampaign() = Campaign(this[CampaignTable.camp_id], this[CampaignTable.name], this[CampaignTable.customer],
-    this[CampaignTable.earning].toDouble(), this[CampaignTable.spending].toDouble(), this[CampaignTable.execution_status])
+fun ResultRow.toCampaign() = Campaign(
+    this[CampaignTable.camp_id],
+    this[CampaignTable.name],
+    this[CampaignTable.customer],
+    this[CampaignTable.earning].toDouble(),
+    this[CampaignTable.spending].toDouble(),
+    this[CampaignTable.execution_status])
 
-data class Campaign(val campId: Int?, val name: String, val customer: String, val earning: Double,
-                    val spending: Double, val executionStatus: String?)
+data class Campaign(val campId: Int?,
+                    val name: String,
+                    val customer: String,
+                    val earning: Double,
+                    val spending: Double,
+                    val executionStatus: String?)
 
 fun Route.campaign() {
 
@@ -57,11 +67,11 @@ fun Route.campaign() {
             val raw = call.receiveText()
             val (id, f) = explodeJsonForModel("campId", raw)
             CampaignTable.update({ CampaignTable.camp_id eq id }) { c ->
-                f["name"]?.let { c[name] = it }
-                f["customer"]?.let { c[customer] = it }
-                f["earning"]?.let { c[earning] = it.toBigDecimal() }
-                f["spending"]?.let { c[spending] = it.toBigDecimal() }
-                f["executionStatus"]?.let { c[execution_status] = it }
+                f["name"]?.let { c[name] = it as String }
+                f["customer"]?.let { c[customer] = it as String }
+                f["earning"]?.let { c[earning] = it as BigDecimal }
+                f["spending"]?.let { c[spending] = it as BigDecimal }
+                f["executionStatus"]?.let { c[execution_status] = it as String }
             }
             "$raw updated)" to HttpStatusCode.OK
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }

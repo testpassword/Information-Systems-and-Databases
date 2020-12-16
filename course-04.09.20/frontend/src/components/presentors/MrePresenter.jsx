@@ -1,6 +1,6 @@
 import React from "react"
 import {Button, Form, Input, InputNumber} from "antd"
-import AbstractCreator from "./AbstractCreator.jsx"
+import AbstractCreator from "./AbstractCreator"
 
 class MreCreator extends AbstractCreator {
 

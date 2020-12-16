@@ -1,7 +1,7 @@
 import React from "react"
 import {Button, Form, Input, InputNumber, message, Radio} from "antd"
-import AbstractCreator from "./AbstractCreator.jsx"
-import EntitiesApi from "../../EntitiesApi";
+import AbstractCreator from "./AbstractCreator"
+import EntitiesApi from "../../EntitiesApi"
 import EntitySimpleTable from "../EntitySimpleTable"
 import EquipmentPresenter from "./EquipmentPresenter"
 
@@ -12,7 +12,6 @@ class PositionCreator extends AbstractCreator {
     equipOk = () => {
         if (EntitiesApi.idBuffer !== null) {
             this.setState({ equipBtn: EntitiesApi.idBuffer })
-            EntitiesApi.idBuffer = null
         } else message.error({ content: "You should choose equipment from table" })
     }
 

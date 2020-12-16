@@ -104,14 +104,14 @@ fun Route.employee() {
             val (id, f) = explodeJsonForModel("empId", raw)
             transaction {
                 EmployeeTable.update({ EmployeeTable.emp_id eq id }) { e ->
-                    f["name"]?.let { e[name] = it }
-                    f["surname"]?.let { e[surname] = it }
-                    f["dateOfBirth"]?.let { e[date_of_birth] = LocalDate.parse(it) }
-                    f["education"]?.let { e[education] = it }
-                    f["hiringDate"]?.let { e[hiring_date] = LocalDate.parse(it) }
-                    f["posId"]?.let { e[pos_id] = it.toInt() }
-                    f["isMarried"]?.let { e[is_married] = it.toBoolean() }
-                    f["baseId"]?.let { e[base_id] = it.toInt() }
+                    f["name"]?.let { e[name] = it as String }
+                    f["surname"]?.let { e[surname] = it as String }
+                    f["dateOfBirth"]?.let { e[date_of_birth] = LocalDate.parse(it as String) }
+                    f["education"]?.let { e[education] = it as String }
+                    f["hiringDate"]?.let { e[hiring_date] = LocalDate.parse(it as String) }
+                    f["posId"]?.let { e[pos_id] = it as Int }
+                    f["isMarried"]?.let { e[is_married] = it as Boolean }
+                    f["baseId"]?.let { e[base_id] = it as Int }
                 }
             }
             "$raw updated)" to HttpStatusCode.OK

@@ -41,10 +41,19 @@ object PositionTable: Table("Position"), Generable {
     }
 }
 
-fun ResultRow.toPosition() = Position(this[PositionTable.pos_id], this[PositionTable.name], this[PositionTable.salary],
-    this[PositionTable.rank], this[PositionTable.equip_id], this[PositionTable.forces])
+fun ResultRow.toPosition() = Position(
+    this[PositionTable.pos_id],
+    this[PositionTable.name],
+    this[PositionTable.salary],
+    this[PositionTable.rank],
+    this[PositionTable.equip_id],
+    this[PositionTable.forces])
 
-data class Position(val posId: Int?, val name: String, val salary: BigDecimal, val rank: String?, val equipId: Int?,
+data class Position(val posId: Int?,
+                    val name: String,
+                    val salary: BigDecimal,
+                    val rank: String?,
+                    val equipId: Int?,
                     val forces: FORCES?)
 
 fun Route.position() {
@@ -65,11 +74,11 @@ fun Route.position() {
             val raw = call.receiveText()
             val (id, f) = explodeJsonForModel("posId", raw)
             PositionTable.update({ PositionTable.pos_id eq id }) { p ->
-                f["name"]?.let { p[name] = it }
-                f["salary"]?.let { p[salary] = it.toBigDecimal() }
-                f["rank"]?.let { p[rank] = it }
-                f["equipId"]?.let { p[equip_id] = it.toInt() }
-                f["forces"]?.let { p[forces] = FORCES.valueOf(it) }
+                f["name"]?.let { p[name] = it as String }
+                f["salary"]?.let { p[salary] = it as BigDecimal }
+                f["rank"]?.let { p[rank] = it as String }
+                f["equipId"]?.let { p[equip_id] = it as Int }
+                f["forces"]?.let { p[forces] = FORCES.valueOf(it as String) }
             }
             "$raw updated)" to HttpStatusCode.OK
         } catch (e: Exception) { e.toString() to HttpStatusCode.BadRequest }

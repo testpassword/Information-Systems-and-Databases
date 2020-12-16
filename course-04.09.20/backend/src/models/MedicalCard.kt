@@ -23,12 +23,22 @@ object MedicalCardTable: Table("medical_card"), Generable {
     val gender = bool("gender")
 }
 
-fun ResultRow.toMedicalCard() = MedicalCard(this[MedicalCardTable.med_id], this[MedicalCardTable.emp_id],
-    this[MedicalCardTable.height_cm], this[MedicalCardTable.weight_kg], this[MedicalCardTable.diseases],
-    this[MedicalCardTable.blood], this[MedicalCardTable.gender])
+fun ResultRow.toMedicalCard() = MedicalCard(
+    this[MedicalCardTable.med_id],
+    this[MedicalCardTable.emp_id],
+    this[MedicalCardTable.height_cm],
+    this[MedicalCardTable.weight_kg],
+    this[MedicalCardTable.diseases],
+    this[MedicalCardTable.blood],
+    this[MedicalCardTable.gender])
 
-data class MedicalCard(val medId: Int?, val empId: Int, val heightCm: Int, val weightKg: Int, val diseases: String?,
-                       val blood: String, val gender: Boolean)
+data class MedicalCard(val medId: Int?,
+                       val empId: Int,
+                       val heightCm: Int,
+                       val weightKg: Int,
+                       val diseases: String?,
+                       val blood: String,
+                       val gender: Boolean)
 
 fun Route.medicalCard() {
 
@@ -49,12 +59,12 @@ fun Route.medicalCard() {
             val (id, f) = explodeJsonForModel("medId", raw)
             transaction {
                 MedicalCardTable.update({ MedicalCardTable.med_id eq id }) { m ->
-                    f["emp_id"]?.let { m[emp_id] = it.toInt() }
-                    f["heightCm"]?.let { m[height_cm] = it.toInt() }
-                    f["weightKg"]?.let { m[weight_kg] = it.toInt() }
-                    f["diseases"]?.let { m[diseases] = it }
-                    f["blood"]?.let { m[blood] = it }
-                    f["gender"]?.let { m[gender] = it.toBoolean() }
+                    f["emp_id"]?.let { m[emp_id] = it as Int }
+                    f["heightCm"]?.let { m[height_cm] = it as Int }
+                    f["weightKg"]?.let { m[weight_kg] = it as Int }
+                    f["diseases"]?.let { m[diseases] = it as String }
+                    f["blood"]?.let { m[blood] = it as String }
+                    f["gender"]?.let { m[gender] = it as Boolean }
                 }
             }
             "$raw updated)" to HttpStatusCode.OK

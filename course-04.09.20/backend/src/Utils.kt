@@ -41,11 +41,11 @@ fun getRecordsWithIds(s: String, entityTable: Table): Query {
         }
 }
 
-fun explodeJsonForModel(modelIdField: String, jsonStr: String): Pair<Int, Map<String, String>> {
+fun explodeJsonForModel(modelIdField: String, jsonStr: String): Pair<Int, Map<String, Any>> {
     val s = JSONObject(jsonStr)
     val id = s.getInt(modelIdField)
     s.remove(modelIdField)
-    val fields = mutableMapOf<String, String>()
-    s.keys().forEach { fields[it] = s.getString(it) }
+    val fields = mutableMapOf<String, Any>()
+    s.keys().forEach { fields[it] = s.get(it) }
     return id to fields
 }
