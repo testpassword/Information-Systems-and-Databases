@@ -1,7 +1,6 @@
 import React from "react"
 import { Col, Image, Row, Divider } from "antd"
 import KtorLogo from "../resources/images/ktor_logo.svg"
-import ReactLogo from "../resources/images/react_logo.svg"
 import ExposedLogo from "../resources/images/exposed_logo.png"
 
 class Credits extends React.Component {
@@ -39,7 +38,7 @@ class Credits extends React.Component {
                 </Row>
                 <Row gutter={[0, 10]}>
                     <Col span={12}>
-                        <Image src={ReactLogo}
+                        <Image src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
                                width={63}
                                preview={false}/>
                     </Col>

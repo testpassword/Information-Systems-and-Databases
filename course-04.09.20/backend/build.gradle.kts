@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "com.testpassword"
-version = "0.5"
+version = "0.9.9"
 
 application {
     mainClassName = "io.ktor.server.netty.EngineMain"
@@ -50,7 +50,6 @@ dependencies {
 
 kotlin.sourceSets["main"].kotlin.srcDirs("src")
 kotlin.sourceSets["test"].kotlin.srcDirs("test")
-
 sourceSets["main"].resources.srcDirs("resources")
 sourceSets["test"].resources.srcDirs("testresources")
 

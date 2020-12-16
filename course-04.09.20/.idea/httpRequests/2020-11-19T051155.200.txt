@@ -1,1 +1,0 @@
-[{"baseId" : 3, "location" : "East Demarcusfurt", "status" : "for_sale"}]

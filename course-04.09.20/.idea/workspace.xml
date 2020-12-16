@@ -28,20 +28,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T041734.200.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T042219.200.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T113905.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-19T044054.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-19T044058.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-19T051133.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-19T051155.200.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Campaign.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Campaign.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Position.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Position.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/BasePresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/BasePresenter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/CampaignPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/CampaignPresenter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/EmployeePresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EmployeePresenter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/EquipmentPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/EquipmentPresenter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/MedicalCardPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/MedicalCardPresenter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/MissionPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/MissionPresenter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/MrePresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/MrePresenter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/PositionPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/PositionPresenter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/TransportPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/TransportPresenter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/presentors/WeaponPresenter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/presentors/WeaponPresenter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/инф_сис_и_бд_кур_отчёт.docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/инф_сис_и_бд_кур_отчёт.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Credits.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Credits.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/resources/images/react_logo.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +147,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -823,19 +822,6 @@
       <option name="ADDITIONAL_ARGS" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="course" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1154,7 +1140,9 @@
       <workItem from="1607849420322" duration="17085000" />
       <workItem from="1607898210971" duration="5362000" />
       <workItem from="1607948253190" duration="6937000" />
-      <workItem from="1607977319171" duration="49528000" />
+      <workItem from="1607977319171" duration="49782000" />
+      <workItem from="1608157508244" duration="3384000" />
+      <workItem from="1608160983162" duration="20000" />
     </task>
     <task id="LOCAL-00001" summary="Random route renamed to God route in backend; Created add form for Base, Campaign, Employee, Equipment entities; Render NumberInput and stub for SelectInput; Added downloading records in json">
       <created>1607294700699</created>
@@ -1205,7 +1193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608120154299</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixed bug with parsing BigInteger in PUT method in backend; dates in CampaignPresenter.jsx now shows; added modal window close button; records statistic on download button">
+      <created>1608125906553</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608125906553</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1231,6 +1226,7 @@
     <MESSAGE value="Every creator object extends from AbstractCreator.jsx; Added buffer with id for passing it from modal record chooser to form with record creators; Created EntitySimpleTable.jsx for porpoise for choosing entities;" />
     <MESSAGE value="Fixed LocalDate parsing on backend; Klaxon replaced to Gson; Entities add now working with all entities; EntitySimpleTable.jsx renders boolean columns;" />
     <MESSAGE value="Fixed bug with parsing not String json key in PUT method in backend; added global buffer for edited key; added functionality to change references key in table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug with parsing not String json key in PUT method in backend; added global buffer for edited key; added functionality to change references key in table" />
+    <MESSAGE value="Fixed bug with parsing BigInteger in PUT method in backend; dates in CampaignPresenter.jsx now shows; added modal window close button; records statistic on download button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug with parsing BigInteger in PUT method in backend; dates in CampaignPresenter.jsx now shows; added modal window close button; records statistic on download button" />
   </component>
 </project>

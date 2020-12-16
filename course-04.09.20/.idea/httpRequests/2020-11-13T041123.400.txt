@@ -1,1 +1,0 @@
-org.json.JSONException: JSONObject["droppedIds"] is not a string.
