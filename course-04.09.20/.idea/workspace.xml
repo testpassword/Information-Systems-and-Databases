@@ -23,23 +23,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea524d9-c1b1-4bc9-9f9b-e5b60e2fadf8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T041123.400.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T041419.400.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T041734.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T042219.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-13T113905.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-19T044054.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-19T044058.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-19T051133.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2020-11-19T051155.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/serve_scripts/deploy.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/serve_scripts/forward_port.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6ad2842f-4717-482f-a55d-7f7f0177a0a1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6ad2842f-4717-482f-a55d-7f7f0177a0a1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6ad2842f-4717-482f-a55d-7f7f0177a0a1/storage_v2/_src_/database/studs.ww2LBg/schema/s265570.8MfQGw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6ad2842f-4717-482f-a55d-7f7f0177a0a1/storage_v2/_src_/database/studs.ww2LBg/schema/s265570.8MfQGw.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6ad2842f-4717-482f-a55d-7f7f0177a0a1/storage_v2/_src_/database/studs.ww2LBg/schema/s265570.8MfQGw.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6ad2842f-4717-482f-a55d-7f7f0177a0a1/storage_v2/_src_/database/studs.ww2LBg/schema/s265570.8MfQGw.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c/storage_v2/_src_/database/pmc.BrIBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c/storage_v2/_src_/database/pmc.BrIBAA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/models/MRE.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/MRE.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/test/god.http" beforeDir="false" afterPath="$PROJECT_DIR$/backend/test/god.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/datalogical.dio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/datalogical.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/infological.dio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/infological.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/listings/back_code.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/listings/back_code.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/listings/front_code.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/listings/front_code.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/system.dio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/system.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/инф_сис_и_бд_кур_отчёт.docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/инф_сис_и_бд_кур_отчёт.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Credits.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Credits.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/resources/images/react_logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/EntitiesApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/EntitiesApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +68,9 @@
     <system id="GRADLE">
       <state>
         <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/backend">
           <activation />
         </task>
         <projects_view>
@@ -177,16 +184,23 @@
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\backend" />
+      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\backend\serve_scripts" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\components" />
       <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\public" />
-      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\backend\src\models" />
-      <recent name="V:\itmo\3 course\information systems and databases\course-04.09.20\frontend\src\components\models" />
     </key>
   </component>
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:9091/god" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="GET" />
           <option name="urlBase" value="http://localhost:9090/base" />
@@ -808,7 +822,7 @@
       <command value="gradle jar" />
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="HTTP Request.god#4">
     <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
       <module name="course" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -821,6 +835,28 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="ADDITIONAL_ARGS" value="" />
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="deploy" type="BatchConfigurationType" factoryName="Batch" temporary="true">
+      <module name="backend" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="WORKING_DIRECTORY" value="V:\itmo\3 course\information systems and databases\course-04.09.20\backend\serve_scripts" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="deploy.bat" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="course" />
@@ -842,7 +878,28 @@
       <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="course-04.09.20 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="backend [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="backend" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
@@ -852,9 +909,7 @@
           <list />
         </option>
         <option name="taskNames">
-          <list>
-            <option value="run" />
-          </list>
+          <list />
         </option>
         <option name="vmOptions" value="" />
       </ExternalSystemSettings>
@@ -863,13 +918,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="base#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/backend/test/base.http" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="employee#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/backend/test/employee.http" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="random#3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/backend/test/random.http" index="3" runType="Run single request">
+    <configuration name="god#4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/backend/test/god.http" index="4" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
@@ -1047,19 +1096,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Gradle.course-04.09.20 [run]" />
-      <item itemvalue="HTTP Request.random#3" />
-      <item itemvalue="HTTP Request.employee#1" />
-      <item itemvalue="HTTP Request.base#1" />
+      <item itemvalue="Batch.deploy" />
+      <item itemvalue="Gradle.backend" />
+      <item itemvalue="HTTP Request.god#4" />
+      <item itemvalue="Gradle.backend [shadowJar]" />
       <item itemvalue="npm.start" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
-        <item itemvalue="Gradle.course-04.09.20 [run]" />
-        <item itemvalue="HTTP Request.base#1" />
-        <item itemvalue="HTTP Request.employee#1" />
-        <item itemvalue="HTTP Request.random#3" />
+        <item itemvalue="HTTP Request.god#4" />
+        <item itemvalue="Gradle.backend [shadowJar]" />
+        <item itemvalue="Gradle.backend" />
+        <item itemvalue="Batch.deploy" />
       </list>
     </recent_temporary>
   </component>
@@ -1143,6 +1192,7 @@
       <workItem from="1607977319171" duration="49782000" />
       <workItem from="1608157508244" duration="3384000" />
       <workItem from="1608160983162" duration="20000" />
+      <workItem from="1608199237440" duration="20191000" />
     </task>
     <task id="LOCAL-00001" summary="Random route renamed to God route in backend; Created add form for Base, Campaign, Employee, Equipment entities; Render NumberInput and stub for SelectInput; Added downloading records in json">
       <created>1607294700699</created>

@@ -4,8 +4,11 @@ GET http://localhost:9090/god
 ### create all tables
 PUT http://localhost:9090/god
 
-### fill tables with random data
+### fill tables with random data [dev]
 POST http://localhost:9090/god
+
+### fill tables with random data [prod]
+POST http://localhost:9091/god
 
 ### drop all tables and data
 DELETE http://localhost:9090/god

@@ -5,8 +5,7 @@ import Highlighter from "react-highlight-words"
 import { DeleteOutlined, PlusOutlined, SearchOutlined, DownloadOutlined, CloseOutlined } from "@ant-design/icons"
 import { Header, Content } from "antd/lib/layout/layout"
 import { EditableCell, EditableRow } from "./EditableRow.jsx"
-import { last } from "underscore"
-import { first } from "underscore"
+import { last, first, shuffle } from "underscore"
 import EntitiesApi from "../EntitiesApi.js"
 import EntitySimpleTable from "./EntitySimpleTable"
 import moment from "moment"
@@ -40,7 +39,8 @@ class EntityTable extends React.Component {
         searchedColumn: "",
         selectedRowKeys: [],
         columns: [],
-        addFormVisible: false
+        addFormVisible: false,
+        focusedEntity: ""
     }
 
     getColumnSearchProps = dataIndex => ({
@@ -158,7 +158,6 @@ class EntityTable extends React.Component {
                     ...modifiedColumn,
                     filters: filters[strKey],
                     onFilter: (v, r) => r[strKey] === v,
-                    //TODO: нормальный select
                     render: t => <Select defaultValue={t}/>
             } :
                 {
@@ -176,13 +175,22 @@ class EntityTable extends React.Component {
                         ...modifiedColumn,
                         editable: false,
                         render: val =>
-                            <Button
-                                type="link"
-                                onClick={ () => this.showConfirm(
-                                    <EntitySimpleTable presenter={this.state.additionalPresenters.get(key)}/>,
-                                    () => this.onSelectReferenceId(key)) }>
-                                {val}
-                            </Button>
+                            <Tooltip title={() =>
+                                EntitiesApi.get(
+                                    this.state.additionalPresenters.get(key).url,
+                                    [val],
+                                    true
+                                )}
+                                color={ shuffle(['pink', 'red', 'yellow', 'orange', 'cyan', 'green', 'blue', 'purple', 'geekblue',
+                                        'magenta', 'volcano', 'gold', 'lime'])[0] }>
+                                <Button
+                                    type="link"
+                                    onClick={ () => this.showConfirm(
+                                        <EntitySimpleTable presenter={this.state.additionalPresenters.get(key)}/>,
+                                        () => this.onSelectReferenceId(key)) }>
+                                    {val}
+                                </Button>
+                            </Tooltip>
                     } :
                     {
                         ...modifiedColumn,
@@ -294,7 +302,10 @@ class EntityTable extends React.Component {
         this.updatePresenter()
     }
 
-    updatePresenter() { this.props.presenter.creator = React.cloneElement(this.props.presenter.creator, { parentCallback: this.addRecord }, null) }
+    updatePresenter() {
+        this.props.presenter.creator =
+            React.cloneElement(this.props.presenter.creator, { parentCallback: this.addRecord }, null)
+    }
 
     render() {
         const { isLoading, items, selectedRowKeys } = this.state

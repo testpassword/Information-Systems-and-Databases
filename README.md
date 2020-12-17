@@ -114,10 +114,15 @@ c) Н_СЕССИЯ.УЧГОД = 2001/2002.
 6.	Стараться отправлять на боевые операции при прочих равных в первую очередь неженатых военных, давно не участвовавших в миссиях, имеющих большой опыт работы. 
 
 ***Инфологическая модель***
-![Infological model](course-04.09.20/docs/infological.jpg)
+![Infological model](course-04.09.20/docs/plans/infological.jpg)
 
 ***Даталогическая модель***
-![Datalogical model](course-04.09.20/docs/datalogical.jpg)
+![Datalogical model](course-04.09.20/docs/plans/datalogical.jpg)
 
 ***Компонентная модель***
-![Components model](course-04.09.20/docs/system.png)
+![Components model](course-04.09.20/docs/plans/system.png)
+
+***Примеры***
+![](course-04.09.20/docs/img/1.png)
+![](course-04.09.20/docs/img/2.png)
+![](course-04.09.20/docs/img/3.png)
