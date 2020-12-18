@@ -23,27 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea524d9-c1b1-4bc9-9f9b-e5b60e2fadf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/serve_scripts/deploy.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/serve_scripts/forward_port.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6ad2842f-4717-482f-a55d-7f7f0177a0a1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6ad2842f-4717-482f-a55d-7f7f0177a0a1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6ad2842f-4717-482f-a55d-7f7f0177a0a1/storage_v2/_src_/database/studs.ww2LBg/schema/s265570.8MfQGw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6ad2842f-4717-482f-a55d-7f7f0177a0a1/storage_v2/_src_/database/studs.ww2LBg/schema/s265570.8MfQGw.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6ad2842f-4717-482f-a55d-7f7f0177a0a1/storage_v2/_src_/database/studs.ww2LBg/schema/s265570.8MfQGw.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6ad2842f-4717-482f-a55d-7f7f0177a0a1/storage_v2/_src_/database/studs.ww2LBg/schema/s265570.8MfQGw.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c/storage_v2/_src_/database/pmc.BrIBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ea0ba539-3ee4-4327-960e-a56cefc2912c/storage_v2/_src_/database/pmc.BrIBAA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/MRE.kt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/MRE.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/test/god.http" beforeDir="false" afterPath="$PROJECT_DIR$/backend/test/god.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/datalogical.dio" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/datalogical.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/infological.dio" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/infological.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/listings/back_code.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/listings/back_code.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/listings/front_code.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/listings/front_code.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/system.dio" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/system.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/инф_сис_и_бд_кур_отчёт.docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/инф_сис_и_бд_кур_отчёт.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/EntitiesApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/EntitiesApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab4-17.12.20/инф_сис_и_бд_лаб4_отчёт.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4-17.12.20/инф_сис_и_бд_лаб4_отчёт.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -822,7 +803,7 @@
       <command value="gradle jar" />
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.god#4">
+  <component name="RunManager" selected="npm.start">
     <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
       <module name="course" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -835,17 +816,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="ADDITIONAL_ARGS" value="" />
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="deploy" type="BatchConfigurationType" factoryName="Batch" temporary="true">
       <module name="backend" />
@@ -1098,8 +1068,8 @@
     <list>
       <item itemvalue="Batch.deploy" />
       <item itemvalue="Gradle.backend" />
-      <item itemvalue="HTTP Request.god#4" />
       <item itemvalue="Gradle.backend [shadowJar]" />
+      <item itemvalue="HTTP Request.god#4" />
       <item itemvalue="npm.start" />
     </list>
     <recent_temporary>
@@ -1193,6 +1163,7 @@
       <workItem from="1608157508244" duration="3384000" />
       <workItem from="1608160983162" duration="20000" />
       <workItem from="1608199237440" duration="20191000" />
+      <workItem from="1608282266235" duration="4627000" />
     </task>
     <task id="LOCAL-00001" summary="Random route renamed to God route in backend; Created add form for Base, Campaign, Employee, Equipment entities; Render NumberInput and stub for SelectInput; Added downloading records in json">
       <created>1607294700699</created>
