@@ -12,11 +12,9 @@ plugins {
 }
 
 group = "com.testpassword"
-version = "0.9.9"
+version = "1.0.0"
 
-application {
-    mainClassName = "io.ktor.server.netty.EngineMain"
-}
+application { mainClassName = "io.ktor.server.netty.EngineMain" }
 
 repositories {
     mavenLocal()
@@ -58,11 +56,7 @@ Creating jar with all dependencies
 https://stackoverflow.com/questions/55575264/creating-a-fat-jar-in-gradle-with-kotlindsl
  */
 tasks {
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
-    }
+    withType<KotlinCompile> { kotlinOptions.jvmTarget = "1.8" }
 
-    shadowJar {
-        archiveClassifier.set("")
-    }
+    shadowJar { archiveClassifier.set("") }
 }

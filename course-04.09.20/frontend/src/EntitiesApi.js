@@ -2,8 +2,7 @@ class EntitiesApi {
 
     static idKey = null
     static idBuffer = null
-    //По хорошему, этот адрес должен браться извне, а не захардкоден, тем не менее, время не резиновое
-    static #rootUrl = "http://localhost:9090/"
+    static #rootUrl = process.env.REACT_APP_HOST_URL
 
     static get(entityUrl, ids = [], isSync = false) {
         /* Это наглядный пример плохого дизайна: изначально когда я писал api для бекенда, я предполагал, что в теле GET

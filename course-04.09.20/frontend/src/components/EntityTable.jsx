@@ -238,7 +238,7 @@ class EntityTable extends React.Component {
     }
 
     removeRecords = () => {
-        if (this.state.selectedRowKeys.length === 0)
+        if (this.state.selectedRowKeys === undefined || this.state.selectedRowKeys.length === 0)
             message.success({ content: "Can't delete, nothing selected" })
         else {
             EntitiesApi.delete(this.props.presenter.url, this.state.selectedRowKeys)

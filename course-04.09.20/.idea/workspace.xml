@@ -23,8 +23,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ea524d9-c1b1-4bc9-9f9b-e5b60e2fadf8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab4-17.12.20/инф_сис_и_бд_лаб4_отчёт.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../lab4-17.12.20/инф_сис_и_бд_лаб4_отчёт.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/deploy.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/deploy/deploy.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/deploy/forward_port.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/инф_сис_и_бд_кур_отчёт.docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/инф_сис_и_бд_кур_отчёт.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/EntitiesApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/EntitiesApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/EntityTable.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -817,13 +825,13 @@
       <option name="ADDITIONAL_ARGS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="deploy" type="BatchConfigurationType" factoryName="Batch" temporary="true">
-      <module name="backend" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="WORKING_DIRECTORY" value="V:\itmo\3 course\information systems and databases\course-04.09.20\backend\serve_scripts" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SCRIPT_NAME" value="deploy.bat" />
-      <option name="PARAMETERS" value="" />
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -846,6 +854,27 @@
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="backend [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="backend [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -1066,19 +1095,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Batch.deploy" />
       <item itemvalue="Gradle.backend" />
       <item itemvalue="Gradle.backend [shadowJar]" />
       <item itemvalue="HTTP Request.god#4" />
       <item itemvalue="npm.start" />
+      <item itemvalue="Gradle.backend [run]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
-        <item itemvalue="HTTP Request.god#4" />
-        <item itemvalue="Gradle.backend [shadowJar]" />
+        <item itemvalue="Gradle.backend [run]" />
+        <item itemvalue="Gradle.backend [run]" />
         <item itemvalue="Gradle.backend" />
-        <item itemvalue="Batch.deploy" />
+        <item itemvalue="HTTP Request.god#4" />
       </list>
     </recent_temporary>
   </component>
@@ -1163,7 +1192,8 @@
       <workItem from="1608157508244" duration="3384000" />
       <workItem from="1608160983162" duration="20000" />
       <workItem from="1608199237440" duration="20191000" />
-      <workItem from="1608282266235" duration="4627000" />
+      <workItem from="1608282266235" duration="5727000" />
+      <workItem from="1608544772720" duration="4547000" />
     </task>
     <task id="LOCAL-00001" summary="Random route renamed to God route in backend; Created add form for Base, Campaign, Employee, Equipment entities; Render NumberInput and stub for SelectInput; Added downloading records in json">
       <created>1607294700699</created>
