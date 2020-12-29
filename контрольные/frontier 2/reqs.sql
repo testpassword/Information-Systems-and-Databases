@@ -1,8 +1,8 @@
 -- Вариант 2
 SELECT s.id, p.name FROM student s
-    JOIN person p on s.person_id = p.id
-    JOIN employee e on p.id = e.person_id
-    JOIN dept d on d.id = s.dept_id
+    JOIN person p ON s.person_id = p.id
+    JOIN employee e ON p.id = e.person_id
+    JOIN dept d ON d.id = s.dept_id
 WHERE d.name LIKE 'ПИиКТ';
 
 /*
